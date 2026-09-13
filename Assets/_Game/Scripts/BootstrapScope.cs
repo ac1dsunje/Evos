@@ -7,7 +7,7 @@ public class BootstrapScope: LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
-        
+        builder.RegisterEntryPoint<Ticker>().AsSelf();
     }
 }
 }
