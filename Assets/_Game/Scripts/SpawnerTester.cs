@@ -1,6 +1,7 @@
 ﻿using _Game.Scripts.ECS;
 using VContainer;
 using VContainer.Unity;
+using UnityEngine;
 
 namespace _Game.Scripts
 {
@@ -10,9 +11,10 @@ public class SpawnerTester : IStartable
 
     public void Start()
     {
-        _spawner.Spawn(3f);
-        _spawner.Spawn(5f);
-        _spawner.Spawn(2f);
+        for (var i = 0; i < 40; i++)
+        {
+            _spawner.Spawn(Random.Range(5, 10));
+        }
     }
 }
 }

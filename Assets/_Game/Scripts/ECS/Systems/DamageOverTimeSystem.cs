@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS.Systems
 {
-public class DamageOverTimeSystem : ISystem
+public struct DamageOverTimeSystem : ISystem
 {
     private float _timer;
     private const float DamageInterval = 1.0f;
@@ -22,11 +22,13 @@ public class DamageOverTimeSystem : ISystem
             ref var health = ref entity.Ref<HealthComponent>();
 
             health.Current -= 1f;
+            
             Debug.Log($"Сущность {entity.ID} получила урон. Текущее HP: {health.Current}/{health.Max}");
-
+            
             if (!(health.Current <= 0f)) continue;
             
             Debug.Log($"Сущность {entity.ID} уничтожена!");
+            
             entity.Destroy();
         }
     }
