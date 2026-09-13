@@ -1,8 +1,8 @@
-﻿using _Game.Scripts.Components;
+﻿using _Game.Scripts.ECS.Components;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.Systems
+namespace _Game.Scripts.ECS.Systems
 {
 public class DamageOverTimeSystem : ISystem
 {

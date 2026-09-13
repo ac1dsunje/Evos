@@ -1,4 +1,5 @@
-﻿using VContainer;
+﻿using _Game.Scripts.ECS;
+using VContainer;
 using VContainer.Unity;
 
 namespace _Game.Scripts

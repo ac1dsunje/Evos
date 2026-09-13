@@ -1,5 +1,5 @@
-﻿using _Game.Scripts.Components;
-using _Game.Scripts.Systems;
+﻿using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.Systems;
 using VContainer;
 using VContainer.Unity;
 
@@ -16,21 +16,13 @@ public class BootstrapScope: LifetimeScope
         GameSys.Create();
         GameSys.Add(new DamageOverTimeSystem(), order: 0);
         GameSys.Initialize();
+        
+        
+        builder.RegisterEntryPoint<WorldUpdater>().AsSelf();
 
         builder.Register<EntitySpawner>(Lifetime.Singleton);
-        builder.RegisterEntryPoint<EcsUpdateBridge>().AsSelf();
 
         builder.RegisterEntryPoint<SpawnerTester>(Lifetime.Scoped);
     }
 }
-
-public class EcsUpdateBridge : ITickable
-{
-    public void Tick()
-    {
-        GameSys.Update();
-        W.Tick();
-    }
-}
-
 }
