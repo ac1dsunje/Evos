@@ -1,43 +1,33 @@
 ﻿using _Game.Scripts.Components;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace _Game.Scripts.Systems
 {
-// Реализуем ITickable, чтобы VContainer вызывал Tick() каждый кадр
-public class DamageOverTimeSystem : ITickable
+public class DamageOverTimeSystem : ISystem
 {
     private float _timer;
     private const float DamageInterval = 1.0f;
 
-    public void Tick()
+    public void Update()
     {
         _timer += Time.deltaTime;
 
-        if (_timer >= DamageInterval)
+        if (_timer < DamageInterval) return;
+        
+        _timer = 0f;
+
+        foreach (var entity in W.Query<All<HealthComponent>>().Entities())
         {
-            _timer = 0f;
+            ref var health = ref entity.Ref<HealthComponent>();
 
-            // 1. Создаем фильтр: "Дай мне все сущности, у которых есть HealthComponent"
-            // All<T> означает, что у сущности должен быть этот компонент
-            foreach (var entity in W.Query<All<HealthComponent>>().Entities())
-            {
-                // 2. Получаем компонент ПО ССЫЛКЕ (ref). 
-                // Это критически важно для производительности ECS!
-                ref var health = ref entity.Ref<HealthComponent>();
+            health.Current -= 1f;
+            Debug.Log($"Сущность {entity.ID} получила урон. Текущее HP: {health.Current}/{health.Max}");
 
-                // Наносим урон
-                health.Current -= 1f;
-                Debug.Log($"Сущность {entity.ID} получила урон. Текущее HP: {health.Current}");
-
-                // Проверка на смерть
-                if (health.Current <= 0f)
-                {
-                    Debug.Log($"Сущность {entity.ID} уничтожена!");
-                    entity.Destroy(); // Уничтожаем сущность через API StaticECS
-                }
-            }
+            if (!(health.Current <= 0f)) continue;
+            
+            Debug.Log($"Сущность {entity.ID} уничтожена!");
+            entity.Destroy();
         }
     }
 }
