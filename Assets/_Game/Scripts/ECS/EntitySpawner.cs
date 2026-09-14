@@ -1,14 +1,16 @@
 ﻿using _Game.Scripts.ECS.Components;
 using FFS.Libraries.StaticEcs;
+using UnityEngine;
 
 namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void Spawn(float startHp)
+    public void Spawn(float startHp, Vector3 startPos)
     {
         W.NewEntity<Default>().Set(
-            new HealthComponent { Current = startHp, Max = startHp }
+            new HealthComponent { Current = startHp, Max = startHp },
+            new PositionComponent { Position = startPos}
         );
     }
 }

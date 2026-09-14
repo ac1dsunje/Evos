@@ -2,6 +2,7 @@
 using System.Threading;
 using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 using Random = UnityEngine.Random;
@@ -27,7 +28,7 @@ public class SpawnerTester : IStartable, IDisposable
             while (true)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
-                _spawner.Spawn(Random.Range(5, 10));
+                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0));
             }
         }
         catch (OperationCanceledException)
