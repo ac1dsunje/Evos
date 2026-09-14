@@ -13,7 +13,8 @@ public class EntitySpawner
             new PositionComponent { Position = startPos },
             new SpeedComponent { Speed = speed },
             new RigidBodyComponent { Body = null },
-            new RegenerationComponent { Regeneration = 1}
+            new RegenerationComponent { Regeneration = 1},
+            new InputComponent {Input = Vector3.zero}
     );
 }
 }
