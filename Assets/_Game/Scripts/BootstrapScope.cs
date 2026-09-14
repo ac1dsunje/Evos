@@ -24,5 +24,12 @@ public class BootstrapScope: LifetimeScope
 
         builder.RegisterEntryPoint<SpawnerTester>(Lifetime.Scoped);
     }
+
+    protected override void OnDestroy()
+    {
+        GameSys.Destroy();
+        W.Destroy();
+        base.OnDestroy();
+    }
 }
 }
