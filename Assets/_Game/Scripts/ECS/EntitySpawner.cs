@@ -9,10 +9,12 @@ public class EntitySpawner
     public void Spawn(float startHp, Vector3 startPos, float speed)
     {
         W.NewEntity<Default>().Set(
-            new HealthComponent { Current = startHp, Max = startHp },
-            new PositionComponent { Position = startPos},
-            new SpeedComponent { Speed = speed }
-        );
-    }
+            new HealthComponent { Current = 1, Max = startHp },
+            new PositionComponent { Position = startPos },
+            new SpeedComponent { Speed = speed },
+            new RigidBodyComponent { Body = null },
+            new RegenerationComponent { Regeneration = 1}
+    );
+}
 }
 }
