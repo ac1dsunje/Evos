@@ -23,11 +23,7 @@ public struct DamageOverTimeSystem : ISystem
 
             health.Current -= 1f;
             
-            Debug.Log($"Сущность {entity.ID} получила урон. Текущее HP: {health.Current}/{health.Max}");
-            
             if (!(health.Current <= 0f)) continue;
-            
-            Debug.Log($"Сущность {entity.ID} уничтожена!");
             
             entity.Destroy();
         }
