@@ -14,6 +14,8 @@ public class SpawnerTester : IStartable, IDisposable
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
+    private int _count;
+    private int _maxEntities = 1;
     
     public void Start()
     {
@@ -25,10 +27,11 @@ public class SpawnerTester : IStartable, IDisposable
     {
         try
         {
-            while (true)
+            while (_count < _maxEntities)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
-                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0));
+                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0), 1f);
+                _count++;
             }
         }
         catch (OperationCanceledException)

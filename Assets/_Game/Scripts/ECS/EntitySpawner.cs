@@ -6,11 +6,12 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void Spawn(float startHp, Vector3 startPos)
+    public void Spawn(float startHp, Vector3 startPos, float speed)
     {
         W.NewEntity<Default>().Set(
             new HealthComponent { Current = startHp, Max = startHp },
-            new PositionComponent { Position = startPos}
+            new PositionComponent { Position = startPos},
+            new SpeedComponent { Speed = speed }
         );
     }
 }

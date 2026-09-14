@@ -15,6 +15,7 @@ public class BootstrapScope: LifetimeScope
 
         GameSys.Create();
         GameSys.Add(new DamageOverTimeSystem(), order: 0);
+        GameSys.Add(new MoveOverTimeSystem(), order: 1);
         GameSys.Initialize();
         
         
