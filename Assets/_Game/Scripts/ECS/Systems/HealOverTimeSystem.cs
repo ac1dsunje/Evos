@@ -22,7 +22,7 @@ public struct HealOverTimeSystem : ISystem
             ref var health = ref entity.Ref<HealthComponent>();
             ref var regeneration = ref entity.Ref<RegenerationComponent>();
 
-            health.Current += regeneration.Regeneration;
+            health.Current += regeneration.Rate;
 
             if (health.Current >= health.Max)
             {

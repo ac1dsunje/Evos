@@ -4,6 +4,6 @@ namespace _Game.Scripts.ECS.Components
 {
 public struct SpeedComponent : IComponent
 {
-    public float Speed;
+    public float Value;
 }
 }

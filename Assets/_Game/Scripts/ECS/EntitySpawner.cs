@@ -11,10 +11,10 @@ public class EntitySpawner
         W.NewEntity<Default>().Set(
             new HealthComponent { Current = 1, Max = startHp },
             new PositionComponent { Position = startPos },
-            new SpeedComponent { Speed = speed },
+            new SpeedComponent { Value = speed },
             new RigidBodyComponent { Body = null },
-            new RegenerationComponent { Regeneration = 1},
-            new InputComponent {Input = Vector3.zero}
+            new RegenerationComponent { Rate = 1},
+            new InputComponent {Direction = Vector3.zero}
     );
 }
 }

@@ -19,7 +19,7 @@ public class BootstrapScope: LifetimeScope
         W.Initialize();
 
         GameSys.Add(new HealOverTimeSystem(), order: 0);
-        GameSys.Add(new MoveOverTimeSystem(), order: 1);
+        GameSys.Add(new RigidBodyMoverSystem(), order: 1);
         GameSys.Initialize();
         
         
