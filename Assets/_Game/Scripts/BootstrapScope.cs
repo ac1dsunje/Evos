@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS;
 using _Game.Scripts.ECS.Systems;
+using FFS.Libraries.StaticEcs.Unity;
 using VContainer;
 using VContainer.Unity;
 
@@ -10,10 +11,13 @@ public class BootstrapScope: LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         W.Create();
+        GameSys.Create();
+        
+        EcsDebug<GameWorld>.AddWorld<GameSystems>();
+        
         W.Types().RegisterAll(); 
         W.Initialize();
 
-        GameSys.Create();
         GameSys.Add(new DamageOverTimeSystem(), order: 0);
         GameSys.Add(new MoveOverTimeSystem(), order: 1);
         GameSys.Initialize();
