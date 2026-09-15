@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS.Systems
 {
-public class PlayerInputCheckSystem : ISystem
+public struct PlayerInputCheckSystem : ISystem
 {
     public void Update()
     {
