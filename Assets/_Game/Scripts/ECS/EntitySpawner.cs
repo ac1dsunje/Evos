@@ -8,22 +8,27 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void SpawnPlayer(Vector2 position, Rigidbody2D rigidBody)
+    public World<GameWorld>.Entity SpawnPlayer(Vector2 position, Rigidbody2D rigidBody, EntityView view)
     {
-        CreateBaseEntity(position, rigidBody).Set<PlayerControlledTag>();
+        var entity = CreateBaseEntity(position, rigidBody, view);
+        entity.Set<PlayerControlledTag>();
+        return entity;
     }
     
-    public void SpawnEnemy(Vector2 position, Rigidbody2D rigidBody)
+    public World<GameWorld>.Entity SpawnEnemy(Vector2 position, Rigidbody2D rigidBody, EntityView view)
     {
-        CreateBaseEntity(position, rigidBody).Set<AIControlledTag>();
+        var entity = CreateBaseEntity(position, rigidBody, view);
+        entity.Set<AIControlledTag>();
+        return entity;
     }
     
-    private World<GameWorld>.Entity CreateBaseEntity(Vector2 position, Rigidbody2D rigidBody)
+    private World<GameWorld>.Entity CreateBaseEntity(Vector2 position, Rigidbody2D rigidBody, EntityView view)
     {
         return W.NewEntity<Default>().Set(
             new PositionComponent { Position = position },
             new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
+            new ViewComponent { View = view },
             
             new HealthComponent { Value = 5 },
             new MaxHealthComponent { Value = 10 },

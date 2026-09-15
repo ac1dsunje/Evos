@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cb383c2b60452a946615bd3495235d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.UnitySpawner
-  _prefab: {fileID: 8133641146692367332, guid: 57a834fdb11714e428916d82ab146e36, type: 3}
-  _maxEntities: 9999
-  _interval: 0.1
+  _prefab: {fileID: 5270267222321735869, guid: 57a834fdb11714e428916d82ab146e36, type: 3}
+  _maxEntities: 1000
+  _interval: 3
   _count: 0
