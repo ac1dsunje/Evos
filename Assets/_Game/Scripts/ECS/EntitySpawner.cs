@@ -8,18 +8,18 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void Spawn(float startHp, Vector2 startPos, float speed, Rigidbody2D rigidBody)
+    public void Spawn(Vector2 startPos, Rigidbody2D rigidBody)
     {
         W.NewEntity<Default>().Set(
-            new InputComponent {Direction = Vector2.zero},
+            new PositionComponent { Position = startPos },
+            new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
             
-            new HealthComponent { Value = startHp },
+            new HealthComponent { Value = 5 },
             new MaxHealthComponent { Value = 10 },
             new RegenerationComponent { Value = 1},
             
-            new PositionComponent { Position = startPos },
-            new MaxSpeedComponent { Value = speed }
+            new MaxSpeedComponent { Value = 1 }
         ).Set<PlayerControlledTag>();
     }
 }

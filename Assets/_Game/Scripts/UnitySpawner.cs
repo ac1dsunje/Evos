@@ -31,8 +31,8 @@ public class UnitySpawner : MonoBehaviour
             while (_count < _maxEntities)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
-                var entity = Instantiate(_prefab);
-                _spawner.Spawn(Random.Range(5, 10), new Vector2(0, 0), 1f, entity);
+                var body = Instantiate(_prefab);
+                _spawner.Spawn(new Vector2(0, 0), body);
                 _count++;
             }
         }
