@@ -28,12 +28,7 @@ public struct RegenerationSystem : ISystem
             ref var max = ref entity.Ref<MaxHealthComponent>();
             ref var regeneration = ref entity.Ref<RegenerationComponent>();
 
-            current.Value += regeneration.Value;
-
-            if (current.Value >= max.Value)
-            {
-                current.Value = max.Value;
-            }
+            current.Value = Mathf.Min(current.Value + regeneration.Value, max.Value);
         }
     }
 }

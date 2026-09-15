@@ -19,12 +19,7 @@ public struct EnduranceRecoverySystem : ISystem
             ref var recovery = ref entity.Ref<EnduranceRecoveryComponent>();
             ref var current = ref entity.Ref<EnduranceComponent>();
 
-            if (current.Value < max.Value)
-            {
-                current.Value += recovery.Value;
-            }
-
-            current.Value = Mathf.Min(max.Value, current.Value);
+            current.Value = Mathf.Min(current.Value + recovery.Value, max.Value);
         }
     }
 }
