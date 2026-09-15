@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Tags;
+using _Game.Scripts.ECS.Components;
+using _Game.Scripts.ECS.Components.Events;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -7,15 +8,17 @@ namespace _Game.Scripts
 {
 public class EntityView : MonoBehaviour
 {
-    private World<GameWorld>.Entity _entity;
-
-    public void SetEntity(World<GameWorld>.Entity entity) => _entity = entity;
+    public World<GameWorld>.Entity Entity;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out EntityView view))
+        if (other.TryGetComponent(out EntityView otherView))
         {
-            _entity.Set<DeadTag>();
+            W.NewEntity<Default>().Set(new CollisionDamageEvent
+            {
+                Attacker = Entity,
+                Target = otherView.Entity
+            });
         }
     }
 

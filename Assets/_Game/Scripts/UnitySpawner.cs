@@ -40,9 +40,11 @@ public class UnitySpawner : MonoBehaviour
                 
                 entity.transform.position = spawnPosition;
                 
-                view.SetEntity(_count < 1
+                view.Entity = 
+                    _count < 1
                     ? _spawner.SpawnPlayer(spawnPosition, body, view)
-                    : _spawner.SpawnEnemy(spawnPosition, body, view));
+                    : _spawner.SpawnEnemy(spawnPosition, body, view);
+                
                 _count++;
             }
         }

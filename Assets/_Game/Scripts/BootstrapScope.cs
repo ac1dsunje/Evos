@@ -24,7 +24,8 @@ public class BootstrapScope: LifetimeScope
         GameSys.Add(new PositionSynchronizerSystem(), order: 2);
         GameSys.Add(new RegenerationSystem(), order: 3);
         GameSys.Add(new EnduranceRecoverySystem(), order: 4);
-        GameSys.Add(new DeathSystem(), order: 5);
+        GameSys.Add(new CollisionDamageSystem(), order: 5); 
+        GameSys.Add(new DeathSystem(), order: 6); 
         GameSys.Initialize();
         
         

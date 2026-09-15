@@ -30,9 +30,11 @@ public class EntitySpawner
             new RigidBodyComponent { Body = rigidBody },
             new ViewComponent { View = view },
             
+            new PhysicalDamageComponent { Value = 2 },
+            
             new HealthComponent { Value = 5 },
             new MaxHealthComponent { Value = 10 },
-            new RegenerationComponent { Value = 1},
+            new RegenerationComponent { Value = 1 },
             
             new MaxSpeedComponent { Value = 1 }
         );
