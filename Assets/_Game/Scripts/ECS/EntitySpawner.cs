@@ -7,7 +7,7 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void Spawn(float startHp, Vector3 startPos, float speed)
+    public void Spawn(float startHp, Vector2 startPos, float speed)
     {
         W.NewEntity<Default>().Set(
             new HealthComponent { Value = 1 },
@@ -16,8 +16,8 @@ public class EntitySpawner
             new MaxSpeedComponent { Value = speed },
             new RigidBodyComponent { Body = null },
             new RegenerationComponent { Value = 1},
-            new InputComponent {Direction = Vector3.zero}
-    );
-}
+            new InputComponent {Direction = Vector2.zero}
+        );
+    }
 }
 }

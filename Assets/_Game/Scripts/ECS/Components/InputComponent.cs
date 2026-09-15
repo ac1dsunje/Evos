@@ -5,6 +5,6 @@ namespace _Game.Scripts.ECS.Components
 {
 public struct InputComponent : IComponent
 {
-    public Vector3 Direction;
+    public Vector2 Direction;
 }
 }
