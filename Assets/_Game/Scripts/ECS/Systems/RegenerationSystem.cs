@@ -10,15 +10,15 @@ public struct RegenerationSystem : ISystem
 {
     private float _timer;
     private const float Interval = 1.0f;
-
+    
     public void Update()
     {
         _timer += Time.deltaTime;
-
+        
         if (_timer < Interval) return;
         
         _timer = 0f;
-
+        
         foreach (var entity in W.Query<
                      All<HealthComponent, MaxHealthComponent, RegenerationComponent>, 
                      None<DeadTag>

@@ -9,9 +9,9 @@ public struct DamageSystem : ISystem
 {
     public void Update()
     {
-        foreach (var eventEntity in W.Query<All<DamageEvent>>().Entities())
+        foreach (var eventEntity in W.Query<All<DamageRequest>>().Entities())
         {
-            ref var evt = ref eventEntity.Ref<DamageEvent>();
+            ref var evt = ref eventEntity.Ref<DamageRequest>();
             var target = evt.Target;
                 
             if (target.IsEnabled)

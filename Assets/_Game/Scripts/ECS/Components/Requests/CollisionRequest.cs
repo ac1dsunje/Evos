@@ -2,9 +2,9 @@
 
 namespace _Game.Scripts.ECS.Components.Requests
 {
-public struct DamageEvent : IComponent
+public struct CollisionRequest : IComponent
 {
+    public World<GameWorld>.Entity Attacker;
     public World<GameWorld>.Entity Target;
-    public float Damage;
 }
 }
