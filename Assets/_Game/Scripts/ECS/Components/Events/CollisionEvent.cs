@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Events
 {
-public struct CollisionDamageEvent : IComponent
+public struct CollisionEvent : IComponent
 {
     public World<GameWorld>.Entity Attacker;
     public World<GameWorld>.Entity Target;

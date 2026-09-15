@@ -14,7 +14,7 @@ public class EntityView : MonoBehaviour
     {
         if (other.TryGetComponent(out EntityView otherView))
         {
-            W.NewEntity<Default>().Set(new CollisionDamageEvent
+            W.NewEntity<Default>().Set(new CollisionEvent
             {
                 Attacker = Entity,
                 Target = otherView.Entity
