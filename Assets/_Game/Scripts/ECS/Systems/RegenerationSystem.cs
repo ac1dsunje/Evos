@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.ECS.Components;
+using _Game.Scripts.ECS.Components.Stats;
 using _Game.Scripts.ECS.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -19,18 +20,19 @@ public struct RegenerationSystem : ISystem
         _timer = 0f;
 
         foreach (var entity in W.Query<
-                     All<HealthComponent, RegenerationComponent>, 
+                     All<HealthComponent, MaxHealthComponent, RegenerationComponent>, 
                      None<DeadTag>
                  >().Entities())
         {
-            ref var health = ref entity.Ref<HealthComponent>();
+            ref var current = ref entity.Ref<HealthComponent>();
+            ref var max = ref entity.Ref<MaxHealthComponent>();
             ref var regeneration = ref entity.Ref<RegenerationComponent>();
 
-            health.Current += regeneration.Rate;
+            current.Value += regeneration.Value;
 
-            if (health.Current >= health.Max)
+            if (current.Value >= max.Value)
             {
-                health.Current = health.Max;
+                current.Value = max.Value;
             }
         }
     }

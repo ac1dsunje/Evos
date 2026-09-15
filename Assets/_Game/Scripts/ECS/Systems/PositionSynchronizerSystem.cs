@@ -13,6 +13,7 @@ public struct PositionSynchronizerSystem : ISystem
         {
             ref var position = ref entity.Ref<PositionComponent>();
             ref var rigidBody = ref entity.Ref<RigidBodyComponent>();
+            if (rigidBody.Body == null) return;
             position.Position = rigidBody.Body.transform.position;
         }
     }

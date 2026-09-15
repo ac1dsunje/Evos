@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components
 {
-public struct SpeedComponent : IComponent
+public struct HungerComponent : IComponent
 {
     public float Value;
 }
