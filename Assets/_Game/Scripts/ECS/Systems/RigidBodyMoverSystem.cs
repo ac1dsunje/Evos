@@ -4,24 +4,21 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS.Systems
 {
-public class RigidBodyMoverSystem : ISystem
+public struct RigidBodyMoverSystem : ISystem
 {
     public void Update()
     {
         foreach (var entity in W.Query<All<
-                     PositionComponent, 
                      SpeedComponent, 
                      RigidBodyComponent, 
                      InputComponent
                  >>().Entities())
         {
-            ref var position = ref entity.Ref<PositionComponent>();
             ref var speed  = ref entity.Ref<SpeedComponent>();
             ref var rigidBody = ref entity.Ref<RigidBodyComponent>();
             ref var input = ref entity.Ref<InputComponent>();
 
             rigidBody.Body.linearVelocity = new Vector2(input.Direction.x, input.Direction.y) * speed.Value;
-            position.Position = rigidBody.Body.transform.position;
         }
     }
 }
