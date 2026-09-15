@@ -4,7 +4,6 @@ using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
-using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
@@ -12,11 +11,12 @@ public class UnitySpawner : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _prefab;
     [SerializeField] private int _maxEntities = 5;
+    [SerializeField] private float _interval = 1f;
+    [SerializeField] private int _count;
     
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
-    private int _count;
     
     private void Start()
     {
@@ -30,9 +30,16 @@ public class UnitySpawner : MonoBehaviour
         {
             while (_count < _maxEntities)
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
+                await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
                 var body = Instantiate(_prefab);
-                _spawner.Spawn(new Vector2(0, 0), body);
+                if (_count < 1)
+                {
+                    _spawner.SpawnPlayer(new Vector2(0, 0), body);
+                }
+                else
+                {
+                    _spawner.SpawnEnemy(new Vector2(0, 0), body);
+                }
                 _count++;
             }
         }
