@@ -4,20 +4,21 @@ using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
-using VContainer.Unity;
 using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
-public class SpawnerTester : IStartable, IDisposable
+public class UnitySpawner : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D _prefab;
+    
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
     private int _count;
     private int _maxEntities = 1;
     
-    public void Start()
+    private void Start()
     {
         _cts = new CancellationTokenSource();
         SpawnLoop().Forget();
@@ -30,7 +31,8 @@ public class SpawnerTester : IStartable, IDisposable
             while (_count < _maxEntities)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
-                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0), 1f);
+                var entity = Instantiate(_prefab);
+                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0), 1f, entity);
                 _count++;
             }
         }
@@ -40,7 +42,7 @@ public class SpawnerTester : IStartable, IDisposable
         }
     }
 
-    public void Dispose()
+    private void OnDestroy()
     {
         _cts.Cancel();
         _cts.Dispose();

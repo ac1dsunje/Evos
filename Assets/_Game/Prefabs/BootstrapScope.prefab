@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5302444747231879826}
   - component: {fileID: 5004283336880108019}
+  - component: {fileID: 9111743311890172424}
   m_Layer: 0
   m_Name: BootstrapScope
   m_TagString: Untagged
@@ -48,3 +49,16 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+--- !u!114 &9111743311890172424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6696512185592373451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb383c2b60452a946615bd3495235d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.UnitySpawner
+  _prefab: {fileID: 8133641146692367332, guid: 57a834fdb11714e428916d82ab146e36, type: 3}

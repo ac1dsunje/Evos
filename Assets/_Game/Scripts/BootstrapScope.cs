@@ -18,10 +18,11 @@ public class BootstrapScope: LifetimeScope
         W.Types().RegisterAll(); 
         W.Initialize();
 
-        GameSys.Add(new RigidBodyMoverSystem(), order: 0);
-        GameSys.Add(new PositionSynchronizerSystem(), order: 1);
-        GameSys.Add(new RegenerationSystem(), order: 2);
-        GameSys.Add(new EnduranceRecoverySystem(), order: 3);
+        GameSys.Add(new PlayerInputCheckSystem(), order: 0);
+        GameSys.Add(new RigidBodyMoverSystem(), order: 1);
+        GameSys.Add(new PositionSynchronizerSystem(), order: 2);
+        GameSys.Add(new RegenerationSystem(), order: 3);
+        GameSys.Add(new EnduranceRecoverySystem(), order: 4);
         GameSys.Initialize();
         
         
@@ -29,7 +30,7 @@ public class BootstrapScope: LifetimeScope
 
         builder.Register<EntitySpawner>(Lifetime.Singleton);
 
-        builder.RegisterEntryPoint<SpawnerTester>(Lifetime.Scoped);
+        builder.RegisterComponentInHierarchy<UnitySpawner>();
     }
 
     protected override void OnDestroy()

@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Stats;
+using _Game.Scripts.ECS.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -7,17 +8,19 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public void Spawn(float startHp, Vector2 startPos, float speed)
+    public void Spawn(float startHp, Vector2 startPos, float speed, Rigidbody2D rigidBody)
     {
         W.NewEntity<Default>().Set(
+            new InputComponent {Direction = Vector2.zero},
+            new RigidBodyComponent { Body = rigidBody },
+            
             new HealthComponent { Value = 1 },
             new MaxHealthComponent { Value = startHp },
-            new PositionComponent { Position = startPos },
-            new MaxSpeedComponent { Value = speed },
-            new RigidBodyComponent { Body = null },
             new RegenerationComponent { Value = 1},
-            new InputComponent {Direction = Vector2.zero}
-        );
+            
+            new PositionComponent { Position = startPos },
+            new MaxSpeedComponent { Value = speed }
+        ).Set<PlayerControlledTag>();
     }
 }
 }
