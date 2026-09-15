@@ -11,12 +11,12 @@ namespace _Game.Scripts
 public class UnitySpawner : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _prefab;
+    [SerializeField] private int _maxEntities = 5;
     
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
     private int _count;
-    private int _maxEntities = 1;
     
     private void Start()
     {
