@@ -4,6 +4,7 @@ using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
+using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
@@ -35,9 +36,13 @@ public class UnitySpawner : MonoBehaviour
                 var body = entity.GetComponent<Rigidbody2D>();
                 var view = entity.GetComponent<EntityView>();
                 
+                var spawnPosition = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+                
+                entity.transform.position = spawnPosition;
+                
                 view.SetEntity(_count < 1
                     ? _spawner.SpawnPlayer(new Vector2(0, 0), body, view)
-                    : _spawner.SpawnEnemy(new Vector2(0, 0), body, view));
+                    : _spawner.SpawnEnemy(spawnPosition, body, view));
                 _count++;
             }
         }
