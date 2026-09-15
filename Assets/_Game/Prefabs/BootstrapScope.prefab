@@ -65,3 +65,5 @@ MonoBehaviour:
   _maxEntities: 1000
   _interval: 3
   _count: 0
+  _playerConfig: {fileID: 11400000, guid: fb85a346a2f486d44a8cc90f938c315c, type: 2}
+  _enemyConfig: {fileID: 11400000, guid: 26cc681f21c96cf4f8a12769e83eb537, type: 2}

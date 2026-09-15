@@ -1,5 +1,4 @@
 ﻿using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Requests;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;

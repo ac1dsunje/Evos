@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using _Game.Scripts.Configs;
 using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class UnitySpawner : MonoBehaviour
     [SerializeField] private int _maxEntities = 5;
     [SerializeField] private float _interval = 1f;
     [SerializeField] private int _count;
+
+    [SerializeField] private EntityConfig _playerConfig;
+    [SerializeField] private EntityConfig _enemyConfig;
     
     [Inject] private EntitySpawner _spawner;
     
@@ -35,16 +39,23 @@ public class UnitySpawner : MonoBehaviour
                 var entity = Instantiate(_prefab);
                 var body = entity.GetComponent<Rigidbody2D>();
                 var view = entity.GetComponent<EntityView>();
+                var render = entity.GetComponent<SpriteRenderer>();
                 
                 var spawnPosition = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
                 
                 entity.transform.position = spawnPosition;
-                
-                view.Entity = 
-                    _count < 1
-                    ? _spawner.SpawnPlayer(spawnPosition, body, view)
-                    : _spawner.SpawnEnemy(spawnPosition, body, view);
-                
+
+                if (_count < 1)
+                {
+                    view.Entity = _spawner.SpawnPlayer(spawnPosition, body, view, _playerConfig);
+                    render.sprite = _playerConfig.Sprite;
+                }
+                else
+                {
+                    view.Entity = _spawner.SpawnEnemy(spawnPosition, body, view, _enemyConfig);
+                    render.sprite = _enemyConfig.Sprite;
+                }
+
                 _count++;
             }
         }
