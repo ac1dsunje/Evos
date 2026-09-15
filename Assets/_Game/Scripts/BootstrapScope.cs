@@ -12,22 +12,26 @@ public class BootstrapScope: LifetimeScope
     {
         W.Create();
         GameSys.Create();
+        FixedSys.Create();
         
         EcsDebug<GameWorld>.AddWorld<GameSystems>();
+        EcsDebug<GameWorld>.AddWorld<FixedSystems>();
         
         W.Types().RegisterAll(); 
         W.Initialize();
 
         GameSys.Add(new PlayerInputCheckSystem(), order: 0);
         GameSys.Add(new AIInputCheckSystem(), order: 0);
-        GameSys.Add(new RigidBodyMoverSystem(), order: 1);
-        GameSys.Add(new PositionSynchronizerSystem(), order: 2);
-        GameSys.Add(new RegenerationSystem(), order: 3);
-        GameSys.Add(new EnduranceRecoverySystem(), order: 4);
-        GameSys.Add(new CollisionDamageSystem(), order: 5);
-        GameSys.Add(new DamageSystem(), order: 6);
-        GameSys.Add(new DeathSystem(), order: 7);
+        GameSys.Add(new PositionSynchronizerSystem(), order: 1);
+        GameSys.Add(new RegenerationSystem(), order: 2);
+        GameSys.Add(new EnduranceRecoverySystem(), order: 3);
+        GameSys.Add(new CollisionDamageSystem(), order: 4);
+        GameSys.Add(new DamageSystem(), order: 5);
+        GameSys.Add(new DeathSystem(), order: 6);
         GameSys.Initialize();
+        
+        FixedSys.Add(new RigidBodyMoverSystem(), order: 2);
+        FixedSys.Initialize();
         
         
         builder.RegisterEntryPoint<WorldUpdater>().AsSelf();
