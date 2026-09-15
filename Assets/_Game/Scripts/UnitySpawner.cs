@@ -32,7 +32,7 @@ public class UnitySpawner : MonoBehaviour
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
                 var entity = Instantiate(_prefab);
-                _spawner.Spawn(Random.Range(5, 10), new Vector3(0, 0, 0), 1f, entity);
+                _spawner.Spawn(Random.Range(5, 10), new Vector2(0, 0), 1f, entity);
                 _count++;
             }
         }

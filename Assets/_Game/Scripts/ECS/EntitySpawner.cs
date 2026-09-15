@@ -14,8 +14,8 @@ public class EntitySpawner
             new InputComponent {Direction = Vector2.zero},
             new RigidBodyComponent { Body = rigidBody },
             
-            new HealthComponent { Value = 1 },
-            new MaxHealthComponent { Value = startHp },
+            new HealthComponent { Value = startHp },
+            new MaxHealthComponent { Value = 10 },
             new RegenerationComponent { Value = 1},
             
             new PositionComponent { Position = startPos },
