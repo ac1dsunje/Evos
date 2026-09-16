@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct ColdResistanceComponent : IComponent, ITrackableChanged
+public struct ColdResistanceComponent : IComponent
 {
     public float Value;
 }

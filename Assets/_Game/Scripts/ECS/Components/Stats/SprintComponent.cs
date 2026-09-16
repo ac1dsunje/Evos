@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct SprintMultiplierComponent : IComponent, ITrackableChanged
+public struct SprintMultiplierComponent : IComponent
 {
     public float Value;
 }

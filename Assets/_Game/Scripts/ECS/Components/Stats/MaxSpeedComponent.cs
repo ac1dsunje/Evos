@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct MaxSpeedComponent : IComponent, ITrackableChanged
+public struct MaxSpeedComponent : IComponent
 {
     public float Value;
 }
