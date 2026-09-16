@@ -25,14 +25,15 @@ public class EcsWorldManager : IStartable, IDisposable
         GameSys.Add(new StatsInitSystem(), order: 0);
         GameSys.Add(new PlayerInputCheckSystem(), order: 1);
         GameSys.Add(new AIInputCheckSystem(), order: 1);
-        GameSys.Add(new PositionSynchronizerSystem(), order: 2);
-        GameSys.Add(new RegenerationSystem(), order: 3);
-        GameSys.Add(new EnduranceRecoverySystem(), order: 4);
-        GameSys.Add(new LosingHungerSystem(), order: 5);
-        GameSys.Add(new CollisionDamageSystem(), order: 6);
-        GameSys.Add(new DamageSystem(), order: 7);
-        GameSys.Add(new DeathCheckSystem(), order: 8);
-        GameSys.Add(new DeathSystem(), order: 9);
+        GameSys.Add(new FacingSystem(), order: 2);
+        GameSys.Add(new PositionSynchronizerSystem(), order: 3);
+        GameSys.Add(new RegenerationSystem(), order: 4);
+        GameSys.Add(new EnduranceRecoverySystem(), order: 5);
+        GameSys.Add(new LosingHungerSystem(), order: 7);
+        GameSys.Add(new CollisionDamageSystem(), order: 7);
+        GameSys.Add(new DamageSystem(), order: 8);
+        GameSys.Add(new DeathCheckSystem(), order: 9);
+        GameSys.Add(new DeathSystem(), order: 10);
         GameSys.Initialize();
         
         FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
