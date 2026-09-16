@@ -3,6 +3,7 @@ using System.Threading;
 using _Game.Scripts.Configs;
 using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
+using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using VContainer;
 using Random = UnityEngine.Random;
@@ -24,6 +25,8 @@ public class UnitySpawner : MonoBehaviour
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
+    
+    public EntityGID PlayerGid { get; private set; }
     
     private void Start()
     {
@@ -48,7 +51,9 @@ public class UnitySpawner : MonoBehaviour
                 if (_count < 1)
                 {
                     entity.transform.position = spawnPoint;
-                    view.EntityGid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
+                    var gid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
+                    view.EntityGid = gid;
+                    PlayerGid = gid;
                     render.sprite = _playerConfig.Sprite;
                 }
                 else
