@@ -1,6 +1,6 @@
 ﻿using _Game.Scripts.Configs;
 using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Components.Requests;
+using _Game.Scripts.ECS.Events;
 using _Game.Scripts.ECS.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -32,9 +32,9 @@ public class EntitySpawner
             new ViewComponent { View = view }
         );
         
-        W.NewEntity<Default>().Set(new InitStatsRequest
+        W.SendEvent(new InitStatsEvent
         {
-            Target = entity,
+            Target = entity.GID,
             Config = config
         });
         
