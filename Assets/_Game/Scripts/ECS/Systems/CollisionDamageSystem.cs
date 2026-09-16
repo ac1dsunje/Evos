@@ -27,18 +27,18 @@ public struct CollisionDamageSystem : ISystem
                 continue;
 
             ref readonly var damage = ref source.Read<PhysicalDamageComponent>();
-            
-            var ignoreResistance = 0f;
-            if (source.Has<DamageResistanceIgnoreComponent>())
-            {
-                ignoreResistance = source.Read<DamageResistanceIgnoreComponent>().Value;
-            }
+            if (damage.Value <= 0f) continue;
+
+            var ignoreRes = source.Has<DamageResistanceIgnoreComponent>()
+                ? source.Read<DamageResistanceIgnoreComponent>().Value
+                : 0f;
 
             W.SendEvent(new DamageEvent
             {
+                Source = source.GID,
                 Target = other.GID,
                 Damage = damage.Value,
-                IgnoreResistance = ignoreResistance
+                IgnoreResistance = ignoreRes
             });
         }
     }

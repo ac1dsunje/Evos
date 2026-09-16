@@ -4,6 +4,7 @@ namespace _Game.Scripts.ECS.Events
 {
 public struct DamageEvent : IEvent
 {
+    public EntityGID Source;
     public EntityGID Target;
     public float Damage;
     public float IgnoreResistance;

@@ -17,7 +17,7 @@ MonoBehaviour:
   <OxygenRequirement>k__BackingField: 0
   <HydrogenRequirement>k__BackingField: 0
   <DamageResistance>k__BackingField: 0
-  <DamageReflection>k__BackingField: 0
+  <DamageReflection>k__BackingField: 10
   <MaxEndurance>k__BackingField: 10
   <EnduranceRecovery>k__BackingField: 0
   <MaxHealth>k__BackingField: 100

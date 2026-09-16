@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Stats.Defense;
 using _Game.Scripts.ECS.Events;
@@ -9,14 +10,18 @@ namespace _Game.Scripts.ECS.Systems.Health
 public struct DamageSystem : ISystem
 {
     private EventReceiver<GameWorld, DamageEvent> _receiver;
+    private List<DamageEvent> _reflectionEvents;
     
     public void Init()
     {
         _receiver = W.RegisterEventReceiver<DamageEvent>();
+        _reflectionEvents = new List<DamageEvent>();
     }
     
     public void Update()
     {
+        _reflectionEvents.Clear();
+        
         foreach (var e in _receiver)
         {
             if (!e.Value.Target.TryUnpack<GameWorld>(out var target)) 
@@ -33,7 +38,29 @@ public struct DamageSystem : ISystem
             var effectiveRes = MathF.Max(0f, resistance - e.Value.IgnoreResistance);
             var multiplier = 1f - effectiveRes / 100f;
             
-            health.Value -= e.Value.Damage * multiplier;
+            var appliedDamage = e.Value.Damage * multiplier;
+            
+            health.Value -= appliedDamage;
+
+            var reflect = target.Has<DamageReflectionComponent>()
+                ? target.Read<DamageReflectionComponent>().Value / 100f * appliedDamage
+                : 0f;
+
+            if (reflect <= 0f) continue;
+            if (!e.Value.Source.TryUnpack<GameWorld>(out var source)) continue;
+            
+            _reflectionEvents.Add(new DamageEvent
+            {
+                Source = default,
+                Target = source.GID,
+                Damage = reflect,
+                IgnoreResistance = 100
+            });
+        }
+        
+        foreach (var t in _reflectionEvents)
+        {
+            W.SendEvent(t);
         }
     }
 }
