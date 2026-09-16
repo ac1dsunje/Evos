@@ -26,12 +26,14 @@ public struct CollisionDamageSystem : ISystem
             if (!attacker.Has<PhysicalDamageComponent>())
                 continue;
 
-            ref var damageComp = ref attacker.Ref<PhysicalDamageComponent>();
+            ref var damage = ref attacker.Ref<PhysicalDamageComponent>();
+            ref var ignoreResistance = ref attacker.Ref<DamageResistanceIgnoreComponent>();
 
             W.SendEvent(new DamageEvent
             {
                 Target = target.GID,
-                Damage = damageComp.Value
+                Damage = damage.Value,
+                IgnoreResistance = ignoreResistance.Value
             });
         }
     }

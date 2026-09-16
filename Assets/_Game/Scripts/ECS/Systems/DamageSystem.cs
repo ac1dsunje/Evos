@@ -24,8 +24,9 @@ public struct DamageSystem : ISystem
             ref var healthComp = ref target.Ref<HealthComponent>();
             ref var maxHealthComp = ref target.Ref<MaxHealthComponent>();
             ref var extraLives = ref target.Ref<ExtraLivesComponent>();
+            ref var resistance = ref target.Ref<DamageResistanceComponent>();
             
-            healthComp.Value -= e.Value.Damage;
+            healthComp.Value -= e.Value.Damage * (1 - (resistance.Value - e.Value.IgnoreResistance) / 100f);
             
             if (healthComp.Value <= 0)
             {

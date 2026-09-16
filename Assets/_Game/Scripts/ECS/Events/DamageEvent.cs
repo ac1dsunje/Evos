@@ -6,5 +6,6 @@ public struct DamageEvent : IEvent
 {
     public EntityGID Target;
     public float Damage;
+    public float IgnoreResistance;
 }
 }
