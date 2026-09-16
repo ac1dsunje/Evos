@@ -36,6 +36,7 @@ public class EcsWorldManager : IStartable, IDisposable
         GameSys.Initialize();
         
         FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
+        FixedSys.Add(new PhysicsMaterialSystem(), order: 1);
         FixedSys.Initialize();
     }
 

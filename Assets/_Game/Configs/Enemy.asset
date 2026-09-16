@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Configs.EntityConfig
   <Sprite>k__BackingField: {fileID: -3263788303436985855, guid: fd5b9f0ae363ac942a86447cc9708c9a, type: 3}
   <Acceleration>k__BackingField: 0
-  <Bounciness>k__BackingField: 0
+  <Bounciness>k__BackingField: 1
   <ColdResistance>k__BackingField: 0
   <DamageReflection>k__BackingField: 0
   <DamageResistance>k__BackingField: 0
@@ -27,9 +27,9 @@ MonoBehaviour:
   <Inertia>k__BackingField: 0
   <Influence>k__BackingField: 0
   <MaxEndurance>k__BackingField: 10
-  <MaxHealth>k__BackingField: 50
+  <MaxHealth>k__BackingField: 100
   <MaxHunger>k__BackingField: 0
-  <MaxSpeed>k__BackingField: 2
+  <MaxSpeed>k__BackingField: 1
   <OxygenRequirement>k__BackingField: 0
   <PassAbility>k__BackingField: 0
   <PhysicalDamage>k__BackingField: 10
