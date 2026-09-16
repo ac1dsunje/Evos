@@ -19,10 +19,5 @@ public class EntityView : MonoBehaviour
             });
         }
     }
-
-    public void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
 }
 }

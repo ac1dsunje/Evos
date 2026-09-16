@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Events;
+﻿using _Game.Scripts.ECS.Events;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Systems
@@ -18,12 +17,6 @@ public struct DeathSystem : ISystem
         foreach (var e in _receiver)
         {
             if (!e.Value.Entity.TryUnpack<GameWorld>(out var entity)) continue;
-            
-            if (entity.Has<ViewComponent>())
-            {
-                ref var view = ref entity.Ref<ViewComponent>();
-                view.View.DestroySelf();
-            }
             
             entity.Destroy();
         }
