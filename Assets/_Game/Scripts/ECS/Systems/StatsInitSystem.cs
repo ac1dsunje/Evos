@@ -21,10 +21,10 @@ public struct StatsInitSystem : ISystem
                 target.Set(new HealthComponent { Value = config.MaxHealth });
                 target.Set(new ExtraLivesComponent { Value = config.ExtraLives });
                 target.Set(new RegenerationComponent { Value = config.Regeneration });
-
+                
                 target.Set(new MaxHungerComponent { Value = config.MaxHunger });
                 target.Set(new HungerComponent { Value = config.MaxHunger });
-
+                
                 target.Set(new MaxEnduranceComponent { Value = config.MaxEndurance });
                 target.Set(new EnduranceComponent { Value = config.MaxEndurance });
                 target.Set(new EnduranceRecoveryComponent { Value = config.EnduranceRecovery });
