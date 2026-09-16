@@ -14,8 +14,8 @@ public class EntityView : MonoBehaviour
         {
             W.SendEvent(new CollisionEvent
             {
-                Attacker = Entity.GID,
-                Target = otherView.Entity.GID
+                Source = Entity.GID,
+                Other = otherView.Entity.GID
             });
         }
     }

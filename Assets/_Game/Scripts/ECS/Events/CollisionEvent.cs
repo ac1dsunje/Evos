@@ -4,7 +4,7 @@ namespace _Game.Scripts.ECS.Events
 {
 public struct CollisionEvent : IEvent
 {
-    public EntityGID Attacker;
-    public EntityGID Target;
+    public EntityGID Source;
+    public EntityGID Other;
 }
 }

@@ -17,10 +17,10 @@ public struct CollisionDamageSystem : ISystem
     {
         foreach (var e in _receiver)
         {
-            if (!e.Value.Attacker.TryUnpack<GameWorld>(out var attacker))
+            if (!e.Value.Source.TryUnpack<GameWorld>(out var attacker))
                 continue;
 
-            if (!e.Value.Target.TryUnpack<GameWorld>(out var target))
+            if (!e.Value.Other.TryUnpack<GameWorld>(out var target))
                 continue;
 
             if (!attacker.Has<PhysicalDamageComponent>())
