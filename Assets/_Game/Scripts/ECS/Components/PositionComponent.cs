@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS.Components
 {
-public struct PositionComponent : IComponent
+public struct PositionComponent : IComponent, ITrackableChanged
 {
     public Vector3 Position;
 }

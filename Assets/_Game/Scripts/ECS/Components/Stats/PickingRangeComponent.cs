@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct PickingRangeComponent : IComponent
+public struct PickingRangeComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }

@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct BouncinessComponent : IComponent
+public struct BouncinessComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }

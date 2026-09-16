@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct EnduranceRecoveryComponent : IComponent
+public struct EnduranceRecoveryComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }

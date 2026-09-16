@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct OxygenRequirementComponent : IComponent
+public struct OxygenRequirementComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }

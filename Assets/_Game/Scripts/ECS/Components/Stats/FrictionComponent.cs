@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct FrictionComponent : IComponent
+public struct FrictionComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }

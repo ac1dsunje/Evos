@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Components.Stats
 {
-public struct InfluenceComponent : IComponent
+public struct InfluenceComponent : IComponent, ITrackableChanged
 {
     public float Value;
 }
