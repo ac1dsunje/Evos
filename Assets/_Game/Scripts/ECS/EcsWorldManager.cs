@@ -31,7 +31,8 @@ public class EcsWorldManager : IStartable, IDisposable
         GameSys.Add(new LosingHungerSystem(), order: 5);
         GameSys.Add(new CollisionDamageSystem(), order: 6);
         GameSys.Add(new DamageSystem(), order: 7);
-        GameSys.Add(new DeathSystem(), order: 8);
+        GameSys.Add(new DeathCheckSystem(), order: 8);
+        GameSys.Add(new DeathSystem(), order: 9);
         GameSys.Initialize();
         
         FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
