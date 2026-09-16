@@ -1,4 +1,4 @@
-﻿using _Game.Scripts.ECS.Components.Requests;
+﻿using _Game.Scripts.ECS.Events;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -12,10 +12,10 @@ public class EntityView : MonoBehaviour
     {
         if (other.collider.TryGetComponent(out EntityView otherView))
         {
-            W.NewEntity<Default>().Set(new CollisionRequest
+            W.SendEvent(new CollisionEvent
             {
-                Attacker = Entity,
-                Target = otherView.Entity
+                Attacker = Entity.GID,
+                Target = otherView.Entity.GID
             });
         }
     }

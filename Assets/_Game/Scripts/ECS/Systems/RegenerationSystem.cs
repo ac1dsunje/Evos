@@ -1,6 +1,5 @@
 ﻿using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Stats;
-using _Game.Scripts.ECS.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -11,8 +10,7 @@ public struct RegenerationSystem : ISystem
     public void Update()
     {
         foreach (var entity in W.Query<
-                     All<HealthComponent, MaxHealthComponent, RegenerationComponent>, 
-                     None<DeadTag>
+                     All<HealthComponent, MaxHealthComponent, RegenerationComponent>
                  >().Entities())
         {
             ref var current = ref entity.Ref<HealthComponent>();

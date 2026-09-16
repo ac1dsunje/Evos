@@ -1,21 +1,29 @@
 ﻿using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Tags;
+using _Game.Scripts.ECS.Events;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Systems
 {
 public struct DeathSystem : ISystem
 {
+    private EventReceiver<GameWorld, DeathEvent> _receiver;
+
+    public void Init()
+    {
+        _receiver = W.RegisterEventReceiver<DeathEvent>();
+    }
+
     public void Update()
     {
-        foreach (var entity in W.Query<All<
-                     DeadTag,
-                     ViewComponent
-                 >>().Entities())
+        foreach (var e in _receiver)
         {
-            ref var view = ref entity.Ref<ViewComponent>();
+            if (!e.Value.Entity.TryUnpack<GameWorld>(out var entity)) continue;
             
-            view.View.DestroySelf();
+            if (entity.Has<ViewComponent>())
+            {
+                ref var view = ref entity.Ref<ViewComponent>();
+                view.View.DestroySelf();
+            }
             
             entity.Destroy();
         }
