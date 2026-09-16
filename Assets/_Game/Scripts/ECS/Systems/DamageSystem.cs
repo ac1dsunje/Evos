@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Requests;
+using _Game.Scripts.ECS.Components.Stats;
 using _Game.Scripts.ECS.Tags;
 using FFS.Libraries.StaticEcs;
 
@@ -17,12 +18,22 @@ public struct DamageSystem : ISystem
             if (target.IsEnabled)
             {
                 ref var healthComp = ref target.Ref<HealthComponent>();
+                ref var maxHealthComp = ref target.Ref<MaxHealthComponent>();
+                ref var extraLives = ref target.Ref<ExtraLivesComponent>();
                 
                 healthComp.Value -= evt.Damage;
                 
                 if (healthComp.Value <= 0)
                 {
-                    target.Set<DeadTag>();
+                    if (extraLives.Value > 0)
+                    {
+                        healthComp.Value = maxHealthComp.Value;
+                        extraLives.Value--;
+                    }
+                    else
+                    {
+                        target.Set<DeadTag>();
+                    }
                 }
             }
             

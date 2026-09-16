@@ -39,6 +39,7 @@ public class EntitySpawner
             new HealthComponent { Value = config.MaxHealth },
             new MaxHealthComponent { Value = config.MaxHealth },
             new RegenerationComponent { Value = config.Regeneration },
+            new ExtraLivesComponent { Value = config.ExtraLives },
             
             new MaxSpeedComponent { Value = config.MaxSpeed }
         );
