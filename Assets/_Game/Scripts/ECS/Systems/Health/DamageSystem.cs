@@ -1,6 +1,6 @@
 ﻿using System;
 using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Components.Stats;
+using _Game.Scripts.ECS.Components.Stats.Defense;
 using _Game.Scripts.ECS.Events;
 using FFS.Libraries.StaticEcs;
 

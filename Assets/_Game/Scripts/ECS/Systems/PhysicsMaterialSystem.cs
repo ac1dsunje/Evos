@@ -1,5 +1,5 @@
 ﻿using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Components.Stats;
+using _Game.Scripts.ECS.Components.Stats.Movement;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
