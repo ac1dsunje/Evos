@@ -8,7 +8,7 @@ public class WorldUpdater : ITickable, IFixedTickable
 {
     public void Tick()
     {
-        W.SetResource(new DeltaTimeResource() { Value = Time.deltaTime });
+        W.SetResource(new DeltaTimeResource { Value = Time.deltaTime });
         
         GameSys.Update();
         
@@ -17,7 +17,7 @@ public class WorldUpdater : ITickable, IFixedTickable
 
     public void FixedTick()
     {
-        W.SetResource(new FixedDeltaTimeResource() { Value = Time.fixedDeltaTime });
+        W.SetResource(new FixedDeltaTimeResource { Value = Time.fixedDeltaTime });
         
         FixedSys.Update();
     }
