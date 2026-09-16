@@ -14,7 +14,8 @@ public class BootstrapScope : LifetimeScope
         builder.RegisterEntryPoint<WorldUpdater>().AsSelf();
         builder.Register<EntitySpawner>(Lifetime.Singleton);
         builder.RegisterComponentInHierarchy<UnitySpawner>();
-        builder.RegisterComponentInHierarchy<BarUI>();
+        
+        builder.RegisterComponentInHierarchy<UIManager>();
     }
 }
 }

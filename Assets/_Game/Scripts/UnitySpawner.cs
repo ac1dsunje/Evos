@@ -25,8 +25,7 @@ public class UnitySpawner : MonoBehaviour
     [Inject] private EntitySpawner _spawner;
     
     private CancellationTokenSource _cts;
-    
-    public EntityGID PlayerGid { get; private set; }
+    public event Action<EntityGID> OnPlayerSpawned;
     
     private void Start()
     {
@@ -53,7 +52,7 @@ public class UnitySpawner : MonoBehaviour
                     entity.transform.position = spawnPoint;
                     var gid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
                     view.EntityGid = gid;
-                    PlayerGid = gid;
+                    OnPlayerSpawned?.Invoke(gid);
                     render.sprite = _playerConfig.Sprite;
                 }
                 else

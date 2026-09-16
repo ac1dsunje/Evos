@@ -1,54 +1,41 @@
-﻿using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Components.Stats.Health;
+﻿using System;
+using _Game.Scripts.ECS;
+using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using UnityEngine.UI;
-using VContainer;
 
 namespace _Game.Scripts.UI.Bars
 {
 public class BarUI : MonoBehaviour
 {
-    [SerializeField] private BarConfig _config;
     [SerializeField] private Image _iconImage;
     [SerializeField] private Image _fill;
     [SerializeField] private Image _background;
-        
-    private UnitySpawner _spawner;
+    
+    private EntityGID _targetGid;
+    private Func<World<GameWorld>.Entity, float> _valueReader;
 
-    [Inject]
-    private void Construct(UnitySpawner spawner)
+    public void Initialize(EntityGID targetGid, BarConfig config, Func<World<GameWorld>.Entity, float> valueReader)
     {
-        _spawner = spawner;
-    }
+        _targetGid = targetGid;
+        _valueReader = valueReader;
 
-    private void Start()
-    {
-        _fill.color = _config.Color;
-        _iconImage.sprite = _config.Sprite;
+        _fill.color = config.Color;
+        _iconImage.sprite = config.Sprite;
     }
 
     private void Update()
     {
-        if (_spawner.PlayerGid == default)
+        if (_targetGid == default || _valueReader == null)
             return;
 
-        if (!_spawner.PlayerGid.TryUnpack<GameWorld>(out var entity))
+        if (!_targetGid.TryUnpack<GameWorld>(out var entity))
         {
             _fill.fillAmount = 0f;
             return;
         }
 
-        if (!entity.Has<HealthComponent>() || !entity.Has<MaxHealthComponent>())
-        {
-            _fill.fillAmount = 0f;
-            return;
-        }
-
-        ref readonly var health = ref entity.Read<HealthComponent>();
-        ref readonly var maxHealth = ref entity.Read<MaxHealthComponent>();
-
-        _fill.fillAmount = health.Value / maxHealth.Value;
+        _fill.fillAmount = _valueReader(entity);
     }
 }
 }
