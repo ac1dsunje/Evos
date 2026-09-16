@@ -1,9 +1,8 @@
-﻿using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Components.Requests;
+﻿using _Game.Scripts.ECS.Components.Requests;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.ECS
 {
 public class EntityView : MonoBehaviour
 {

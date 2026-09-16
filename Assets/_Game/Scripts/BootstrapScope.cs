@@ -1,8 +1,6 @@
-﻿using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Systems;
-using FFS.Libraries.StaticEcs.Unity;
-using VContainer;
+﻿using VContainer;
 using VContainer.Unity;
+using _Game.Scripts.ECS;
 
 namespace _Game.Scripts
 {
@@ -10,47 +8,10 @@ public class BootstrapScope : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
-        W.Create();
-        GameSys.Create();
-        FixedSys.Create();
-        
-        EcsDebug<GameWorld>.AddWorld<GameSystems>();
-        EcsDebug<GameWorld>.AddWorld<FixedSystems>();
-        
-        W.Types().RegisterAll();
-        W.Initialize();
-        
-        GameSys.Add(new StatsInitSystem(), order: 0);
-        
-        GameSys.Add(new PlayerInputCheckSystem(), order: 1);
-        GameSys.Add(new AIInputCheckSystem(), order: 1);
-        
-        GameSys.Add(new PositionSynchronizerSystem(), order: 2);
-        
-        GameSys.Add(new RegenerationSystem(), order: 3);
-        GameSys.Add(new EnduranceRecoverySystem(), order: 4);
-        GameSys.Add(new LosingHungerSystem(), order: 5);
-        
-        GameSys.Add(new CollisionDamageSystem(), order: 6);
-        GameSys.Add(new DamageSystem(), order: 7);
-        GameSys.Add(new DeathSystem(), order: 8);
-
-        GameSys.Initialize();
-        
-        FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
-        FixedSys.Initialize();
-        
+        builder.RegisterEntryPoint<EcsWorldManager>();
         builder.RegisterEntryPoint<WorldUpdater>().AsSelf();
         builder.Register<EntitySpawner>(Lifetime.Singleton);
         builder.RegisterComponentInHierarchy<UnitySpawner>();
-    }
-
-    protected override void OnDestroy()
-    {
-        GameSys.Destroy();
-        FixedSys.Destroy();
-        W.Destroy();
-        base.OnDestroy();
     }
 }
 }
