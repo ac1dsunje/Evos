@@ -43,18 +43,19 @@ public class UnitySpawner : MonoBehaviour
                 var view = entity.GetComponent<EntityView>();
                 var render = entity.GetComponent<SpriteRenderer>();
                 
-                var spawnPosition = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+                var spawnPoint = Vector2.zero;
                 
-                entity.transform.position = spawnPosition;
-
                 if (_count < 1)
                 {
-                    view.EntityGid = _spawner.SpawnPlayer(spawnPosition, body, view, _playerConfig);
+                    entity.transform.position = spawnPoint;
+                    view.EntityGid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
                     render.sprite = _playerConfig.Sprite;
                 }
                 else
                 {
-                    view.EntityGid = _spawner.SpawnEnemy(spawnPosition, body, view, _enemyConfig);
+                    spawnPoint = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+                    entity.transform.position = spawnPoint;
+                    view.EntityGid = _spawner.SpawnEnemy(spawnPoint, body, view, _enemyConfig);
                     render.sprite = _enemyConfig.Sprite;
                 }
 
