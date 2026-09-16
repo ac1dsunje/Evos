@@ -20,7 +20,7 @@ public struct DeathCheckSystem : ISystem
                 if (lives.Value > 0)
                 {
                     lives.Value--;
-                    health.Value = entity.Ref<MaxHealthComponent>().Value;
+                    health.Value = entity.Read<MaxHealthComponent>().Value;
                     continue;
                 }
             }

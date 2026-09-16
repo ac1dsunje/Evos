@@ -13,7 +13,7 @@ public struct LosingHungerSystem : ISystem
         
         foreach (var entity in W.Query<All<HungerComponent>>().Entities())
         {
-            ref var current = ref entity.Ref<HungerComponent>();
+            ref var current = ref entity.Mut<HungerComponent>();
 
             current.Value = MathF.Max(current.Value - deltaTime * 1/5f, 0);
         }

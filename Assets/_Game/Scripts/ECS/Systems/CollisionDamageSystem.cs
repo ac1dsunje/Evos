@@ -19,21 +19,26 @@ public struct CollisionDamageSystem : ISystem
         {
             if (!e.Value.Source.TryUnpack<GameWorld>(out var source))
                 continue;
-
+            
             if (!e.Value.Other.TryUnpack<GameWorld>(out var other))
                 continue;
-
+            
             if (!source.Has<PhysicalDamageComponent>())
                 continue;
 
-            ref var damage = ref source.Ref<PhysicalDamageComponent>();
-            ref var ignoreResistance = ref source.Ref<DamageResistanceIgnoreComponent>();
+            ref readonly var damage = ref source.Read<PhysicalDamageComponent>();
+            
+            var ignoreResistance = 0f;
+            if (source.Has<DamageResistanceIgnoreComponent>())
+            {
+                ignoreResistance = source.Read<DamageResistanceIgnoreComponent>().Value;
+            }
 
             W.SendEvent(new DamageEvent
             {
                 Target = other.GID,
                 Damage = damage.Value,
-                IgnoreResistance = ignoreResistance.Value
+                IgnoreResistance = ignoreResistance
             });
         }
     }

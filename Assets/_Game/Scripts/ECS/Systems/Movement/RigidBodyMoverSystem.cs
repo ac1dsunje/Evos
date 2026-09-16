@@ -15,11 +15,12 @@ public struct RigidBodyMoverSystem : ISystem
         foreach (var entity in W.Query<All<MaxSpeedComponent, InertiaComponent, AccelerationComponent, 
                      RigidBodyComponent, InputComponent>>().Entities())
         {
-            ref var maxSpeed = ref entity.Ref<MaxSpeedComponent>();
+            ref readonly var maxSpeed = ref entity.Read<MaxSpeedComponent>();
+            ref readonly var input = ref entity.Read<InputComponent>();
+            ref readonly var inertia = ref entity.Read<InertiaComponent>();
+            ref readonly var acceleration = ref entity.Read<AccelerationComponent>();
+            
             ref var rigidBody = ref entity.Ref<RigidBodyComponent>();
-            ref var input = ref entity.Ref<InputComponent>();
-            ref var inertia = ref entity.Ref<InertiaComponent>();
-            ref var acceleration = ref entity.Ref<AccelerationComponent>();
             
             var currentVelocity = rigidBody.Body.linearVelocity;
             var inputDirection = new Vector2(input.Direction.x, input.Direction.y);

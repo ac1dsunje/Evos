@@ -27,7 +27,7 @@ public struct DamageSystem : ISystem
             ref var health = ref target.Mut<HealthComponent>();
             
             var resistance = target.Has<DamageResistanceComponent>()
-                ? target.Ref<DamageResistanceComponent>().Value
+                ? target.Read<DamageResistanceComponent>().Value
                 : 0f;
             
             var effectiveRes = MathF.Max(0f, resistance - e.Value.IgnoreResistance);

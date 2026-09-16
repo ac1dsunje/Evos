@@ -10,7 +10,7 @@ public struct PositionSynchronizerSystem : ISystem
         foreach (var entity in W.Query<All<PositionComponent, RigidBodyComponent>>().Entities())
         {
             ref var position = ref entity.Ref<PositionComponent>();
-            ref var rigidBody = ref entity.Ref<RigidBodyComponent>();
+            ref readonly var rigidBody = ref entity.Read<RigidBodyComponent>();
             
             position.Position = rigidBody.Body.transform.position;
         }

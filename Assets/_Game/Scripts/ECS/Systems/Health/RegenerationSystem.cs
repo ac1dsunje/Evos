@@ -14,9 +14,9 @@ public struct RegenerationSystem : ISystem
         
         foreach (var entity in W.Query<All<HealthComponent, MaxHealthComponent, RegenerationComponent>>().Entities())
         {
-            ref var current = ref entity.Ref<HealthComponent>();
-            ref var max = ref entity.Ref<MaxHealthComponent>();
-            ref var regeneration = ref entity.Ref<RegenerationComponent>();
+            ref var current = ref entity.Mut<HealthComponent>();
+            ref readonly var max = ref entity.Read<MaxHealthComponent>();
+            ref readonly var regeneration = ref entity.Read<RegenerationComponent>();
 
             current.Value = Mathf.Min(current.Value + regeneration.Value * deltaTime, max.Value);
         }
