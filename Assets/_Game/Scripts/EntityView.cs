@@ -9,9 +9,9 @@ public class EntityView : MonoBehaviour
 {
     public World<GameWorld>.Entity Entity;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.TryGetComponent(out EntityView otherView))
+        if (other.collider.TryGetComponent(out EntityView otherView))
         {
             W.NewEntity<Default>().Set(new CollisionRequest
             {

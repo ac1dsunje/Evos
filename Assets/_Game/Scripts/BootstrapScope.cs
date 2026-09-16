@@ -44,6 +44,7 @@ public class BootstrapScope: LifetimeScope
     protected override void OnDestroy()
     {
         GameSys.Destroy();
+        FixedSys.Destroy();
         W.Destroy();
         base.OnDestroy();
     }
