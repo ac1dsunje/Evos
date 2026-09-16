@@ -33,6 +33,9 @@ public class EntitySpawner
             
             new PhysicalDamageComponent { Value = config.PhysicalDamage },
             
+            new MaxHungerComponent { Value = config.MaxHunger },
+            new HungerComponent { Value = config.MaxHunger },
+            
             new HealthComponent { Value = config.MaxHealth },
             new MaxHealthComponent { Value = config.MaxHealth },
             new RegenerationComponent { Value = config.Regeneration },
