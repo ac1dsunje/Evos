@@ -52,26 +52,26 @@ namespace _Game.Scripts.UI
 
         private static float ReadHealthValue(W.Entity entity)
         {
-            ref readonly var health = ref entity.Read<HealthComponent>();
-            ref readonly var maxHealth = ref entity.Read<MaxHealthComponent>();
+            ref readonly var current = ref entity.Read<HealthComponent>();
+            ref readonly var max = ref entity.Read<MaxHealthComponent>();
 
-            return maxHealth.Value > 0f ? health.Value / maxHealth.Value : 0f;
+            return max.Value > 0f ? current.Value / max.Value : 0f;
         }
 
         private static float ReadEnduranceValue(W.Entity entity)
         {
-            ref readonly var endurance = ref entity.Read<EnduranceComponent>();
-            ref readonly var maxEndurance = ref entity.Read<MaxEnduranceComponent>();
+            ref readonly var current = ref entity.Read<EnduranceComponent>();
+            ref readonly var max = ref entity.Read<MaxEnduranceComponent>();
 
-            return maxEndurance.Value > 0f ? endurance.Value / maxEndurance.Value : 0f;
+            return max.Value > 0f ? current.Value / max.Value : 0f;
         }
 
         private static float ReadHungerValue(W.Entity entity)
         {
-            ref readonly var hunger = ref entity.Read<HungerComponent>();
-            ref readonly var maxHunger = ref entity.Read<MaxHungerComponent>();
+            ref readonly var current = ref entity.Read<HungerComponent>();
+            ref readonly var max = ref entity.Read<MaxHungerComponent>();
 
-            return maxHunger.Value > 0f ? hunger.Value / maxHunger.Value : 0f;
+            return max.Value > 0f ? current.Value / max.Value : 0f;
         }
 
         private void OnDestroy()
