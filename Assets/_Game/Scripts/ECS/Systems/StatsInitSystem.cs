@@ -50,9 +50,6 @@ public struct StatsInitSystem : ISystem
             target.Set(new DashRangeComponent { Value = config.DashRange });
             target.Set(new SprintMultiplierComponent { Value = config.SprintMultiplier });
             
-            target.Set(new BouncinessComponent { Value = config.Bounciness });
-            target.Set(new FrictionComponent { Value = config.Friction });
-            
             target.Set(new ColdResistanceComponent { Value = config.ColdResistance });
             target.Set(new HotResistanceComponent { Value = config.HotResistance });
             
