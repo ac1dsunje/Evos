@@ -16,6 +16,8 @@ public class UnitySpawner : MonoBehaviour
     [SerializeField] private float _interval = 1f;
     [SerializeField] private int _count;
 
+    [SerializeField] private Transform _container;
+
     [SerializeField] private EntityConfig _playerConfig;
     [SerializeField] private EntityConfig _enemyConfig;
     
@@ -36,7 +38,7 @@ public class UnitySpawner : MonoBehaviour
             while (_count < _maxEntities)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
-                var entity = Instantiate(_prefab);
+                var entity = Instantiate(_prefab, _container);
                 var body = entity.GetComponent<Rigidbody2D>();
                 var view = entity.GetComponent<EntityView>();
                 var render = entity.GetComponent<SpriteRenderer>();
