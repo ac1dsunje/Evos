@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Tags;
+using _Game.Scripts.ECS.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public struct AIInputCheckSystem : ISystem
     
     public void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += W.GetResource<DeltaTimeResource>().Value;
 
         if (_timer < 1f) return;
         

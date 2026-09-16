@@ -13,26 +13,24 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Configs.EntityConfig
   <Sprite>k__BackingField: {fileID: -6291694362870226926, guid: 99fd818b2167a984b9e6a3854c843a7c, type: 3}
-  <Acceleration>k__BackingField: 0
-  <Bounciness>k__BackingField: 0
-  <ColdResistance>k__BackingField: 0
-  <DamageReflection>k__BackingField: 0
-  <DamageResistance>k__BackingField: 0
-  <DashRange>k__BackingField: 0
-  <EnduranceRecovery>k__BackingField: 0
-  <ExtraLives>k__BackingField: 999
-  <Friction>k__BackingField: 0
-  <HotResistance>k__BackingField: 0
+  <PhysicalDamage>k__BackingField: 10
+  <OxygenRequirement>k__BackingField: 0
   <HydrogenRequirement>k__BackingField: 0
-  <Inertia>k__BackingField: 0
-  <Influence>k__BackingField: 0
+  <DamageResistance>k__BackingField: 0
+  <DamageReflection>k__BackingField: 0
   <MaxEndurance>k__BackingField: 10
+  <EnduranceRecovery>k__BackingField: 0
   <MaxHealth>k__BackingField: 100
+  <ExtraLives>k__BackingField: 999
+  <Regeneration>k__BackingField: 1
   <MaxHunger>k__BackingField: 0
   <MaxSpeed>k__BackingField: 2
-  <OxygenRequirement>k__BackingField: 0
+  <Acceleration>k__BackingField: 1
+  <Inertia>k__BackingField: 1
+  <DashRange>k__BackingField: 0
   <PassAbility>k__BackingField: 0
-  <PhysicalDamage>k__BackingField: 10
-  <PickingRange>k__BackingField: 0
-  <Regeneration>k__BackingField: 1
   <SprintMultiplier>k__BackingField: 0
+  <ColdResistance>k__BackingField: 0
+  <HotResistance>k__BackingField: 0
+  <Influence>k__BackingField: 0
+  <PickingRange>k__BackingField: 0
