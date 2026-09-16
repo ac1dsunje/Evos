@@ -9,18 +9,18 @@ namespace _Game.Scripts.ECS
 {
 public class EntitySpawner
 {
-    public World<GameWorld>.Entity SpawnPlayer(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
+    public EntityGID SpawnPlayer(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
         var entity = CreateBaseEntity(position, rigidBody, view, config);
         entity.Set<PlayerControlledTag>();
-        return entity;
+        return entity.GID;
     }
     
-    public World<GameWorld>.Entity SpawnEnemy(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
+    public EntityGID SpawnEnemy(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
         var entity = CreateBaseEntity(position, rigidBody, view, config);
         entity.Set<AIControlledTag>();
-        return entity;
+        return entity.GID;
     }
     
     private World<GameWorld>.Entity CreateBaseEntity(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)

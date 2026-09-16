@@ -6,7 +6,7 @@ namespace _Game.Scripts.ECS
 {
 public class EntityView : MonoBehaviour
 {
-    public World<GameWorld>.Entity Entity;
+    public EntityGID EntityGid;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -14,8 +14,8 @@ public class EntityView : MonoBehaviour
         {
             W.SendEvent(new CollisionEvent
             {
-                Source = Entity.GID,
-                Other = otherView.Entity.GID
+                Source = EntityGid,
+                Other = otherView.EntityGid
             });
         }
     }

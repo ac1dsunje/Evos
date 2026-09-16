@@ -49,12 +49,12 @@ public class UnitySpawner : MonoBehaviour
 
                 if (_count < 1)
                 {
-                    view.Entity = _spawner.SpawnPlayer(spawnPosition, body, view, _playerConfig);
+                    view.EntityGid = _spawner.SpawnPlayer(spawnPosition, body, view, _playerConfig);
                     render.sprite = _playerConfig.Sprite;
                 }
                 else
                 {
-                    view.Entity = _spawner.SpawnEnemy(spawnPosition, body, view, _enemyConfig);
+                    view.EntityGid = _spawner.SpawnEnemy(spawnPosition, body, view, _enemyConfig);
                     render.sprite = _enemyConfig.Sprite;
                 }
 
