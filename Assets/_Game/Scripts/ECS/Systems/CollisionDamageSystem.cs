@@ -17,21 +17,21 @@ public struct CollisionDamageSystem : ISystem
     {
         foreach (var e in _receiver)
         {
-            if (!e.Value.Source.TryUnpack<GameWorld>(out var attacker))
+            if (!e.Value.Source.TryUnpack<GameWorld>(out var source))
                 continue;
 
-            if (!e.Value.Other.TryUnpack<GameWorld>(out var target))
+            if (!e.Value.Other.TryUnpack<GameWorld>(out var other))
                 continue;
 
-            if (!attacker.Has<PhysicalDamageComponent>())
+            if (!source.Has<PhysicalDamageComponent>())
                 continue;
 
-            ref var damage = ref attacker.Ref<PhysicalDamageComponent>();
-            ref var ignoreResistance = ref attacker.Ref<DamageResistanceIgnoreComponent>();
+            ref var damage = ref source.Ref<PhysicalDamageComponent>();
+            ref var ignoreResistance = ref source.Ref<DamageResistanceIgnoreComponent>();
 
             W.SendEvent(new DamageEvent
             {
-                Target = target.GID,
+                Target = other.GID,
                 Damage = damage.Value,
                 IgnoreResistance = ignoreResistance.Value
             });

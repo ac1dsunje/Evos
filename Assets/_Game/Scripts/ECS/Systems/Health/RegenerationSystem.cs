@@ -3,15 +3,13 @@ using _Game.Scripts.ECS.Components.Stats;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.ECS.Systems
+namespace _Game.Scripts.ECS.Systems.Health
 {
 public struct RegenerationSystem : ISystem
 {
     public void Update()
     {
-        foreach (var entity in W.Query<
-                     All<HealthComponent, MaxHealthComponent, RegenerationComponent>
-                 >().Entities())
+        foreach (var entity in W.Query<All<HealthComponent, MaxHealthComponent, RegenerationComponent>>().Entities())
         {
             ref var current = ref entity.Ref<HealthComponent>();
             ref var max = ref entity.Ref<MaxHealthComponent>();

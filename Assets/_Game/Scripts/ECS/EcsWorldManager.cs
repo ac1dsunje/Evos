@@ -2,6 +2,9 @@
 using FFS.Libraries.StaticEcs.Unity;
 using VContainer.Unity;
 using _Game.Scripts.ECS.Systems;
+using _Game.Scripts.ECS.Systems.Health;
+using _Game.Scripts.ECS.Systems.Input;
+using _Game.Scripts.ECS.Systems.Movement;
 
 namespace _Game.Scripts.ECS
 {
