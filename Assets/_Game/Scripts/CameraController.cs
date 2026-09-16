@@ -3,7 +3,6 @@ using _Game.Scripts.ECS;
 using _Game.Scripts.ECS.Components;
 using FFS.Libraries.StaticEcs;
 using Unity.Cinemachine;
-using UnityEngine;
 using VContainer.Unity;
 
 namespace _Game.Scripts
@@ -26,7 +25,6 @@ public class CameraController : IInitializable, IDisposable
 
     private void AddPlayer(EntityGID player)
     {
-        Debug.Log($"AddPlayer {player.Id}");
          if(!player.TryUnpack<GameWorld>(out var entity)) return;
          ref var view = ref entity.Ref<ViewComponent>();
 
