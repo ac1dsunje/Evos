@@ -1,14 +1,14 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.StandaloneEditorTool
+namespace _Game.Scripts.ECS.Components
 {
     [StaticEcsEditorName("EntityName", "EntityName")]
     [StaticEcsEditorGroup("Debug", "A0AEA1")]
-    public struct StandaloneEntityNameComponent : IComponent
+    public struct NameComponent : IComponent
     {
         public const string EditorFullName = "EntityName";
 
-        [StaticEcsEditorTableValue(180f)] public string _value;
+        [StaticEcsEditorTableValue(180f)] public string Value;
     }
 }

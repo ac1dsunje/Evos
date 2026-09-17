@@ -15,16 +15,16 @@ MonoBehaviour:
   worlds:
   - worldTypeFullName: _Game.Scripts.ECS.GameWorld
     main:
-      selectedTabName: Entities
+      selectedTabName: Events
       drawRate: 0.5
       drawFrames: 2
     entities:
       componentColumns:
-      - EntityName
       - _Game/Scripts/ECS/Components/EnduranceComponent
       - _Game/Scripts/ECS/Components/HealthComponent
       - _Game/Scripts/ECS/Components/HungerComponent
       - _Game/Scripts/ECS/Components/InputComponent
+      - EntityName
       - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
       - _Game/Scripts/ECS/Components/PositionComponent
       - _Game/Scripts/ECS/Components/RigidBodyComponent
@@ -55,11 +55,11 @@ MonoBehaviour:
       - _Game/Scripts/ECS/Tags/AIControlledTag
       - _Game/Scripts/ECS/Tags/PlayerControlledTag
       showTableDataTypes:
-      - EntityName
       - _Game/Scripts/ECS/Components/EnduranceComponent
       - _Game/Scripts/ECS/Components/HealthComponent
       - _Game/Scripts/ECS/Components/HungerComponent
       - _Game/Scripts/ECS/Components/InputComponent
+      - EntityName
       - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
       - _Game/Scripts/ECS/Components/PositionComponent
       - _Game/Scripts/ECS/Components/RigidBodyComponent

@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.StandaloneEditorTool;
+using _Game.Scripts.ECS.Components;
 using FFS.Libraries.StaticEcs.Unity.Editor;
 using UnityEditor;
 
 namespace Editor
 {
-    public class GameEcsViewStandalone : StaticEcsView<GameWorld, StandaloneGameEntityProvider, StandaloneGameEventProvider>
+    public class GameEcsView : StaticEcsView<GameWorld, EntityProvider, EventProvider>
     {
         [MenuItem("Game/StaticECS/OpenViewStandalone")]
         public static void OpenWindow()
         {
             EnsureEntityNameColumn();
-            var window = GetWindow<GameEcsViewStandalone>();
+            var window = GetWindow<GameEcsView>();
             window.Show();
             window.Focus();
         }
@@ -55,8 +55,8 @@ namespace Editor
                 return;
 
             tagColumns.Clear();
-            MoveValueToStart(componentColumns, StandaloneEntityNameComponent.EditorFullName);
-            AddValue(showTableDataTypes, StandaloneEntityNameComponent.EditorFullName);
+            MoveValueToStart(componentColumns, NameComponent.EditorFullName);
+            AddValue(showTableDataTypes, NameComponent.EditorFullName);
             MethodInfo saveMethod = configType.GetMethod("Save", BindingFlags.Instance | BindingFlags.NonPublic);
 
             if (saveMethod != null)
