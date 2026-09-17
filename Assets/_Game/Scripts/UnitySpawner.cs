@@ -22,7 +22,7 @@ public class UnitySpawner : MonoBehaviour
     [SerializeField] private EntityConfig _playerConfig;
     [SerializeField] private EntityConfig _enemyConfig;
     
-    [Inject] private EntitySpawner _spawner;
+    [Inject] private CreatureSpawner _spawner;
     
     private CancellationTokenSource _cts;
     public event Action<EntityGID> OnPlayerSpawned;

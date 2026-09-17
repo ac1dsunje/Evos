@@ -8,25 +8,25 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS
 {
-public class EntitySpawner
+public class CreatureSpawner
 {
     public EntityGID SpawnPlayer(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
-        var entity = CreateBaseEntity(position, rigidBody, view, config);
-        entity.Set<PlayerControlledTag>();
-        return entity.GID;
+        var creature = CreateBaseCreature(position, rigidBody, view, config);
+        creature.Set<PlayerControlledTag>();
+        return creature.GID;
     }
     
     public EntityGID SpawnEnemy(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
-        var entity = CreateBaseEntity(position, rigidBody, view, config);
-        entity.Set<AIControlledTag>();
-        return entity.GID;
+        var creature = CreateBaseCreature(position, rigidBody, view, config);
+        creature.Set<AIControlledTag>();
+        return creature.GID;
     }
     
-    private World<GameWorld>.Entity CreateBaseEntity(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
+    private World<GameWorld>.Entity CreateBaseCreature(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
-        var entity = W.NewEntity<Default>().Set(
+        var creature = W.NewEntity<Default>().Set(
             new PositionComponent { Position = position },
             new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
@@ -37,11 +37,11 @@ public class EntitySpawner
         
         W.SendEvent(new InitStatsEvent
         {
-            Target = entity.GID,
+            Target = creature.GID,
             Config = config
         });
         
-        return entity;
+        return creature;
     }
 }
 }

@@ -16,7 +16,7 @@ public class BootstrapScope : LifetimeScope
         builder.RegisterComponentInHierarchy<CinemachineCamera>();
         builder.RegisterEntryPoint<CameraController>(Lifetime.Scoped).AsSelf();
         
-        builder.Register<EntitySpawner>(Lifetime.Singleton);
+        builder.Register<CreatureSpawner>(Lifetime.Singleton);
         builder.RegisterComponentInHierarchy<UnitySpawner>();
         
         builder.RegisterComponentInHierarchy<UIManager>();
