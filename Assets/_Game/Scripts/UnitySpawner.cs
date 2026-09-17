@@ -13,7 +13,7 @@ namespace _Game.Scripts
 public class UnitySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _prefab;
-    [SerializeField] private int _maxEntities = 5;
+    [SerializeField] private int _maxCreatures = 500;
     [SerializeField] private float _interval = 1f;
     [SerializeField] private int _count;
 
@@ -37,19 +37,19 @@ public class UnitySpawner : MonoBehaviour
     {
         try
         {
-            while (_count < _maxEntities)
+            while (_count < _maxCreatures)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
-                var entity = Instantiate(_prefab, _container);
-                var body = entity.GetComponent<Rigidbody2D>();
-                var view = entity.GetComponent<EntityView>();
-                var render = entity.GetComponent<SpriteRenderer>();
+                var creature = Instantiate(_prefab, _container);
+                var body = creature.GetComponent<Rigidbody2D>();
+                var view = creature.GetComponent<EntityView>();
+                var render = creature.GetComponent<SpriteRenderer>();
                 
                 var spawnPoint = Vector2.zero;
                 
                 if (_count < 1)
                 {
-                    entity.transform.position = spawnPoint;
+                    creature.transform.position = spawnPoint;
                     var gid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
                     view.EntityGid = gid;
                     OnPlayerSpawned?.Invoke(gid);
@@ -58,7 +58,7 @@ public class UnitySpawner : MonoBehaviour
                 else
                 {
                     spawnPoint = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
-                    entity.transform.position = spawnPoint;
+                    creature.transform.position = spawnPoint;
                     view.EntityGid = _spawner.SpawnEnemy(spawnPoint, body, view, _enemyConfig);
                     render.sprite = _enemyConfig.Sprite;
                 }

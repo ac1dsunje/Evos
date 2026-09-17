@@ -6,6 +6,11 @@ namespace _Game.Scripts.Configs
 public class EntityConfig : ScriptableObject
 {
     [field: SerializeField] public Sprite Sprite { get; private set; }
+
+    [Header("Experience")]
+    [field: SerializeField] public int Experience { get; private set; }
+    [field: SerializeField] public int ExperienceSet { get; private set; } = 5;
+    [field: SerializeField] public int Level { get; private set; }
     
     [Header("Attack")]
     [field: SerializeField] public float PhysicalDamage { get; private set; }

@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.UnitySpawner
   _prefab: {fileID: 5270267222321735869, guid: 57a834fdb11714e428916d82ab146e36, type: 3}
-  _maxEntities: 500
+  _maxCreatures: 500
   _interval: 0.02
   _count: 0
   _container: {fileID: 2584980294207898651}
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2584980294207898651}
   m_Layer: 0
-  m_Name: EntitiesContainer
+  m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

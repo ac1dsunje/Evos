@@ -31,8 +31,8 @@ public class CreatureSpawner
             new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
             new ViewComponent { View = view },
-            new ExperienceComponent { Value = 0, Set = 5 },
-            new LevelComponent { Value = 0 }
+            new ExperienceComponent { Value = config.Experience, Set = config.ExperienceSet },
+            new LevelComponent { Value = config.Level }
         );
         
         W.SendEvent(new InitStatsEvent
