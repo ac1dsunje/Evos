@@ -1,7 +1,6 @@
-﻿using _Game.Scripts.ECS.Core.Components;
-using FFS.Libraries.StaticEcs;
+﻿using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Systems.Movement
+namespace _Game.Scripts.ECS.Features.Body
 {
 public struct PositionSynchronizerSystem : ISystem
 {

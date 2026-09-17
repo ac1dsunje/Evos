@@ -2,7 +2,7 @@
 using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
-namespace _Game.Scripts.ECS.Core.Components
+namespace _Game.Scripts.ECS.Features.Body
 {
 public struct PositionComponent : IComponent
 {

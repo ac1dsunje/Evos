@@ -2,6 +2,7 @@
 using _Game.Scripts.ECS.Core.Components;
 using _Game.Scripts.ECS.Core.Events;
 using _Game.Scripts.ECS.Core.Tags;
+using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;

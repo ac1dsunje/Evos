@@ -5,7 +5,6 @@ using _Game.Scripts.ECS.Core.Components.Stats.Breathing;
 using _Game.Scripts.ECS.Core.Components.Stats.Defense;
 using _Game.Scripts.ECS.Core.Components.Stats.Health;
 using _Game.Scripts.ECS.Core.Components.Stats.Movement;
-using _Game.Scripts.ECS.Core.Events;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Social;

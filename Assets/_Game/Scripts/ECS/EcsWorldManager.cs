@@ -2,7 +2,7 @@
 using _Game.Scripts.ECS.Core.Systems;
 using _Game.Scripts.ECS.Core.Systems.Health;
 using _Game.Scripts.ECS.Core.Systems.Input;
-using _Game.Scripts.ECS.Core.Systems.Movement;
+using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
