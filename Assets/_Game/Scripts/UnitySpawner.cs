@@ -43,9 +43,11 @@ public class UnitySpawner : MonoBehaviour
     {
         _cts = new CancellationTokenSource();
         
-        await LoadPrefabAsync(_cts.Token);
-        await LoadPlayerConfigAsync(_cts.Token);
-        await LoadEnemyConfigAsync(_cts.Token);
+        var prefabTask = LoadPrefabAsync(_cts.Token);
+        var playerTask = LoadPlayerConfigAsync(_cts.Token);
+        var enemyTask = LoadEnemyConfigAsync(_cts.Token);
+
+        await UniTask.WhenAll(prefabTask, playerTask, enemyTask);
             
         SpawnPlayer(_playerConfig);
             
