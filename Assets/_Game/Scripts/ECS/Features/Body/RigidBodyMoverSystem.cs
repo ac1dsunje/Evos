@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Core.WorldResources;
+﻿using _Game.Scripts.ECS.Core.WorldResources;
 using _Game.Scripts.ECS.Features.Input;
 using _Game.Scripts.ECS.Features.Movement;
 using FFS.Libraries.StaticEcs;

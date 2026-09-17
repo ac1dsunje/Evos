@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Features.Attack;
+﻿using _Game.Scripts.ECS.Features.Attack;
 using _Game.Scripts.ECS.Features.Biomes;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Biomes.Temperature;
@@ -8,6 +7,7 @@ using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Health;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Movement;
+using _Game.Scripts.ECS.Features.Picking;
 using _Game.Scripts.ECS.Features.Regeneration;
 using _Game.Scripts.ECS.Features.Social;
 using FFS.Libraries.StaticEcs;

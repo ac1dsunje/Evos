@@ -1,6 +1,5 @@
 ﻿using System;
 using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Core.Components;
 using _Game.Scripts.ECS.Features.Body;
 using FFS.Libraries.StaticEcs;
 using Unity.Cinemachine;
