@@ -7,6 +7,7 @@ using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
+using _Game.Scripts.ECS.Features.Regeneration;
 using FFS.Libraries.StaticEcs.Unity;
 using VContainer.Unity;
 

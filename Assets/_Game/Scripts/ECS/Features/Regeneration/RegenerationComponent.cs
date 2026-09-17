@@ -2,7 +2,7 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Stats.Health
+namespace _Game.Scripts.ECS.Features.Regeneration
 {
 [Serializable]
 public struct RegenerationComponent : IComponent

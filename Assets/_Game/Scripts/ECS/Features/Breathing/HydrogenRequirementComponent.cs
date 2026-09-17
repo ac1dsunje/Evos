@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Stats.Breathing
+namespace _Game.Scripts.ECS.Features.Breathing
 {
 [Serializable]
-public struct OxygenRequirementComponent : IComponent
+public struct HydrogenRequirementComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

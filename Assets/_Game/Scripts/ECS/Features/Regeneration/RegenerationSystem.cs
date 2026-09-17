@@ -4,7 +4,7 @@ using _Game.Scripts.ECS.Core.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.ECS.Core.Systems.Health
+namespace _Game.Scripts.ECS.Features.Regeneration
 {
 public struct RegenerationSystem : ISystem
 {
