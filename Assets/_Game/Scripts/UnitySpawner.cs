@@ -19,8 +19,8 @@ public class UnitySpawner : MonoBehaviour
 
     [SerializeField] private Transform _container;
 
-    [SerializeField] private EntityConfig _playerConfig;
-    [SerializeField] private EntityConfig _enemyConfig;
+    [SerializeField] private CreatureConfig _playerConfig;
+    [SerializeField] private CreatureConfig _enemyConfig;
     
     [Inject] private CreatureSpawner _spawner;
     

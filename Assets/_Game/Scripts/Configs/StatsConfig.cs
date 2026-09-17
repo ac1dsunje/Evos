@@ -1,17 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Game.Scripts.Configs
 {
-[CreateAssetMenu(fileName = "EntityConfig", menuName = "Configs/Entity")]
-public class EntityConfig : ScriptableObject
+[Serializable]
+public class StatsConfig
 {
-    [field: SerializeField] public Sprite Sprite { get; private set; }
-
-    [Header("Experience")]
-    [field: SerializeField] public int Experience { get; private set; }
-    [field: SerializeField] public int ExperienceSet { get; private set; } = 5;
-    [field: SerializeField] public int Level { get; private set; }
-    
     [Header("Attack")]
     [field: SerializeField] public float PhysicalDamage { get; private set; }
     
