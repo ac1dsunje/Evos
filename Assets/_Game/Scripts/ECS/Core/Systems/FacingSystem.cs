@@ -9,11 +9,12 @@ public struct FacingSystem : ISystem
     {
         foreach (var entity in W.Query<All<ViewComponent, InputComponent>>().Entities())
         {
-            ref var view = ref entity.Ref<ViewComponent>();
             ref readonly var input = ref entity.Read<InputComponent>();
             
             var hasMovement = input.Direction.sqrMagnitude > 0.001f;
             if (!hasMovement) continue;
+            
+            ref var view = ref entity.Ref<ViewComponent>();
             
             var currentScale = view.View.transform.localScale;
             currentScale.x = input.Direction.x < 0f ? -1f : 1f;
