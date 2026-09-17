@@ -1,6 +1,6 @@
 ﻿using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Events
+namespace _Game.Scripts.ECS.Core.Combat
 {
 public struct DamageEvent : IEvent
 {

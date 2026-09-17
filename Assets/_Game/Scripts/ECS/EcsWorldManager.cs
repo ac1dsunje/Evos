@@ -1,7 +1,7 @@
 ﻿using System;
-using _Game.Scripts.ECS.Core.Systems;
+using _Game.Scripts.ECS.Core.Combat;
+using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Body;
-using _Game.Scripts.ECS.Features.Breathing;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;

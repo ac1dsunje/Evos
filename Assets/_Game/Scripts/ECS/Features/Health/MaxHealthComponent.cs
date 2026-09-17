@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Health
+namespace _Game.Scripts.ECS.Features.Health
 {
 [Serializable]
-public struct ExtraLivesComponent : IComponent
+public struct MaxHealthComponent : IComponent, ITrackableChanged
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

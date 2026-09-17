@@ -1,6 +1,6 @@
 ﻿using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Features.Breathing
+namespace _Game.Scripts.ECS.Features.Biomes.Breathing
 {
 public struct BreathingCheckSystem : ISystem
 {

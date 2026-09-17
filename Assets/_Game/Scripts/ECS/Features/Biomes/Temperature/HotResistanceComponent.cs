@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Health
+namespace _Game.Scripts.ECS.Features.Biomes.Temperature
 {
 [Serializable]
-public struct HealthComponent : IComponent, ITrackableChanged
+public struct HotResistanceComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

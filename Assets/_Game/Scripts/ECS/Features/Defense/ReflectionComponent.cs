@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Features.Breathing
+namespace _Game.Scripts.ECS.Features.Defense
 {
 [Serializable]
-public struct OxygenRequirementComponent : IComponent, IDisableable, ITrackableChanged
+public struct ReflectionComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

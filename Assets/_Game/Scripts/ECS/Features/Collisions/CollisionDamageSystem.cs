@@ -1,5 +1,5 @@
-﻿using _Game.Scripts.ECS.Core.Components.Attack;
-using _Game.Scripts.ECS.Core.Events;
+﻿using _Game.Scripts.ECS.Core.Combat;
+using _Game.Scripts.ECS.Features.Attack;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Collisions
@@ -29,8 +29,8 @@ public struct CollisionDamageSystem : ISystem
             ref readonly var damage = ref source.Read<PhysicalDamageComponent>();
             if (damage.Value <= 0f) continue;
 
-            var ignoreRes = source.Has<DamageResistanceIgnoreComponent>()
-                ? source.Read<DamageResistanceIgnoreComponent>().Value
+            var ignoreRes = source.Has<ResistanceIgnoreComponent>()
+                ? source.Read<ResistanceIgnoreComponent>().Value
                 : 0f;
 
             W.SendEvent(new DamageEvent

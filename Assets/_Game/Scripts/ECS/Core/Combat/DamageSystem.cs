@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Core.Components.Defense;
-using _Game.Scripts.ECS.Core.Components.Health;
-using _Game.Scripts.ECS.Core.Events;
+using _Game.Scripts.ECS.Features.Defense;
+using _Game.Scripts.ECS.Features.Health;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Systems
+namespace _Game.Scripts.ECS.Core.Combat
 {
 public struct DamageSystem : ISystem
 {
@@ -32,8 +30,8 @@ public struct DamageSystem : ISystem
             
             ref var health = ref target.Mut<HealthComponent>();
             
-            var resistance = target.Has<DamageResistanceComponent>()
-                ? target.Read<DamageResistanceComponent>().Value
+            var resistance = target.Has<ResistanceComponent>()
+                ? target.Read<ResistanceComponent>().Value
                 : 0f;
             
             var effectiveRes = MathF.Max(0f, resistance - e.Value.IgnoreResistance);
@@ -43,8 +41,8 @@ public struct DamageSystem : ISystem
             
             health.Value -= appliedDamage;
 
-            var reflect = target.Has<DamageReflectionComponent>()
-                ? target.Read<DamageReflectionComponent>().Value / 100f * appliedDamage
+            var reflect = target.Has<ReflectionComponent>()
+                ? target.Read<ReflectionComponent>().Value / 100f * appliedDamage
                 : 0f;
 
             if (reflect <= 0f) continue;

@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Defense
+namespace _Game.Scripts.ECS.Features.Biomes.Breathing
 {
 [Serializable]
-public struct DamageResistanceComponent : IComponent
+public struct HydrogenRequirementComponent : IComponent, IDisableable, ITrackableChanged
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

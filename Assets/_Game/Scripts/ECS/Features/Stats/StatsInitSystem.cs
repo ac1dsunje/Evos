@@ -1,14 +1,15 @@
 ﻿using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Core.Components.Attack;
-using _Game.Scripts.ECS.Core.Components.Defense;
-using _Game.Scripts.ECS.Core.Components.Health;
-using _Game.Scripts.ECS.Features.Breathing;
+using _Game.Scripts.ECS.Features.Attack;
+using _Game.Scripts.ECS.Features.Biomes;
+using _Game.Scripts.ECS.Features.Biomes.Breathing;
+using _Game.Scripts.ECS.Features.Biomes.Temperature;
+using _Game.Scripts.ECS.Features.Defense;
 using _Game.Scripts.ECS.Features.Endurance;
+using _Game.Scripts.ECS.Features.Health;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Movement;
 using _Game.Scripts.ECS.Features.Regeneration;
 using _Game.Scripts.ECS.Features.Social;
-using _Game.Scripts.ECS.Features.Temperature;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Stats
@@ -54,8 +55,8 @@ public struct StatsInitSystem : ISystem
             target.Set(new ColdResistanceComponent { Value = config.ColdResistance });
             target.Set(new HotResistanceComponent { Value = config.HotResistance });
             
-            target.Set(new DamageReflectionComponent { Value = config.DamageReflection });
-            target.Set(new DamageResistanceComponent { Value = config.DamageResistance });
+            target.Set(new ReflectionComponent { Value = config.Reflection });
+            target.Set(new ResistanceComponent { Value = config.Resistance });
             
             target.Set(new OxygenRequirementComponent { Value = config.OxygenRequirement });
             target.Set(new HydrogenRequirementComponent { Value = config.HydrogenRequirement });
@@ -65,7 +66,7 @@ public struct StatsInitSystem : ISystem
             target.Set(new PassAbilityComponent { Value = config.PassAbility });
             
             target.Set(new PhysicalDamageComponent { Value = config.PhysicalDamage });
-            target.Set(new DamageResistanceIgnoreComponent { Value = config.DamageIgnoreResistance });
+            target.Set(new ResistanceIgnoreComponent { Value = config.IgnoreResistance });
             
             target.Set(new PickingRangeComponent { Value = config.PickingRange });
         }
