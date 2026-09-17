@@ -1,7 +1,7 @@
 ﻿using _Game.Scripts.Configs;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Events
+namespace _Game.Scripts.ECS.Features.Stats
 {
 public struct InitStatsEvent : IEvent
 {

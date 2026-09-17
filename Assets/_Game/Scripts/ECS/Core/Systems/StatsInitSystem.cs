@@ -9,6 +9,7 @@ using _Game.Scripts.ECS.Core.Events;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Social;
+using _Game.Scripts.ECS.Features.Stats;
 using _Game.Scripts.ECS.Features.Temperature;
 using FFS.Libraries.StaticEcs;
 
