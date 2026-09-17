@@ -1,13 +1,12 @@
 ﻿using System;
 using _Game.Scripts.ECS.Core.Systems;
-using _Game.Scripts.ECS.Core.Systems.Health;
-using _Game.Scripts.ECS.Core.Systems.Input;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Breathing;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
+using _Game.Scripts.ECS.Features.Input;
 using _Game.Scripts.ECS.Features.Regeneration;
 using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs.Unity;

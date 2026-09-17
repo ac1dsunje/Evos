@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Stats.Movement
+namespace _Game.Scripts.ECS.Features.Movement
 {
 [Serializable]
-public struct MaxSpeedComponent : IComponent
+public struct SprintMultiplierComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }

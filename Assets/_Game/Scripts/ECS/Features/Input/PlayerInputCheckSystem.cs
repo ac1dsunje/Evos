@@ -1,9 +1,8 @@
 ﻿using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Core.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.ECS.Core.Systems.Input
+namespace _Game.Scripts.ECS.Features.Input
 {
 public struct PlayerInputCheckSystem : ISystem
 {

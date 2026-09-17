@@ -5,7 +5,7 @@ using _Game.Scripts.ECS.Core.Components.Stats.Defense;
 using _Game.Scripts.ECS.Core.Events;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Systems.Health
+namespace _Game.Scripts.ECS.Core.Systems
 {
 public struct DamageSystem : ISystem
 {
