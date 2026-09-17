@@ -1,7 +1,6 @@
-﻿using _Game.Scripts.ECS.Core.Events;
-using FFS.Libraries.StaticEcs;
+﻿using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Systems.Health
+namespace _Game.Scripts.ECS.Features.Death
 {
 public struct DeathSystem : ISystem
 {
