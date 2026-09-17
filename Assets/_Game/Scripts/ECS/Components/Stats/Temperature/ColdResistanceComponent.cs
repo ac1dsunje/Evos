@@ -1,9 +1,12 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using System;
+using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 
 namespace _Game.Scripts.ECS.Components.Stats.Temperature
 {
+[Serializable]
 public struct ColdResistanceComponent : IComponent
 {
-    public float Value;
+    [StaticEcsEditorTableValue(180f)] public float Value;
 }
 }

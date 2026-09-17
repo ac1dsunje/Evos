@@ -1,10 +1,11 @@
 ﻿using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
 namespace _Game.Scripts.ECS.Components
 {
 public struct PositionComponent : IComponent
 {
-    public Vector3 Position;
+    [StaticEcsEditorTableValue(180f)] public Vector3 Position;
 }
 }

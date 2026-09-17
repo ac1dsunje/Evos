@@ -1,9 +1,12 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using System;
+using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 
 namespace _Game.Scripts.ECS.Components.Stats.Endurance
 {
+[Serializable]
 public struct MaxEnduranceComponent : IComponent, ITrackableChanged
 {
-    public float Value;
+    [StaticEcsEditorTableValue(180f)] public float Value;
 }
 }

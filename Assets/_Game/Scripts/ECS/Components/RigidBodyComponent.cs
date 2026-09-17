@@ -1,10 +1,11 @@
 ﻿using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
 namespace _Game.Scripts.ECS.Components
 {
 public struct RigidBodyComponent : IComponent
 {
-    public Rigidbody2D Body;
+    [StaticEcsEditorTableValue(180f)] public Rigidbody2D Body;
 }
 }

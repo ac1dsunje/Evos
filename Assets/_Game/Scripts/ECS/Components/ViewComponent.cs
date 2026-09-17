@@ -1,11 +1,12 @@
 ﻿using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
 namespace _Game.Scripts.ECS.Components
 {
 public struct ViewComponent : IComponent
 {
-    public EntityView View;
+    [StaticEcsEditorTableValue(180f)] public EntityView View;
     
     public void OnDelete<TW>(World<TW>.Entity entity, HookReason reason) where TW : struct, IWorldType
     {

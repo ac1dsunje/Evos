@@ -15,77 +15,15 @@ MonoBehaviour:
   worlds:
   - worldTypeFullName: _Game.Scripts.ECS.GameWorld
     main:
-      selectedTabName: Events
+      selectedTabName: Entities
       drawRate: 0.5
       drawFrames: 2
     entities:
       componentColumns:
-      - _Game/Scripts/ECS/Components/EnduranceComponent
-      - _Game/Scripts/ECS/Components/HealthComponent
-      - _Game/Scripts/ECS/Components/HungerComponent
-      - _Game/Scripts/ECS/Components/InputComponent
-      - EntityName
-      - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
-      - _Game/Scripts/ECS/Components/PositionComponent
-      - _Game/Scripts/ECS/Components/RigidBodyComponent
       - _Game/Scripts/ECS/Components/ViewComponent
-      - _Game/Scripts/ECS/Components/Stats/InfluenceComponent
-      - _Game/Scripts/ECS/Components/Stats/MaxHungerComponent
-      - _Game/Scripts/ECS/Components/Stats/PassAbilityComponent
-      - _Game/Scripts/ECS/Components/Stats/PickingRangeComponent
-      - _Game/Scripts/ECS/Components/Stats/Temperature/ColdResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Temperature/HotResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/AccelerationComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/DashRangeComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/InertiaComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/MaxSpeedComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/SprintMultiplierComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/ExtraLivesComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/MaxHealthComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/RegenerationComponent
-      - _Game/Scripts/ECS/Components/Stats/Endurance/EnduranceRecoveryComponent
-      - _Game/Scripts/ECS/Components/Stats/Endurance/MaxEnduranceComponent
-      - _Game/Scripts/ECS/Components/Stats/Defense/DamageReflectionComponent
-      - _Game/Scripts/ECS/Components/Stats/Defense/DamageResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Breathing/HydrogenRequirementComponent
-      - _Game/Scripts/ECS/Components/Stats/Breathing/OxygenRequirementComponent
-      - _Game/Scripts/ECS/Components/Stats/Attack/DamageResistanceIgnoreComponent
-      - _Game/Scripts/ECS/Components/Stats/Attack/PhysicalDamageComponent
-      tagColumns:
-      - _Game/Scripts/ECS/Tags/AIControlledTag
-      - _Game/Scripts/ECS/Tags/PlayerControlledTag
+      tagColumns: []
       showTableDataTypes:
-      - _Game/Scripts/ECS/Components/EnduranceComponent
-      - _Game/Scripts/ECS/Components/HealthComponent
-      - _Game/Scripts/ECS/Components/HungerComponent
-      - _Game/Scripts/ECS/Components/InputComponent
-      - EntityName
-      - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
-      - _Game/Scripts/ECS/Components/PositionComponent
-      - _Game/Scripts/ECS/Components/RigidBodyComponent
       - _Game/Scripts/ECS/Components/ViewComponent
-      - _Game/Scripts/ECS/Components/Stats/InfluenceComponent
-      - _Game/Scripts/ECS/Components/Stats/MaxHungerComponent
-      - _Game/Scripts/ECS/Components/Stats/PassAbilityComponent
-      - _Game/Scripts/ECS/Components/Stats/PickingRangeComponent
-      - _Game/Scripts/ECS/Components/Stats/Temperature/ColdResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Temperature/HotResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/AccelerationComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/DashRangeComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/InertiaComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/MaxSpeedComponent
-      - _Game/Scripts/ECS/Components/Stats/Movement/SprintMultiplierComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/ExtraLivesComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/MaxHealthComponent
-      - _Game/Scripts/ECS/Components/Stats/Health/RegenerationComponent
-      - _Game/Scripts/ECS/Components/Stats/Endurance/EnduranceRecoveryComponent
-      - _Game/Scripts/ECS/Components/Stats/Endurance/MaxEnduranceComponent
-      - _Game/Scripts/ECS/Components/Stats/Defense/DamageReflectionComponent
-      - _Game/Scripts/ECS/Components/Stats/Defense/DamageResistanceComponent
-      - _Game/Scripts/ECS/Components/Stats/Breathing/HydrogenRequirementComponent
-      - _Game/Scripts/ECS/Components/Stats/Breathing/OxygenRequirementComponent
-      - _Game/Scripts/ECS/Components/Stats/Attack/DamageResistanceIgnoreComponent
-      - _Game/Scripts/ECS/Components/Stats/Attack/PhysicalDamageComponent
       sortByType: 
       maxEntityResult: 100
       pinnedEntities: 
