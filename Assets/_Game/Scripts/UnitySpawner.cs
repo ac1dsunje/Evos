@@ -5,6 +5,8 @@ using _Game.Scripts.ECS;
 using Cysharp.Threading.Tasks;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer;
 using Random = UnityEngine.Random;
 
@@ -12,7 +14,8 @@ namespace _Game.Scripts
 {
 public class UnitySpawner : MonoBehaviour
 {
-    [SerializeField] private EntityView _prefab;
+    private const string CreaturePrefabAddress = "Creature_prefab";
+    
     [SerializeField] private int _maxCreatures = 500;
     [SerializeField] private float _interval = 1f;
     [SerializeField] private int _count;
@@ -25,14 +28,37 @@ public class UnitySpawner : MonoBehaviour
     [Inject] private CreatureSpawner _spawner;
     
     private CancellationTokenSource _cts;
+    private AsyncOperationHandle<GameObject> _prefabHandle;
+    private GameObject _prefab;
+    
     public event Action<EntityGID> OnPlayerSpawned;
     
-    private void Start()
+    private async UniTaskVoid Start()
     {
-        SpawnPlayer(_playerConfig);
-        
         _cts = new CancellationTokenSource();
-        SpawnEnemiesLoop().Forget();
+        
+        try
+        {
+            await LoadPrefabAsync(_cts.Token);
+            
+            SpawnPlayer(_playerConfig);
+            
+            SpawnEnemiesLoop().Forget();
+        }
+        catch (OperationCanceledException)
+        {
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[UnitySpawner] Failed to initialize: {e}");
+        }
+    }
+    
+    private async UniTask LoadPrefabAsync(CancellationToken token)
+    {
+        _prefabHandle = Addressables.LoadAssetAsync<GameObject>(CreaturePrefabAddress);
+    
+        _prefab = await _prefabHandle.ToUniTask(cancellationToken: token);
     }
     
     private void SpawnPlayer(CreatureConfig config)
@@ -43,21 +69,20 @@ public class UnitySpawner : MonoBehaviour
 
     private void SpawnEnemy(CreatureConfig config)
     {
-        var gid = SpawnCreature(config, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
+        SpawnCreature(config, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
     }
 
     private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint)
     {
-        var view  = Instantiate(_prefab, _container);
+        var go = Instantiate(_prefab, _container);
+        var view = go.GetComponent<EntityView>();
         var body = view.Body;
         var render = view.Renderer;
         
         render.sprite = config.Sprite;
-        
         view.transform.position = spawnPoint;
         
         var gid = _spawner.SpawnCreature(spawnPoint, body, view, config);
-        
         view.EntityGid = gid;
         return gid;
     }
@@ -69,7 +94,6 @@ public class UnitySpawner : MonoBehaviour
             while (_count < _maxCreatures)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
-            
                 SpawnEnemy(_enemyConfig);
                 _count++;
             }
@@ -79,8 +103,16 @@ public class UnitySpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        _cts.Cancel();
-        _cts.Dispose();
+        if (_cts != null)
+        {
+            _cts.Cancel();
+            _cts.Dispose();
+        }
+        
+        if (_prefabHandle.IsValid())
+        {
+            Addressables.Release(_prefabHandle);
+        }
     }
 }
 }
