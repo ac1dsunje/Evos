@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.Configs;
+using _Game.Scripts.ECS.Core.EntityTypes; // <-- добавили
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Experience;
 using _Game.Scripts.ECS.Features.Input;
@@ -26,7 +27,7 @@ public class CreatureSpawner
     
     private World<GameWorld>.Entity CreateBaseCreature(Vector2 position, Rigidbody2D rigidBody, EntityView view, EntityConfig config)
     {
-        var creature = W.NewEntity<Default>().Set(
+        var creature = W.NewEntity<Creature>().Set(
             new PositionComponent { Position = position },
             new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
