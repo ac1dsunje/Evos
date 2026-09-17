@@ -8,7 +8,6 @@ public struct ExperienceUpdateSystem : ISystem
     {
         foreach (var entity in W.Query<AllChanged<ExperienceComponent>>().Entities())
         {
-            ref var level = ref entity.Mut<LevelComponent>();
             ref var experience = ref entity.Mut<ExperienceComponent>();
 
             while (experience.Value >= experience.Set)
@@ -16,6 +15,7 @@ public struct ExperienceUpdateSystem : ISystem
                 experience.Value -= experience.Set;
                 experience.Set++;
             
+                ref var level = ref entity.Mut<LevelComponent>();
                 level.Value++;
             }
         }
