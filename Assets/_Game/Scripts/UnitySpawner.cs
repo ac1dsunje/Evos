@@ -37,21 +37,11 @@ public class UnitySpawner : MonoBehaviour
     {
         _cts = new CancellationTokenSource();
         
-        try
-        {
-            await LoadPrefabAsync(_cts.Token);
+        await LoadPrefabAsync(_cts.Token);
             
-            SpawnPlayer(_playerConfig);
+        SpawnPlayer(_playerConfig);
             
-            SpawnEnemiesLoop().Forget();
-        }
-        catch (OperationCanceledException)
-        {
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"[UnitySpawner] Failed to initialize: {e}");
-        }
+        SpawnEnemiesLoop().Forget();
     }
     
     private async UniTask LoadPrefabAsync(CancellationToken token)
@@ -74,8 +64,7 @@ public class UnitySpawner : MonoBehaviour
 
     private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint)
     {
-        var go = Instantiate(_prefab, _container);
-        var view = go.GetComponent<EntityView>();
+        var view = Instantiate(_prefab, _container).GetComponent<EntityView>();
         var body = view.Body;
         var render = view.Renderer;
         
@@ -103,11 +92,8 @@ public class UnitySpawner : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_cts != null)
-        {
-            _cts.Cancel();
-            _cts.Dispose();
-        }
+        _cts.Cancel();
+        _cts.Dispose();
         
         if (_prefabHandle.IsValid())
         {
