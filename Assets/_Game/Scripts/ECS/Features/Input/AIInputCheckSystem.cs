@@ -16,10 +16,7 @@ public struct AIInputCheckSystem : ISystem
         
         _timer = 0f;
         
-        foreach (var entity in W.Query<All<
-                     InputComponent, 
-                     AIControlledTag
-                 >>().Entities())
+        foreach (var entity in W.Query<All<InputComponent, AIControlledTag>>().Entities())
         {
             ref var input = ref entity.Ref<InputComponent>();
             

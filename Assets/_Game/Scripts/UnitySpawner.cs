@@ -29,40 +29,50 @@ public class UnitySpawner : MonoBehaviour
     
     private void Start()
     {
+        SpawnPlayer(_playerConfig);
+        
         _cts = new CancellationTokenSource();
-        SpawnLoop().Forget();
+        SpawnEnemiesLoop().Forget();
     }
     
-    private async UniTaskVoid SpawnLoop()
+    private void SpawnPlayer(CreatureConfig config)
+    {
+        var gid = SpawnCreature(config, Vector2.zero, true);
+        OnPlayerSpawned?.Invoke(gid);
+    }
+
+    private void SpawnEnemy(CreatureConfig config)
+    {
+        var gid = SpawnCreature(config, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
+    }
+
+    private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint, bool player = false)
+    {
+        var creature = Instantiate(_prefab, _container);
+        var body = creature.GetComponent<Rigidbody2D>();
+        var view = creature.GetComponent<EntityView>();
+        var render = creature.GetComponent<SpriteRenderer>();
+        
+        creature.transform.position = spawnPoint;
+        
+        var gid = player 
+            ? _spawner.SpawnPlayer(spawnPoint, body, view, config) 
+            : _spawner.SpawnEnemy(spawnPoint, body, view, config);
+        
+        view.EntityGid = gid;
+        render.sprite = config.Sprite;
+        return gid;
+    }
+    
+    private async UniTaskVoid SpawnEnemiesLoop()
     {
         try
         {
             while (_count < _maxCreatures)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
-                var creature = Instantiate(_prefab, _container);
-                var body = creature.GetComponent<Rigidbody2D>();
-                var view = creature.GetComponent<EntityView>();
-                var render = creature.GetComponent<SpriteRenderer>();
-                
-                var spawnPoint = Vector2.zero;
-                
-                if (_count < 1)
-                {
-                    creature.transform.position = spawnPoint;
-                    var gid = _spawner.SpawnPlayer(spawnPoint, body, view, _playerConfig);
-                    view.EntityGid = gid;
-                    OnPlayerSpawned?.Invoke(gid);
-                    render.sprite = _playerConfig.Sprite;
-                }
-                else
-                {
-                    spawnPoint = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
-                    creature.transform.position = spawnPoint;
-                    view.EntityGid = _spawner.SpawnEnemy(spawnPoint, body, view, _enemyConfig);
-                    render.sprite = _enemyConfig.Sprite;
-                }
-
+            
+                SpawnEnemy(_enemyConfig);
                 _count++;
             }
         }
