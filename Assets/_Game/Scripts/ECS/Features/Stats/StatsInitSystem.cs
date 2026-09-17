@@ -9,11 +9,10 @@ using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Regeneration;
 using _Game.Scripts.ECS.Features.Social;
-using _Game.Scripts.ECS.Features.Stats;
 using _Game.Scripts.ECS.Features.Temperature;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Core.Systems
+namespace _Game.Scripts.ECS.Features.Stats
 {
 public struct StatsInitSystem : ISystem
 {
