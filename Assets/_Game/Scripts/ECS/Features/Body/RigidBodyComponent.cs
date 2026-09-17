@@ -1,9 +1,11 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using System;
+using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
 namespace _Game.Scripts.ECS.Features.Body
 {
+[Serializable]
 public struct RigidBodyComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public Rigidbody2D Body;

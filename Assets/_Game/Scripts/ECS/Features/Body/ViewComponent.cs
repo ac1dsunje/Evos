@@ -1,9 +1,11 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using System;
+using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
-using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Game.Scripts.ECS.Features.Body
 {
+[Serializable]
 public struct ViewComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public EntityView View;
