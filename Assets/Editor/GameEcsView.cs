@@ -10,7 +10,7 @@ namespace Editor
 {
     public class GameEcsView : StaticEcsView<GameWorld, EntityProvider, EventProvider>
     {
-        [MenuItem("Game/StaticECS/OpenViewStandalone")]
+        [MenuItem("Window/StaticECS/OpenView")]
         public static void OpenWindow()
         {
             EnsureEntityNameColumn();
