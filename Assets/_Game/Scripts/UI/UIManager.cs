@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using _Game.Scripts.ECS;
 using _Game.Scripts.ECS.Core.Components;
-using _Game.Scripts.ECS.Core.Components.Stats.Health;
+using _Game.Scripts.ECS.Core.Components.Health;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.UI.Bars;

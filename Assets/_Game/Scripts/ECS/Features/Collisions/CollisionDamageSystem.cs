@@ -1,4 +1,4 @@
-﻿using _Game.Scripts.ECS.Core.Components.Stats.Attack;
+﻿using _Game.Scripts.ECS.Core.Components.Attack;
 using _Game.Scripts.ECS.Core.Events;
 using FFS.Libraries.StaticEcs;
 

@@ -2,7 +2,7 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Stats.Attack
+namespace _Game.Scripts.ECS.Core.Components.Attack
 {
 [Serializable]
 public struct DamageResistanceIgnoreComponent : IComponent

@@ -2,10 +2,10 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core.Components.Stats.Attack
+namespace _Game.Scripts.ECS.Core.Components.Defense
 {
 [Serializable]
-public struct PhysicalDamageComponent : IComponent
+public struct DamageReflectionComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }
