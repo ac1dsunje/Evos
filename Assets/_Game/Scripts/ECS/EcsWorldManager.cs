@@ -5,6 +5,7 @@ using _Game.Scripts.ECS.Systems;
 using _Game.Scripts.ECS.Systems.Health;
 using _Game.Scripts.ECS.Systems.Input;
 using _Game.Scripts.ECS.Systems.Movement;
+using _Game.Scripts.ECS.WorldResources;
 
 namespace _Game.Scripts.ECS
 {
@@ -15,13 +16,13 @@ public class EcsWorldManager : IStartable, IDisposable
         W.Create();
         GameSys.Create();
         FixedSys.Create();
-        
+
         EcsDebug<GameWorld>.AddWorld<GameSystems>();
         EcsDebug<GameWorld>.AddWorld<FixedSystems>();
-        
+
         W.Types().RegisterAll();
         W.Initialize();
-        
+
         GameSys.Add(new StatsInitSystem(), order: 0);
         GameSys.Add(new PlayerInputCheckSystem(), order: 1);
         GameSys.Add(new AIInputCheckSystem(), order: 1);
@@ -38,7 +39,9 @@ public class EcsWorldManager : IStartable, IDisposable
         
         FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
         FixedSys.Initialize();
-    }
+        
+        W.SetResource(new HungerDecayRate { Value = 0.2f });
+}
 
     public void Dispose()
     {
