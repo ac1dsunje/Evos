@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33891bec36d852fc70993623063c036e, type: 3}
+  m_Name: StaticEcsViewConfig
+  m_EditorClassIdentifier: FFS.StaticEcs.Unity.Editor::FFS.Libraries.StaticEcs.Unity.Editor.StaticEcsViewConfig
+  worlds:
+  - worldTypeFullName: _Game.Scripts.ECS.GameWorld
+    main:
+      selectedTabName: Entities
+      drawRate: 0.5
+      drawFrames: 2
+    entities:
+      componentColumns:
+      - EntityName
+      - _Game/Scripts/ECS/Components/EnduranceComponent
+      - _Game/Scripts/ECS/Components/HealthComponent
+      - _Game/Scripts/ECS/Components/HungerComponent
+      - _Game/Scripts/ECS/Components/InputComponent
+      - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
+      - _Game/Scripts/ECS/Components/PositionComponent
+      - _Game/Scripts/ECS/Components/RigidBodyComponent
+      - _Game/Scripts/ECS/Components/ViewComponent
+      - _Game/Scripts/ECS/Components/Stats/InfluenceComponent
+      - _Game/Scripts/ECS/Components/Stats/MaxHungerComponent
+      - _Game/Scripts/ECS/Components/Stats/PassAbilityComponent
+      - _Game/Scripts/ECS/Components/Stats/PickingRangeComponent
+      - _Game/Scripts/ECS/Components/Stats/Temperature/ColdResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Temperature/HotResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/AccelerationComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/DashRangeComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/InertiaComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/MaxSpeedComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/SprintMultiplierComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/ExtraLivesComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/MaxHealthComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/RegenerationComponent
+      - _Game/Scripts/ECS/Components/Stats/Endurance/EnduranceRecoveryComponent
+      - _Game/Scripts/ECS/Components/Stats/Endurance/MaxEnduranceComponent
+      - _Game/Scripts/ECS/Components/Stats/Defense/DamageReflectionComponent
+      - _Game/Scripts/ECS/Components/Stats/Defense/DamageResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Breathing/HydrogenRequirementComponent
+      - _Game/Scripts/ECS/Components/Stats/Breathing/OxygenRequirementComponent
+      - _Game/Scripts/ECS/Components/Stats/Attack/DamageResistanceIgnoreComponent
+      - _Game/Scripts/ECS/Components/Stats/Attack/PhysicalDamageComponent
+      tagColumns:
+      - _Game/Scripts/ECS/Tags/AIControlledTag
+      - _Game/Scripts/ECS/Tags/PlayerControlledTag
+      showTableDataTypes:
+      - EntityName
+      - _Game/Scripts/ECS/Components/EnduranceComponent
+      - _Game/Scripts/ECS/Components/HealthComponent
+      - _Game/Scripts/ECS/Components/HungerComponent
+      - _Game/Scripts/ECS/Components/InputComponent
+      - _Game/Scripts/ECS/Components/PhysicsMaterialComponent
+      - _Game/Scripts/ECS/Components/PositionComponent
+      - _Game/Scripts/ECS/Components/RigidBodyComponent
+      - _Game/Scripts/ECS/Components/ViewComponent
+      - _Game/Scripts/ECS/Components/Stats/InfluenceComponent
+      - _Game/Scripts/ECS/Components/Stats/MaxHungerComponent
+      - _Game/Scripts/ECS/Components/Stats/PassAbilityComponent
+      - _Game/Scripts/ECS/Components/Stats/PickingRangeComponent
+      - _Game/Scripts/ECS/Components/Stats/Temperature/ColdResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Temperature/HotResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/AccelerationComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/DashRangeComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/InertiaComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/MaxSpeedComponent
+      - _Game/Scripts/ECS/Components/Stats/Movement/SprintMultiplierComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/ExtraLivesComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/MaxHealthComponent
+      - _Game/Scripts/ECS/Components/Stats/Health/RegenerationComponent
+      - _Game/Scripts/ECS/Components/Stats/Endurance/EnduranceRecoveryComponent
+      - _Game/Scripts/ECS/Components/Stats/Endurance/MaxEnduranceComponent
+      - _Game/Scripts/ECS/Components/Stats/Defense/DamageReflectionComponent
+      - _Game/Scripts/ECS/Components/Stats/Defense/DamageResistanceComponent
+      - _Game/Scripts/ECS/Components/Stats/Breathing/HydrogenRequirementComponent
+      - _Game/Scripts/ECS/Components/Stats/Breathing/OxygenRequirementComponent
+      - _Game/Scripts/ECS/Components/Stats/Attack/DamageResistanceIgnoreComponent
+      - _Game/Scripts/ECS/Components/Stats/Attack/PhysicalDamageComponent
+      sortByType: 
+      maxEntityResult: 1000
+      pinnedEntities: 
+      filterActive: 1
+      gidFilterActive: 0
+      gidFilterValue: 0
+      filterAll: []
+      filterAllOnlyDisabled: []
+      filterAllWithDisabled: []
+      filterNone: []
+      filterNoneWithDisabled: []
+      filterAny: []
+      filterAnyOnlyDisabled: []
+      filterAnyWithDisabled: []
+      foldoutMode: 1
+      autoExpandComponentTypes: []
+      sortComponents: 0
+      defaultGroupExpanded: 1
+      groupOverrides: []
+    events:
+      latest: 1
+      filterTypeNames: []
+    stats:
+      showNotRegistered: 0
+      fragmentationThreshold: 512
+      foldoutEntityTypes: 1
+      foldoutEvents: 1
+      foldoutComponents: 1
+      foldoutTags: 1
+    systems:
+      drawLevel: 10
