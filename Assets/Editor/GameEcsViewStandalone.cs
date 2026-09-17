@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.StandaloneEditorTool;
 using FFS.Libraries.StaticEcs.Unity.Editor;
 using UnityEditor;
 
-namespace _Game.Scripts.ECS.StandaloneEditorTool.Editor
+namespace Editor
 {
     public class GameEcsViewStandalone : StaticEcsView<GameWorld, StandaloneGameEntityProvider, StandaloneGameEventProvider>
     {

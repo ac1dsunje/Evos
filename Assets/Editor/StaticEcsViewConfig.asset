@@ -87,9 +87,9 @@ MonoBehaviour:
       - _Game/Scripts/ECS/Components/Stats/Attack/DamageResistanceIgnoreComponent
       - _Game/Scripts/ECS/Components/Stats/Attack/PhysicalDamageComponent
       sortByType: 
-      maxEntityResult: 1000
+      maxEntityResult: 100
       pinnedEntities: 
-      filterActive: 1
+      filterActive: 0
       gidFilterActive: 0
       gidFilterValue: 0
       filterAll: []
