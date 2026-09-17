@@ -5,6 +5,7 @@ using _Game.Scripts.ECS.Features.Breathing;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
+using _Game.Scripts.ECS.Features.Experience;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Input;
 using _Game.Scripts.ECS.Features.Regeneration;
@@ -40,6 +41,8 @@ public class EcsWorldManager : IStartable, IDisposable
         
         GameSys.Add(new RegenerationCheckSystem());
         GameSys.Add(new RegenerationSystem());
+
+        GameSys.Add(new ExperienceUpdateSystem());
         
         GameSys.Add(new EnduranceRecoverySystem());
         GameSys.Add(new LosingHungerSystem());

@@ -1,0 +1,13 @@
+﻿using System;
+using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
+
+namespace _Game.Scripts.ECS.Features.Experience
+{
+[Serializable]
+public struct ExperienceComponent : IComponent, ITrackableChanged
+{
+    [StaticEcsEditorTableValue(180f)] public int Value;
+    [StaticEcsEditorTableValue(180f)] public int Set;
+}
+}
