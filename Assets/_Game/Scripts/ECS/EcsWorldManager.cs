@@ -3,6 +3,7 @@ using _Game.Scripts.ECS.Core.Systems;
 using _Game.Scripts.ECS.Core.Systems.Health;
 using _Game.Scripts.ECS.Core.Systems.Input;
 using _Game.Scripts.ECS.Features.Body;
+using _Game.Scripts.ECS.Features.Breathing;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
@@ -29,12 +30,18 @@ public class EcsWorldManager : IStartable, IDisposable
         W.Initialize();
 
         GameSys.Add(new StatsInitSystem());
+        
         GameSys.Add(new PlayerInputCheckSystem());
         GameSys.Add(new AIInputCheckSystem());
+        
         GameSys.Add(new FacingSystem());
         GameSys.Add(new PositionSynchronizerSystem());
+        
+        GameSys.Add(new BreathingCheckSystem());
+        
         GameSys.Add(new RegenerationCheckSystem());
         GameSys.Add(new RegenerationSystem());
+        
         GameSys.Add(new EnduranceRecoverySystem());
         GameSys.Add(new LosingHungerSystem());
         GameSys.Add(new CollisionDamageSystem());

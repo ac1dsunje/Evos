@@ -5,7 +5,7 @@ using FFS.Libraries.StaticEcs.Unity;
 namespace _Game.Scripts.ECS.Features.Breathing
 {
 [Serializable]
-public struct OxygenRequirementComponent : IComponent
+public struct OxygenRequirementComponent : IComponent, IDisableable, ITrackableChanged
 {
     [StaticEcsEditorTableValue(180f)] public float Value;
 }
