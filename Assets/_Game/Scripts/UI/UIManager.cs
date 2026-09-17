@@ -5,6 +5,7 @@ using _Game.Scripts.ECS.Components;
 using _Game.Scripts.ECS.Components.Stats;
 using _Game.Scripts.ECS.Components.Stats.Endurance;
 using _Game.Scripts.ECS.Components.Stats.Health;
+using _Game.Scripts.ECS.Components.Stats.Hunger;
 using _Game.Scripts.UI.Bars;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
