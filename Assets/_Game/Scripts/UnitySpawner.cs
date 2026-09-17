@@ -14,20 +14,26 @@ namespace _Game.Scripts
 {
 public class UnitySpawner : MonoBehaviour
 {
-    private const string CreaturePrefabAddress = "Creature_prefab";
     
     [SerializeField] private int _maxCreatures = 500;
     [SerializeField] private float _interval = 1f;
-    [SerializeField] private int _count;
 
     [SerializeField] private Transform _container;
-
-    [SerializeField] private CreatureConfig _playerConfig;
-    [SerializeField] private CreatureConfig _enemyConfig;
     
     [Inject] private CreatureSpawner _spawner;
     
     private CancellationTokenSource _cts;
+    private int _count;
+    
+    private const string PlayerConfig = "Creature_player_config";
+    private AsyncOperationHandle<CreatureConfig> _playerHandle;
+    private CreatureConfig _playerConfig;
+    
+    private const string EnemyConfig = "Creature_mossGolem_config";
+    private AsyncOperationHandle<CreatureConfig> _enemyHandle;
+    private CreatureConfig _enemyConfig;
+    
+    private const string CreaturePrefabAddress = "Creature_prefab";
     private AsyncOperationHandle<GameObject> _prefabHandle;
     private GameObject _prefab;
     
@@ -38,6 +44,8 @@ public class UnitySpawner : MonoBehaviour
         _cts = new CancellationTokenSource();
         
         await LoadPrefabAsync(_cts.Token);
+        await LoadPlayerConfigAsync(_cts.Token);
+        await LoadEnemyConfigAsync(_cts.Token);
             
         SpawnPlayer(_playerConfig);
             
@@ -47,8 +55,19 @@ public class UnitySpawner : MonoBehaviour
     private async UniTask LoadPrefabAsync(CancellationToken token)
     {
         _prefabHandle = Addressables.LoadAssetAsync<GameObject>(CreaturePrefabAddress);
-    
         _prefab = await _prefabHandle.ToUniTask(cancellationToken: token);
+    }
+
+    private async UniTask LoadPlayerConfigAsync(CancellationToken token)
+    {
+        _playerHandle = Addressables.LoadAssetAsync<CreatureConfig>(PlayerConfig);
+        _playerConfig = await _playerHandle.ToUniTask(cancellationToken: token);
+    }
+    
+    private async UniTask LoadEnemyConfigAsync(CancellationToken token)
+    {
+        _enemyHandle = Addressables.LoadAssetAsync<CreatureConfig>(EnemyConfig);
+        _enemyConfig = await _enemyHandle.ToUniTask(cancellationToken: token);
     }
     
     private void SpawnPlayer(CreatureConfig config)
@@ -95,10 +114,11 @@ public class UnitySpawner : MonoBehaviour
         _cts.Cancel();
         _cts.Dispose();
         
-        if (_prefabHandle.IsValid())
-        {
-            Addressables.Release(_prefabHandle);
-        }
+        if (_prefabHandle.IsValid()) Addressables.Release(_prefabHandle);
+
+        if (_playerHandle.IsValid()) Addressables.Release(_playerHandle);
+
+        if (_enemyHandle.IsValid()) Addressables.Release(_enemyHandle);
     }
 }
 }
