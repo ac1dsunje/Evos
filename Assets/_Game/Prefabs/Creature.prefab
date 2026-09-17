@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a760154a6f094338bd22e0bfc6a1a6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.EntityView
+  <Body>k__BackingField: {fileID: 8133641146692367332}
+  <Renderer>k__BackingField: {fileID: 3728083156117336807}
 --- !u!70 &-7172299283766253140
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

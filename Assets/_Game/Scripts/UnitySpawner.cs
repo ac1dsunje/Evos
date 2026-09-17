@@ -12,7 +12,7 @@ namespace _Game.Scripts
 {
 public class UnitySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
+    [SerializeField] private EntityView _prefab;
     [SerializeField] private int _maxCreatures = 500;
     [SerializeField] private float _interval = 1f;
     [SerializeField] private int _count;
@@ -48,12 +48,11 @@ public class UnitySpawner : MonoBehaviour
 
     private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint, bool player = false)
     {
-        var creature = Instantiate(_prefab, _container);
-        var body = creature.GetComponent<Rigidbody2D>();
-        var view = creature.GetComponent<EntityView>();
-        var render = creature.GetComponent<SpriteRenderer>();
+        var view  = Instantiate(_prefab, _container);
+        var body = view.Body;
+        var render = view.Renderer;
         
-        creature.transform.position = spawnPoint;
+        view.transform.position = spawnPoint;
         
         var gid = player 
             ? _spawner.SpawnPlayer(spawnPoint, body, view, config) 
@@ -76,10 +75,7 @@ public class UnitySpawner : MonoBehaviour
                 _count++;
             }
         }
-        catch (OperationCanceledException)
-        {
-            
-        }
+        catch (OperationCanceledException) { }
     }
 
     private void OnDestroy()
