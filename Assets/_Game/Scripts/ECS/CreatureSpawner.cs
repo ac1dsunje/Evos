@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.Configs;
+﻿using System;
+using _Game.Scripts.Configs;
 using _Game.Scripts.ECS.Core.EntityTypes;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Experience;
@@ -11,21 +12,7 @@ namespace _Game.Scripts.ECS
 {
 public class CreatureSpawner
 {
-    public EntityGID SpawnPlayer(Vector2 position, Rigidbody2D rigidBody, EntityView view, CreatureConfig config)
-    {
-        var creature = CreateBaseCreature(position, rigidBody, view, config);
-        creature.Set<PlayerControlledTag>();
-        return creature.GID;
-    }
-    
-    public EntityGID SpawnEnemy(Vector2 position, Rigidbody2D rigidBody, EntityView view, CreatureConfig config)
-    {
-        var creature = CreateBaseCreature(position, rigidBody, view, config);
-        creature.Set<AIControlledTag>();
-        return creature.GID;
-    }
-    
-    private World<GameWorld>.Entity CreateBaseCreature(Vector2 position, Rigidbody2D rigidBody, EntityView view, CreatureConfig config)
+    public EntityGID SpawnCreature(Vector2 position, Rigidbody2D rigidBody, EntityView view, CreatureConfig config)
     {
         var creature = W.NewEntity<Creature>().Set(
             new PositionComponent { Position = position },
@@ -35,6 +22,17 @@ public class CreatureSpawner
             new ExperienceComponent { Value = 0, Set = config.Experience.Set },
             new LevelComponent { Value = 0 }
         );
+        switch (config.Input)
+        {
+            case CreatureInput.AI:
+                creature.Set<AIControlledTag>();
+                break;
+            case CreatureInput.Player:
+                creature.Set<PlayerControlledTag>();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         
         W.SendEvent(new InitStatsEvent
         {
@@ -42,7 +40,7 @@ public class CreatureSpawner
             Config = config
         });
         
-        return creature;
+        return creature.GID;
     }
 }
 }

@@ -37,7 +37,7 @@ public class UnitySpawner : MonoBehaviour
     
     private void SpawnPlayer(CreatureConfig config)
     {
-        var gid = SpawnCreature(config, Vector2.zero, true);
+        var gid = SpawnCreature(config, Vector2.zero);
         OnPlayerSpawned?.Invoke(gid);
     }
 
@@ -46,20 +46,19 @@ public class UnitySpawner : MonoBehaviour
         var gid = SpawnCreature(config, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
     }
 
-    private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint, bool player = false)
+    private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint)
     {
         var view  = Instantiate(_prefab, _container);
         var body = view.Body;
         var render = view.Renderer;
         
+        render.sprite = config.Sprite;
+        
         view.transform.position = spawnPoint;
         
-        var gid = player 
-            ? _spawner.SpawnPlayer(spawnPoint, body, view, config) 
-            : _spawner.SpawnEnemy(spawnPoint, body, view, config);
+        var gid = _spawner.SpawnCreature(spawnPoint, body, view, config);
         
         view.EntityGid = gid;
-        render.sprite = config.Sprite;
         return gid;
     }
     

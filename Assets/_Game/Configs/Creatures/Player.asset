@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd8b8b5b96c413a90f07e1b53773730, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Configs.EntityConfig
+  <Input>k__BackingField: 1
   <Sprite>k__BackingField: {fileID: -6291694362870226926, guid: 99fd818b2167a984b9e6a3854c843a7c, type: 3}
   <Experience>k__BackingField:
     <Set>k__BackingField: 5
