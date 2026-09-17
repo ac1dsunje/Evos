@@ -1,7 +1,7 @@
 ﻿using _Game.Scripts.Configs;
-using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Events;
-using _Game.Scripts.ECS.Tags;
+using _Game.Scripts.ECS.Core.Components;
+using _Game.Scripts.ECS.Core.Events;
+using _Game.Scripts.ECS.Core.Tags;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Events;
+﻿using _Game.Scripts.ECS.Core.Events;
+using _Game.Scripts.ECS.Features.Collisions;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

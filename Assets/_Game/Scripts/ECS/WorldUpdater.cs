@@ -1,4 +1,4 @@
-﻿using _Game.Scripts.ECS.WorldResources;
+﻿using _Game.Scripts.ECS.Core.WorldResources;
 using UnityEngine;
 using VContainer.Unity;
 

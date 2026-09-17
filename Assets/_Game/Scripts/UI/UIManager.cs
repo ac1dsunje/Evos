@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Components;
-using _Game.Scripts.ECS.Components.Stats;
-using _Game.Scripts.ECS.Components.Stats.Endurance;
-using _Game.Scripts.ECS.Components.Stats.Health;
-using _Game.Scripts.ECS.Components.Stats.Hunger;
+using _Game.Scripts.ECS.Core.Components;
+using _Game.Scripts.ECS.Core.Components.Stats.Health;
+using _Game.Scripts.ECS.Features.Endurance;
+using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.UI.Bars;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;

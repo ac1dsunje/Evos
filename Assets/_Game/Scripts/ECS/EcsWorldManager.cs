@@ -1,11 +1,13 @@
 ﻿using System;
+using _Game.Scripts.ECS.Core.Systems;
+using _Game.Scripts.ECS.Core.Systems.Health;
+using _Game.Scripts.ECS.Core.Systems.Input;
+using _Game.Scripts.ECS.Core.Systems.Movement;
+using _Game.Scripts.ECS.Features.Collisions;
+using _Game.Scripts.ECS.Features.Endurance;
+using _Game.Scripts.ECS.Features.Hunger;
 using FFS.Libraries.StaticEcs.Unity;
 using VContainer.Unity;
-using _Game.Scripts.ECS.Systems;
-using _Game.Scripts.ECS.Systems.Health;
-using _Game.Scripts.ECS.Systems.Input;
-using _Game.Scripts.ECS.Systems.Movement;
-using _Game.Scripts.ECS.WorldResources;
 
 namespace _Game.Scripts.ECS
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using _Game.Scripts.ECS;
-using _Game.Scripts.ECS.Components;
+using _Game.Scripts.ECS.Core.Components;
 using FFS.Libraries.StaticEcs;
 using Unity.Cinemachine;
 using VContainer.Unity;
