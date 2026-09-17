@@ -43,7 +43,7 @@ public class EcsWorldManager : IStartable, IDisposable
         FixedSys.Initialize();
         
         W.SetResource(new HungerDecayRate { Value = 0.2f });
-}
+    }
 
     public void Dispose()
     {
