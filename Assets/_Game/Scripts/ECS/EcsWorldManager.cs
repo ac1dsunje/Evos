@@ -43,6 +43,7 @@ public class EcsWorldManager : IStartable, IDisposable
         GameSys.Add(new RegenerationSystem());
 
         GameSys.Add(new ExperienceUpdateSystem());
+        GameSys.Add(new LevelUpdateSystem());
         
         GameSys.Add(new EnduranceRecoverySystem());
         GameSys.Add(new LosingHungerSystem());
