@@ -66,10 +66,9 @@ public struct StatsInitSystem : ISystem
             target.Set(new PassAbilityComponent { Value = config.PassAbility });
             
             target.Set(new PhysicalDamageComponent { Value = config.PhysicalDamage });
+            target.Set(new DamageResistanceIgnoreComponent { Value = config.DamageIgnoreResistance });
             
             target.Set(new PickingRangeComponent { Value = config.PickingRange });
-            
-            target.Set(new DamageResistanceIgnoreComponent { Value = config.DamageResistance });
         }
     }
 }

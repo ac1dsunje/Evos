@@ -8,6 +8,7 @@ public class StatsConfig
 {
     [Header("Attack")]
     [field: SerializeField] public float PhysicalDamage { get; private set; }
+    [field: SerializeField] public float DamageIgnoreResistance { get; private set; }
     
     [Header("Breathing")]
     [field: SerializeField] public float OxygenRequirement { get; private set; }
