@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.ECS.Core.EntityTypes;
 using FFS.Libraries.StaticEcs;
+using UnityEngine;
 
 namespace _Game.Scripts.ECS.Features.Experience
 {
@@ -12,12 +13,19 @@ public struct LevelUpdateSystem : ISystem
             ref readonly var level = ref entity.Read<LevelComponent>();
             if (level.Value == 0) continue;
 
-            for (var i = 0; i < 3; i++)
+            if (entity.Is<Creature>())
             {
-                W.NewEntity<Evolution>().Set(
-                    new ExperienceComponent { Value = 0, Set = 5 },
-                    new LevelComponent { Value = 0 }
-                );
+                for (var i = 0; i < 3; i++)
+                {
+                    W.NewEntity<Evolution>().Set(
+                        new ExperienceComponent { Value = 0, Set = 5 },
+                        new LevelComponent { Value = 0 }
+                    );
+                }
+            }
+            else if (entity.Is<Evolution>())
+            {
+                Debug.Log($"evolution level up!");
             }
         }
     }
