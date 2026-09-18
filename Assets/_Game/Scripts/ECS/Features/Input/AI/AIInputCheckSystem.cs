@@ -10,9 +10,9 @@ public struct AIInputCheckSystem : ISystem
     {
         var dt = W.GetResource<DeltaTimeResource>().Value;
         
-        foreach (var entity in W.Query<All<InputComponent, AIControlledTag, AIThinkTimer>>().Entities())
+        foreach (var entity in W.Query<All<InputComponent, AIControlledTag, AIThinkTimerComponent>>().Entities())
         {
-            ref var timer = ref entity.Ref<AIThinkTimer>();
+            ref var timer = ref entity.Ref<AIThinkTimerComponent>();
             timer.Current += dt;
             if (timer.Current >= timer.Interval)
             {

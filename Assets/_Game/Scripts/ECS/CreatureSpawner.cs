@@ -28,7 +28,7 @@ public class CreatureSpawner
         {
             case CreatureInput.AI:
                 creature.Set<AIControlledTag>();
-                creature.Set(new AIThinkTimer { Interval = 1f });
+                creature.Set(new AIThinkTimerComponent { Interval = 1f });
                 break;
             case CreatureInput.Player:
                 creature.Set<PlayerControlledTag>();
