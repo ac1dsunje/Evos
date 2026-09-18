@@ -1,5 +1,6 @@
+using _Game.Scripts.ECS.Core;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core {
+namespace _Game.View.Events.Mouse {
     public sealed class GameWorldMouseUpAsButtonEntityGID : MouseUpAsButtonEntityGIDProvider<GameWorld> { }
 }
