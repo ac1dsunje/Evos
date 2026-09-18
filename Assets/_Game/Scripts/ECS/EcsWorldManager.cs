@@ -4,12 +4,10 @@ using _Game.Scripts.Configs;
 using _Game.Scripts.ECS.Core;
 using _Game.Scripts.ECS.Core.Combat;
 using _Game.Scripts.ECS.Core.Timer;
-using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Collisions;
 using _Game.Scripts.ECS.Features.Dashing;
 using _Game.Scripts.ECS.Features.Death;
-using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Experience;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.ECS.Features.Input;
@@ -57,15 +55,12 @@ public class EcsWorldManager : IInitializable, IDisposable
         GameSys.Add(new FacingSystem());
         GameSys.Add(new PositionSynchronizerSystem());
         
-        GameSys.Add(new BreathingCheckSystem());
-        
         GameSys.Add(new RegenerationCheckSystem());
         GameSys.Add(new RegenerationSystem());
         
         GameSys.Add(new ExperienceUpdateSystem());
         GameSys.Add(new LevelUpdateSystem());
         
-        GameSys.Add(new EnduranceRecoverySystem());
         GameSys.Add(new LosingHungerSystem());
         
         GameSys.Add(new CollisionDamageSystem());

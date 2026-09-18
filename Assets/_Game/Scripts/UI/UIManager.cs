@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using _Game.Scripts.ECS;
 using _Game.Scripts.ECS.Core;
-using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Health;
 using _Game.Scripts.ECS.Features.Hunger;
 using _Game.Scripts.UI.Bars;
@@ -41,7 +39,6 @@ namespace _Game.Scripts.UI
             return type switch
             {
                 BarType.Health => ReadHealthValue,
-                BarType.Endurance => ReadEnduranceValue,
                 BarType.Hunger => ReadHungerValue,
                 _ => _ => 0f
             };
@@ -51,14 +48,6 @@ namespace _Game.Scripts.UI
         {
             ref readonly var current = ref entity.Read<HealthComponent>();
             ref readonly var max = ref entity.Read<MaxHealthComponent>();
-
-            return max.Value > 0f ? current.Value / max.Value : 0f;
-        }
-
-        private static float ReadEnduranceValue(W.Entity entity)
-        {
-            ref readonly var current = ref entity.Read<EnduranceComponent>();
-            ref readonly var max = ref entity.Read<MaxEnduranceComponent>();
 
             return max.Value > 0f ? current.Value / max.Value : 0f;
         }
