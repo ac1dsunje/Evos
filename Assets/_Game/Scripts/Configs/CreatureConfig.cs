@@ -9,7 +9,7 @@ public enum CreatureInput
     Player = 1,
 }
 
-[CreateAssetMenu(fileName = "CreatureConfig", menuName = "Configs/Creature")]
+[CreateAssetMenu(fileName = "CreatureConfig", menuName = "Configs/Creatures/Creature")]
 public class CreatureConfig : ScriptableObject, IResource
 {
     [field: SerializeField] public CreatureInput Input { get; private set; }

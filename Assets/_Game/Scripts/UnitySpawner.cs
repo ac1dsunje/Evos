@@ -13,8 +13,6 @@ namespace _Game.Scripts
 {
 public class UnitySpawner : MonoBehaviour
 {
-    [SerializeField] private int _maxCreatures = 500;
-    [SerializeField] private float _interval = 1f;
     [SerializeField] private Transform _container;
     
     [Inject] private CreatureSpawner _spawner;
@@ -23,15 +21,16 @@ public class UnitySpawner : MonoBehaviour
     
     public event Action<EntityGID> OnPlayerSpawned;
     
-    private W.NamedResource<EntityView> _prefabResource;
     private W.NamedResource<CreatureConfig> _playerConfigResource;
     private W.NamedResource<CreatureConfig> _enemyConfigResource;
+    private W.NamedResource<CreaturesSpawnerConfig> _config;
     
     private void Start()
     {
         _cts = new CancellationTokenSource();
         _playerConfigResource = new W.NamedResource<CreatureConfig>("Creature_player_config");
         _enemyConfigResource = new W.NamedResource<CreatureConfig>("Creature_mossGolem_config");
+        _config = new W.NamedResource<CreaturesSpawnerConfig>("Creature_spawner_config");
         
         SpawnPlayer(_playerConfigResource.Value);
         SpawnEnemiesLoop().Forget();
@@ -70,8 +69,8 @@ public class UnitySpawner : MonoBehaviour
         {
             while (true)
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
-                if (CountCreatures() >= _maxCreatures) continue;
+                await UniTask.Delay(TimeSpan.FromSeconds(_config.Value.Interval), cancellationToken: _cts.Token);
+                if (CountCreatures() >= _config.Value.MaxCreatures) continue;
                 SpawnEnemy();
             }
             

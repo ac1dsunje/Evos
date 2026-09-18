@@ -24,9 +24,9 @@ public class CreatureSpawner
         var prefab = W.GetResource<EntityView>("Creature_prefab");
         var view = Object.Instantiate(prefab, container);
         var body = view.Body;
-        var render = view.Renderer;
         
-        render.sprite = config.Sprite;
+        view.Renderer.sprite = config.Sprite;
+        
         view.transform.position = position;
         view.EntityGid = creature.GID;
         

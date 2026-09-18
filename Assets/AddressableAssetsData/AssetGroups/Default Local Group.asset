@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6423c627f02b724f9c5da161502fb12
+    m_Address: Creature_spawner_config
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb85a346a2f486d44a8cc90f938c315c
     m_Address: Creature_player_config
     m_ReadOnly: 0

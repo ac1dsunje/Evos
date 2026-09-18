@@ -29,6 +29,7 @@ public class EcsWorldManager : IInitializable, IDisposable
     private AsyncOperationHandle<GameObject> _prefabHandle;
     private AsyncOperationHandle<CreatureConfig> _playerConfigHandle;
     private AsyncOperationHandle<CreatureConfig> _enemyConfigHandle;
+    private AsyncOperationHandle<CreaturesSpawnerConfig> _creatureSpawnerConfigHandle;
     
     public void Initialize()
     {
@@ -91,6 +92,10 @@ public class EcsWorldManager : IInitializable, IDisposable
         _enemyConfigHandle = Addressables.LoadAssetAsync<CreatureConfig>("Creature_mossGolem_config");
         var enemyConfig = _enemyConfigHandle.WaitForCompletion();
         W.SetResource("Creature_mossGolem_config", enemyConfig);
+        
+        _creatureSpawnerConfigHandle = Addressables.LoadAssetAsync<CreaturesSpawnerConfig>("Creature_spawner_config");
+        var creatureSpawnerConfig = _creatureSpawnerConfigHandle.WaitForCompletion();
+        W.SetResource("Creature_spawner_config", creatureSpawnerConfig);
     }
 
     public void Dispose()
