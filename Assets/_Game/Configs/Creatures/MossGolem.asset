@@ -17,7 +17,7 @@ MonoBehaviour:
   <Experience>k__BackingField:
     <Set>k__BackingField: 5
   <Stats>k__BackingField:
-    <PhysicalDamage>k__BackingField: 0
+    <PhysicalDamage>k__BackingField: 10
     <IgnoreResistance>k__BackingField: 0
     <OxygenRequirement>k__BackingField: 0
     <HydrogenRequirement>k__BackingField: 0

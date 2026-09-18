@@ -2,6 +2,7 @@
 using System.Threading;
 using _Game.Scripts.Configs;
 using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.Core.EntityTypes;
 using Cysharp.Threading.Tasks;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -19,7 +20,6 @@ public class UnitySpawner : MonoBehaviour
     [Inject] private CreatureSpawner _spawner;
     
     private CancellationTokenSource _cts;
-    private int _count;
     
     public event Action<EntityGID> OnPlayerSpawned;
     
@@ -64,16 +64,27 @@ public class UnitySpawner : MonoBehaviour
         return gid;
     }
     
+    private int CountCreatures()
+    {
+        var count = 0;
+        foreach (var _ in W.Query<EntityIs<Creature>>().Entities())
+        {
+            count++;
+        }
+        return count;
+    }
+
     private async UniTaskVoid SpawnEnemiesLoop()
     {
         try
         {
-            while (_count < _maxCreatures)
+            while (true)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
+                if (CountCreatures() >= _maxCreatures) continue;
                 SpawnEnemy(_enemyConfigResource.Value);
-                _count++;
             }
+            
         }
         catch (OperationCanceledException) { }
     }
