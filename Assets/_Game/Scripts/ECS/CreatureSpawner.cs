@@ -6,7 +6,6 @@ using _Game.Scripts.ECS.Features.Config;
 using _Game.Scripts.ECS.Features.Experience;
 using _Game.Scripts.ECS.Features.Input.AI;
 using _Game.Scripts.ECS.Features.Input.Player;
-using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -45,12 +44,6 @@ public class CreatureSpawner
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
-        W.SendEvent(new InitStatsEvent
-        {
-            Target = creature.GID,
-            Config = config
-        });
         
         return creature.GID;
     }
