@@ -69,6 +69,8 @@ public class CreatureSpawnerSystem : ISystem
         var view = Object.Instantiate(_prefab);
         var body = view.Body;
         
+        view.name = creature.Ref<NameComponent>().Value;
+        
         view.Renderer.sprite = config.Sprite;
         
         view.transform.position = position;
