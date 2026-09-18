@@ -18,8 +18,7 @@ public struct LevelUpdateSystem : ISystem
                 for (var i = 0; i < 3; i++)
                 {
                     W.NewEntity<Evolution>().Set(
-                        new ExperienceComponent { Value = 0, Set = 5 },
-                        new LevelComponent { Value = 0 }
+                        new ExperienceComponent { Set = 5 }
                     );
                 }
             }

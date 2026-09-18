@@ -59,7 +59,7 @@ public class UnitySpawner : MonoBehaviour
         render.sprite = config.Sprite;
         view.transform.position = spawnPoint;
         
-        var gid = _spawner.SpawnCreature(spawnPoint, body, view, config);
+        var gid = _spawner.SpawnCreature(body, view, config);
         view.EntityGid = gid;
         return gid;
     }
