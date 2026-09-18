@@ -5,7 +5,7 @@ using _Game.Scripts.ECS.Features.Input.AI;
 using _Game.Scripts.ECS.Features.Input.Player;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Features.Config
+namespace _Game.Scripts.ECS.Features.Input
 {
 public struct InputTypeComponent : IComponent
 {

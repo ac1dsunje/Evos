@@ -2,7 +2,6 @@
 using _Game.Scripts.ECS.Features.Biomes;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Biomes.Temperature;
-using _Game.Scripts.ECS.Features.Config;
 using _Game.Scripts.ECS.Features.Defense;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Health;
