@@ -7,7 +7,7 @@ using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Config
 {
-public struct CreatureInputComponent : IComponent
+public struct InputTypeComponent : IComponent
 {
     public CreatureInput Config;
 

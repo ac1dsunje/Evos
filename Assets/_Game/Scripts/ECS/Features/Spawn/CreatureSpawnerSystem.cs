@@ -61,7 +61,7 @@ public class CreatureSpawnerSystem : ISystem
     private void SpawnCreature(CreatureConfig config, Vector2 position)
     {
         var creature = W.NewEntity<Creature>().Set(
-            new CreatureInputComponent { Config = config.Input },
+            new InputTypeComponent { Config = config.Input },
             new StatsConfigComponent { Config = config.Stats},
             new ExperienceComponent { Set = config.Experience.Set },
             new NameComponent { Value = config.name} );
