@@ -41,6 +41,8 @@ public class EcsWorldManager : IInitializable, IDisposable
 
         W.Types().RegisterAll();
         W.Initialize();
+        
+        LoadAssets();
 
         GameSys.Add(new StatsInitSystem());
         
@@ -72,8 +74,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
         
         FixedSys.Initialize();
-        
-        LoadAssets();
         
         W.SetResource(new HungerDecayRate { Value = 0.2f });
     }
