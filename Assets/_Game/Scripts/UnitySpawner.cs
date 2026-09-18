@@ -30,8 +30,6 @@ public class UnitySpawner : MonoBehaviour
     private void Start()
     {
         _cts = new CancellationTokenSource();
-        
-        _prefabResource = new W.NamedResource<EntityView>("Creature_prefab");
         _playerConfigResource = new W.NamedResource<CreatureConfig>("Creature_player_config");
         _enemyConfigResource = new W.NamedResource<CreatureConfig>("Creature_mossGolem_config");
         
@@ -45,22 +43,14 @@ public class UnitySpawner : MonoBehaviour
         OnPlayerSpawned?.Invoke(gid);
     }
 
-    private void SpawnEnemy(CreatureConfig config)
+    private void SpawnEnemy()
     {
-        SpawnCreature(config, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
+        SpawnCreature(_enemyConfigResource.Value, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
     }
 
-    private EntityGID SpawnCreature(CreatureConfig config, Vector2 spawnPoint)
+    private EntityGID SpawnCreature(CreatureConfig config, Vector2 position)
     {
-        var view = Instantiate(_prefabResource.Value, _container);
-        var body = view.Body;
-        var render = view.Renderer;
-        
-        render.sprite = config.Sprite;
-        view.transform.position = spawnPoint;
-        
-        var gid = _spawner.SpawnCreature(body, view, config);
-        view.EntityGid = gid;
+        var gid = _spawner.SpawnCreature(config, position, _container);
         return gid;
     }
     
@@ -82,7 +72,7 @@ public class UnitySpawner : MonoBehaviour
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(_interval), cancellationToken: _cts.Token);
                 if (CountCreatures() >= _maxCreatures) continue;
-                SpawnEnemy(_enemyConfigResource.Value);
+                SpawnEnemy();
             }
             
         }

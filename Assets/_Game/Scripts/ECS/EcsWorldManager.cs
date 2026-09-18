@@ -43,7 +43,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         W.Initialize();
         
         LoadAssets();
-
         GameSys.Add(new StatsInitSystem());
         
         GameSys.Add(new PlayerInputCheckSystem());
