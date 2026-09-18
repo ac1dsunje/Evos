@@ -45,6 +45,7 @@ public class EcsWorldManager : IInitializable, IDisposable
         GameSys.Add(new StatsInitSystem());
         
         GameSys.Add(new PlayerInputCheckSystem());
+        GameSys.Add(new AITimerSystem());
         GameSys.Add(new AIInputCheckSystem());
         
         GameSys.Add(new FacingSystem());

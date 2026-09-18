@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cb383c2b60452a946615bd3495235d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.UnitySpawner
-  _maxCreatures: 100
+  _maxCreatures: 150
   _interval: 0.01
   _container: {fileID: 2584980294207898651}
 --- !u!1 &7165039890573639353
