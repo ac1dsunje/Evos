@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts.ECS.Core.EntityTypes
 {
-public struct CreatureSpawner : IEntityType
+public struct Spawner : IEntityType
 {
     public byte Id() => 3;
 }

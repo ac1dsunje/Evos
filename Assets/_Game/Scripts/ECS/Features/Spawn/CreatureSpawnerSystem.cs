@@ -21,7 +21,7 @@ public class CreatureSpawnerSystem : ISystem
         _config = W.GetResource<CreaturesSpawnerConfig>("Creature_spawner_config");
         _prefab = W.GetResource<EntityView>("Creature_prefab");
         
-        W.NewEntity<CreatureSpawner>().Set(
+        W.NewEntity<Spawner>().Set(
             new TimerComponent { Interval = _config.Interval },
             new NameComponent { Value = "Creature Spawner" });
         
@@ -32,7 +32,7 @@ public class CreatureSpawnerSystem : ISystem
     
     public void Update()
     {
-        foreach (var e in W.Query<EntityIs<CreatureSpawner>, All<TimerComponent>>().Entities())
+        foreach (var e in W.Query<EntityIs<Spawner>, All<TimerComponent>>().Entities())
         {
             ref var timer = ref e.Ref<TimerComponent>();
             if (timer.Current < _config.Interval) return;
@@ -61,9 +61,10 @@ public class CreatureSpawnerSystem : ISystem
     private void SpawnCreature(CreatureConfig config, Vector2 position)
     {
         var creature = W.NewEntity<Creature>().Set(
-            new CreatureConfigComponent { Config = config },
+            new CreatureInputComponent { Config = config.Input },
+            new StatsConfigComponent { Config = config.Stats},
             new ExperienceComponent { Set = config.Experience.Set },
-            new NameComponent {Value = config.name});
+            new NameComponent { Value = config.name} );
 
         var view = Object.Instantiate(_prefab);
         var body = view.Body;

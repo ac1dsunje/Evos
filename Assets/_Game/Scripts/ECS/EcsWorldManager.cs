@@ -44,7 +44,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         
         LoadAssets();
 
-        GameSys.Add(new CreatureSpawnerSystem());
         GameSys.Add(new StatsInitSystem());
         
         GameSys.Add(new TimerSystem());
@@ -69,6 +68,8 @@ public class EcsWorldManager : IInitializable, IDisposable
         GameSys.Add(new DamageSystem());
         GameSys.Add(new DeathCheckSystem());
         GameSys.Add(new DeathSystem());
+        
+        GameSys.Add(new CreatureSpawnerSystem());
         
         GameSys.Initialize();
         
