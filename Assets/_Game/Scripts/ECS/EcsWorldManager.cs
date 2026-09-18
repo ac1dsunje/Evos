@@ -42,6 +42,8 @@ public class EcsWorldManager : IInitializable, IDisposable
         W.Initialize();
         
         LoadAssets();
+
+        GameSys.Add(new CreatureSpawnerSystem());
         GameSys.Add(new StatsInitSystem());
         
         GameSys.Add(new PlayerInputCheckSystem());

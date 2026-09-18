@@ -10,17 +10,14 @@ namespace _Game.Scripts
 public class CameraController : IInitializable, IDisposable
 {
     private readonly CinemachineCamera _camera;
-    private readonly UnitySpawner _spawner;
     
-    public CameraController(CinemachineCamera camera, UnitySpawner spawner)
+    public CameraController(CinemachineCamera camera)
     {
         _camera = camera;
-        _spawner = spawner;
     }
 
     public void Initialize()
     {
-        _spawner.OnPlayerSpawned += AddPlayer;
     }
 
     private void AddPlayer(EntityGID player)
@@ -33,7 +30,6 @@ public class CameraController : IInitializable, IDisposable
 
     public void Dispose()
     {
-        _spawner.OnPlayerSpawned -= AddPlayer;
     }
 }
 }

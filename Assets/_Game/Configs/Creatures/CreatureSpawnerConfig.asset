@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6ea4ec71ae4695b0d9173b89564e6f, type: 3}
   m_Name: CreatureSpawnerConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Configs.CreaturesSpawnerConfig
-  <MaxCreatures>k__BackingField: 200
+  <MaxCreatures>k__BackingField: 1000
   <Interval>k__BackingField: 0.01
   <Player>k__BackingField: {fileID: 11400000, guid: fb85a346a2f486d44a8cc90f938c315c, type: 2}
   <Enemies>k__BackingField:

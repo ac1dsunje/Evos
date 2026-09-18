@@ -17,14 +17,11 @@ namespace _Game.Scripts.UI
         [SerializeField] private List<BarConfig> _barConfigs = new();
         [SerializeField] private Transform _barsContainer;
 
-        private UnitySpawner _spawner;
         private readonly List<BarUI> _activeBars = new();
 
         [Inject]
-        private void Construct(UnitySpawner spawner)
+        private void Construct()
         {
-            _spawner = spawner;
-            _spawner.OnPlayerSpawned += CreateBars;
         }
 
         private void CreateBars(EntityGID player)
@@ -75,7 +72,7 @@ namespace _Game.Scripts.UI
 
         private void OnDestroy()
         {
-            _spawner.OnPlayerSpawned -= CreateBars;
+            
             foreach (var bar in _activeBars)
             {
                 if (bar != null)
