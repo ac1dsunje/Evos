@@ -1,4 +1,5 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using _Game.Scripts.ECS.Core.Timer;
+using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
 namespace _Game.Scripts.ECS.Features.Input.AI
@@ -7,9 +8,9 @@ public struct AIInputCheckSystem : ISystem
 {
     public void Update()
     {
-        foreach (var entity in W.Query<All<InputComponent, AIControlledTag, AIThinkTimerComponent>>().Entities())
+        foreach (var entity in W.Query<All<InputComponent, AIControlledTag, TimerComponent>>().Entities())
         {
-            ref var timer = ref entity.Ref<AIThinkTimerComponent>();
+            ref var timer = ref entity.Ref<TimerComponent>();
             
             if (timer.Current >= timer.Interval)
             {

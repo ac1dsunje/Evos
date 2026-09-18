@@ -1,5 +1,6 @@
 ﻿using System;
 using _Game.Scripts.Configs;
+using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Input.AI;
 using _Game.Scripts.ECS.Features.Input.Player;
 using _Game.Scripts.ECS.Features.Stats;
@@ -26,7 +27,7 @@ public struct CreatureConfigComponent : IComponent
         {
             case CreatureInput.AI:
                 self.Set<AIControlledTag>();
-                self.Set(new AIThinkTimerComponent { Interval = 1f });
+                self.Set(new TimerComponent { Interval = 1f });
                 break;
             case CreatureInput.Player:
                 self.Set<PlayerControlledTag>();
