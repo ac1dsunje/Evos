@@ -5,6 +5,7 @@ using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Config;
 using _Game.Scripts.ECS.Features.Experience;
+using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -67,7 +68,6 @@ public class CreatureSpawnerSystem : ISystem
             new NameComponent { Value = config.name} );
 
         var view = Object.Instantiate(_prefab);
-        var body = view.Body;
         
         view.name = creature.Ref<NameComponent>().Value;
         
@@ -78,7 +78,7 @@ public class CreatureSpawnerSystem : ISystem
         
         creature.Set(
             new TransformComponent { Transform = view.transform },
-            new RigidBodyComponent { Body = body });
+            new RigidBodyComponent { Body = view.Body });
     }
 }
 }
