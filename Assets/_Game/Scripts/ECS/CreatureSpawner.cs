@@ -4,6 +4,8 @@ using _Game.Scripts.ECS.Core.EntityTypes;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Experience;
 using _Game.Scripts.ECS.Features.Input;
+using _Game.Scripts.ECS.Features.Input.AI;
+using _Game.Scripts.ECS.Features.Input.Player;
 using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -26,6 +28,7 @@ public class CreatureSpawner
         {
             case CreatureInput.AI:
                 creature.Set<AIControlledTag>();
+                creature.Set(new AIThinkTimer { Interval = 1f });
                 break;
             case CreatureInput.Player:
                 creature.Set<PlayerControlledTag>();
