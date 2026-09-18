@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 352cb5b077b5ef34aa8dc5ed92a90c8a
   m_SerializeEntries:
-  - m_GUID: 26cc681f21c96cf4f8a12769e83eb537
-    m_Address: Creature_mossGolem_config
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57a834fdb11714e428916d82ab146e36
     m_Address: Creature_prefab
     m_ReadOnly: 0

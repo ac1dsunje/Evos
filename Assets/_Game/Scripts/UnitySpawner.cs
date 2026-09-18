@@ -22,14 +22,12 @@ public class UnitySpawner : MonoBehaviour
     public event Action<EntityGID> OnPlayerSpawned;
     
     private W.NamedResource<CreatureConfig> _playerConfigResource;
-    private W.NamedResource<CreatureConfig> _enemyConfigResource;
     private W.NamedResource<CreaturesSpawnerConfig> _config;
     
     private void Start()
     {
         _cts = new CancellationTokenSource();
         _playerConfigResource = new W.NamedResource<CreatureConfig>("Creature_player_config");
-        _enemyConfigResource = new W.NamedResource<CreatureConfig>("Creature_mossGolem_config");
         _config = new W.NamedResource<CreaturesSpawnerConfig>("Creature_spawner_config");
         
         SpawnPlayer(_playerConfigResource.Value);
@@ -44,7 +42,10 @@ public class UnitySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        SpawnCreature(_enemyConfigResource.Value, new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
+        SpawnCreature(
+            _config.Value.Enemies[Random.Range(0, _config.Value.Enemies.Count)], 
+            new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f))
+            );
     }
 
     private EntityGID SpawnCreature(CreatureConfig config, Vector2 position)

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd8b8b5b96c413a90f07e1b53773730, type: 3}
+  m_Name: SporeSlime
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Configs.EntityConfig
+  <Input>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: 4722304544410940122, guid: fcc784ec40b84d74d8e7415f6a404df5, type: 3}
+  <Experience>k__BackingField:
+    <Set>k__BackingField: 5
+  <Stats>k__BackingField:
+    <PhysicalDamage>k__BackingField: 10
+    <IgnoreResistance>k__BackingField: 0
+    <OxygenRequirement>k__BackingField: 0
+    <HydrogenRequirement>k__BackingField: 0
+    <Resistance>k__BackingField: 0
+    <Reflection>k__BackingField: 0
+    <MaxEndurance>k__BackingField: 10
+    <EnduranceRecovery>k__BackingField: 1
+    <MaxHealth>k__BackingField: 100
+    <ExtraLives>k__BackingField: 0
+    <Regeneration>k__BackingField: 1
+    <MaxHunger>k__BackingField: 20
+    <MaxSpeed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Inertia>k__BackingField: 1
+    <DashRange>k__BackingField: 0
+    <PassAbility>k__BackingField: 0
+    <SprintMultiplier>k__BackingField: 0
+    <ColdResistance>k__BackingField: 0
+    <HotResistance>k__BackingField: 0
+    <Influence>k__BackingField: 0
+    <PickingRange>k__BackingField: 0

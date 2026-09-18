@@ -28,7 +28,6 @@ public class EcsWorldManager : IInitializable, IDisposable
     
     private AsyncOperationHandle<GameObject> _prefabHandle;
     private AsyncOperationHandle<CreatureConfig> _playerConfigHandle;
-    private AsyncOperationHandle<CreatureConfig> _enemyConfigHandle;
     private AsyncOperationHandle<CreaturesSpawnerConfig> _creatureSpawnerConfigHandle;
     
     public void Initialize()
@@ -89,10 +88,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         var playerConfig = _playerConfigHandle.WaitForCompletion();
         W.SetResource("Creature_player_config", playerConfig);
         
-        _enemyConfigHandle = Addressables.LoadAssetAsync<CreatureConfig>("Creature_mossGolem_config");
-        var enemyConfig = _enemyConfigHandle.WaitForCompletion();
-        W.SetResource("Creature_mossGolem_config", enemyConfig);
-        
         _creatureSpawnerConfigHandle = Addressables.LoadAssetAsync<CreaturesSpawnerConfig>("Creature_spawner_config");
         var creatureSpawnerConfig = _creatureSpawnerConfigHandle.WaitForCompletion();
         W.SetResource("Creature_spawner_config", creatureSpawnerConfig);
@@ -105,7 +100,7 @@ public class EcsWorldManager : IInitializable, IDisposable
         
         if (_prefabHandle.IsValid()) Addressables.Release(_prefabHandle);
         if (_playerConfigHandle.IsValid()) Addressables.Release(_playerConfigHandle);
-        if (_enemyConfigHandle.IsValid()) Addressables.Release(_enemyConfigHandle);
+        if (_creatureSpawnerConfigHandle.IsValid()) Addressables.Release(_creatureSpawnerConfigHandle);
         
         GameSys.Destroy();
         FixedSys.Destroy();

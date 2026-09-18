@@ -32,41 +32,61 @@ public struct StatsInitSystem : ISystem
             
             var config = e.Value.Config.Stats;
             
-            target.Set(new MaxHealthComponent { Value = config.MaxHealth });
-            target.Set(new HealthComponent { Value = config.MaxHealth });
+            target.Set(
+                new MaxHealthComponent { Value = config.MaxHealth },
+                new HealthComponent { Value = config.MaxHealth }
+                );
             
-            target.Set(new MaxHungerComponent { Value = config.MaxHunger });
-            target.Set(new HungerComponent { Value = config.MaxHunger });
+            target.Set(
+                new MaxHungerComponent { Value = config.MaxHunger },
+                new HungerComponent { Value = config.MaxHunger }
+                );
             
-            target.Set(new MaxEnduranceComponent { Value = config.MaxEndurance });
-            target.Set(new EnduranceComponent { Value = config.MaxEndurance });
+            target.Set(
+                new MaxEnduranceComponent { Value = config.MaxEndurance },
+                new EnduranceComponent { Value = config.MaxEndurance }
+                );
             
-            target.Set(new ExtraLivesComponent { Value = config.ExtraLives });
-            target.Set(new RegenerationComponent { Value = config.Regeneration });
-            target.Set(new EnduranceRecoveryComponent { Value = config.EnduranceRecovery });
+            target.Set(
+                new ExtraLivesComponent { Value = config.ExtraLives },
+                new RegenerationComponent { Value = config.Regeneration },
+                new EnduranceRecoveryComponent { Value = config.EnduranceRecovery }
+                );
             
-            target.Set(new MaxSpeedComponent { Value = config.MaxSpeed });
-            target.Set(new AccelerationComponent { Value = config.Acceleration });
-            target.Set(new InertiaComponent { Value = config.Inertia });
+            target.Set(
+                new MaxSpeedComponent { Value = config.MaxSpeed },
+                new AccelerationComponent { Value = config.Acceleration },
+                new InertiaComponent { Value = config.Inertia }
+                );
             
-            target.Set(new DashRangeComponent { Value = config.DashRange });
-            target.Set(new SprintMultiplierComponent { Value = config.SprintMultiplier });
+            target.Set(
+                new DashRangeComponent { Value = config.DashRange },
+                new SprintMultiplierComponent { Value = config.SprintMultiplier }
+            );
             
-            target.Set(new ColdResistanceComponent { Value = config.ColdResistance });
-            target.Set(new HotResistanceComponent { Value = config.HotResistance });
+            target.Set(
+                new ColdResistanceComponent { Value = config.ColdResistance },
+                new HotResistanceComponent { Value = config.HotResistance }
+            );
             
-            target.Set(new ReflectionComponent { Value = config.Reflection });
-            target.Set(new ResistanceComponent { Value = config.Resistance });
+            target.Set(
+                new ReflectionComponent { Value = config.Reflection },
+                new ResistanceComponent { Value = config.Resistance }
+            );
             
-            target.Set(new OxygenRequirementComponent { Value = config.OxygenRequirement });
-            target.Set(new HydrogenRequirementComponent { Value = config.HydrogenRequirement });
+            target.Set(
+                new OxygenRequirementComponent { Value = config.OxygenRequirement },
+                new HydrogenRequirementComponent { Value = config.HydrogenRequirement }
+            );
             
             target.Set(new InfluenceComponent { Value = config.Influence });
             
             target.Set(new PassAbilityComponent { Value = config.PassAbility });
             
-            target.Set(new PhysicalDamageComponent { Value = config.PhysicalDamage });
-            target.Set(new ResistanceIgnoreComponent { Value = config.IgnoreResistance });
+            target.Set(
+                new PhysicalDamageComponent { Value = config.PhysicalDamage },
+                new ResistanceIgnoreComponent { Value = config.IgnoreResistance }
+            );
             
             target.Set(new PickingRangeComponent { Value = config.PickingRange });
         }
