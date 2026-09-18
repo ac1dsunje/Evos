@@ -1,8 +1,7 @@
-﻿using _Game.Scripts.ECS.Core.Timer;
-using _Game.Scripts.ECS.Core.WorldResources;
+﻿using _Game.Scripts.ECS.Core.WorldResources;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS.Features.Input.AI
+namespace _Game.Scripts.ECS.Core.Timer
 {
 public struct TimerSystem : ISystem
 {
@@ -14,6 +13,11 @@ public struct TimerSystem : ISystem
         {
             ref var timer = ref entity.Ref<TimerComponent>();
             timer.Current += dt;
+
+            if (timer.Current < timer.Interval) continue;
+            
+            timer.Current -= timer.Interval;
+            entity.Set<TimerExpiredTag>();
         }
     }
 }

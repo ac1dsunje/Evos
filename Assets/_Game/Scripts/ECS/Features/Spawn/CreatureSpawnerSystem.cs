@@ -33,19 +33,20 @@ public class CreatureSpawnerSystem : ISystem
     
     public void Update()
     {
-        foreach (var e in W.Query<EntityIs<Spawner>, All<TimerComponent>>().Entities())
+        foreach (var e in W.Query<EntityIs<Spawner>, All<TimerExpiredTag>>().Entities())
         {
-            ref var timer = ref e.Ref<TimerComponent>();
-            if (timer.Current < _config.Interval) return;
-            
-            timer.Current -= _config.Interval;
-            
-            if (CountCreatures() >= _config.MaxCreatures) return;
+            if (CountCreatures() >= _config.MaxCreatures) 
+            {
+                e.Delete<TimerExpiredTag>();
+                continue;
+            }
             
             SpawnCreature(
                 _config.Enemies[Random.Range(0, _config.Enemies.Count)], 
                 new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f))
             );
+            
+            e.Delete<TimerExpiredTag>();
         }
     }
     

@@ -2,6 +2,7 @@
 using System.Threading;
 using _Game.Scripts.Configs;
 using _Game.Scripts.ECS.Core.Combat;
+using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Collisions;
