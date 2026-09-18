@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.ECS
 {
-public class EntityView : MonoBehaviour
+public class EntityView : MonoBehaviour, IResource
 {
     [field: SerializeField] public Rigidbody2D Body { get; private set; }
     [field: SerializeField] public SpriteRenderer Renderer { get; private set; }

@@ -3546,10 +3546,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BootstrapScope
       objectReference: {fileID: 0}
-    - target: {fileID: 9111743311890172424, guid: 39929b051fbc3c044bc2982b1cc0fae0, type: 3}
-      propertyPath: _interval
-      value: 0.01
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

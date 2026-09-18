@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FFS.Libraries.StaticEcs;
+using UnityEngine;
 
 namespace _Game.Scripts.Configs
 {
@@ -9,7 +10,7 @@ public enum CreatureInput
 }
 
 [CreateAssetMenu(fileName = "CreatureConfig", menuName = "Configs/Creature")]
-public class CreatureConfig : ScriptableObject
+public class CreatureConfig : ScriptableObject, IResource
 {
     [field: SerializeField] public CreatureInput Input { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
