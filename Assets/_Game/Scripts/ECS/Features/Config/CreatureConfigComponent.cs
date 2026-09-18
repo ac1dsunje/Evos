@@ -19,7 +19,7 @@ public struct CreatureConfigComponent : IComponent
         W.SendEvent(new InitStatsEvent
         {
             Target = self.GID,
-            Config = Config
+            Config = Config.Stats
         });
         
         switch (Config.Input)

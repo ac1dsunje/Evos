@@ -6,6 +6,6 @@ namespace _Game.Scripts.ECS.Features.Stats
 public struct InitStatsEvent : IEvent
 {
     public EntityGID Target;
-    public CreatureConfig Config;
+    public StatsConfig Config;
 }
 }

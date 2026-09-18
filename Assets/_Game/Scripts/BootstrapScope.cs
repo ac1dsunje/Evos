@@ -1,6 +1,7 @@
 ﻿using VContainer;
 using VContainer.Unity;
 using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.Features.Spawn;
 using _Game.Scripts.UI;
 using Unity.Cinemachine;
 
@@ -14,7 +15,6 @@ public class BootstrapScope : LifetimeScope
         builder.RegisterEntryPoint<WorldUpdater>().AsSelf();
 
         builder.RegisterComponentInHierarchy<CinemachineCamera>();
-        builder.RegisterEntryPoint<CameraController>(Lifetime.Scoped).AsSelf();
         
         builder.Register<CreatureSpawnerSystem>(Lifetime.Singleton);
         

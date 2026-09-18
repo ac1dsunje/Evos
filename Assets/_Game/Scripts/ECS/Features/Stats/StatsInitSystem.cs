@@ -30,7 +30,7 @@ public struct StatsInitSystem : ISystem
             if (!e.Value.Target.TryUnpack<GameWorld>(out var target))
                 continue;
             
-            var config = e.Value.Config.Stats;
+            var config = e.Value.Config;
             
             target.Set(
                 new MaxHealthComponent { Value = config.MaxHealth },

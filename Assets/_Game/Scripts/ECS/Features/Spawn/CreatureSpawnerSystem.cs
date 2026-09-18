@@ -8,7 +8,7 @@ using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace _Game.Scripts.ECS
+namespace _Game.Scripts.ECS.Features.Spawn
 {
 public class CreatureSpawnerSystem : ISystem
 {
@@ -65,7 +65,7 @@ public class CreatureSpawnerSystem : ISystem
         view.EntityGid = creature.GID;
         
         creature.Set(
-            new CreatureViewComponent { View = view },
+            new TransformComponent { Transform = view.transform },
             new RigidBodyComponent { Body = body }
             );
     }

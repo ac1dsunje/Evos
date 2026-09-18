@@ -13,6 +13,7 @@ using _Game.Scripts.ECS.Features.Input;
 using _Game.Scripts.ECS.Features.Input.AI;
 using _Game.Scripts.ECS.Features.Input.Player;
 using _Game.Scripts.ECS.Features.Regeneration;
+using _Game.Scripts.ECS.Features.Spawn;
 using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
