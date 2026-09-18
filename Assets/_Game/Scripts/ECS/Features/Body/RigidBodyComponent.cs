@@ -6,6 +6,7 @@ using UnityEngine;
 namespace _Game.Scripts.ECS.Features.Body
 {
 [Serializable]
+[StaticEcsEditorName("RigidBody")]
 public struct RigidBodyComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public Rigidbody2D Body;

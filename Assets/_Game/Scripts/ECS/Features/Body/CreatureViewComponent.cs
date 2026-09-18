@@ -6,7 +6,8 @@ using Object = UnityEngine.Object;
 namespace _Game.Scripts.ECS.Features.Body
 {
 [Serializable]
-public struct ViewComponent : IComponent
+[StaticEcsEditorName("CreatureView")]
+public struct CreatureViewComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public EntityView View;
     

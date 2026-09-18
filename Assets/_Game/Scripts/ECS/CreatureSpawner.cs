@@ -20,7 +20,7 @@ public class CreatureSpawner
             new PositionComponent { Position = position },
             new InputComponent { Direction = Vector2.zero },
             new RigidBodyComponent { Body = rigidBody },
-            new ViewComponent { View = view },
+            new CreatureViewComponent { View = view },
             new ExperienceComponent { Value = 0, Set = config.Experience.Set },
             new LevelComponent { Value = 0 }
         );

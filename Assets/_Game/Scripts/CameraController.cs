@@ -26,7 +26,7 @@ public class CameraController : IInitializable, IDisposable
     private void AddPlayer(EntityGID player)
     {
          if(!player.TryUnpack<GameWorld>(out var entity)) return;
-         ref var view = ref entity.Ref<ViewComponent>();
+         ref var view = ref entity.Ref<CreatureViewComponent>();
 
          _camera.Target.TrackingTarget = view.View.transform;
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 namespace _Game.Scripts.ECS.Features.Body
 {
 [Serializable]
+[StaticEcsEditorName("Position")]
 public struct PositionComponent : IComponent
 {
     [StaticEcsEditorTableValue(180f)] public Vector3 Position;

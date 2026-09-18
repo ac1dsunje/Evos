@@ -5,6 +5,7 @@ using FFS.Libraries.StaticEcs.Unity;
 namespace _Game.Scripts.ECS.Features.Experience
 {
 [Serializable]
+[StaticEcsEditorName("Experience")]
 public struct ExperienceComponent : IComponent, ITrackableChanged
 {
     [StaticEcsEditorTableValue(180f)] public int Value;
