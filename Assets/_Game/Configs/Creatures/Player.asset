@@ -32,7 +32,7 @@ MonoBehaviour:
     <MaxSpeed>k__BackingField: 2
     <Acceleration>k__BackingField: 1
     <Inertia>k__BackingField: 1
-    <DashRange>k__BackingField: 0
+    <DashRange>k__BackingField: 10
     <PassAbility>k__BackingField: 0
     <SprintMultiplier>k__BackingField: 0
     <ColdResistance>k__BackingField: 0

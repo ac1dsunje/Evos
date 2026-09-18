@@ -1,10 +1,14 @@
-﻿using FFS.Libraries.StaticEcs;
-using UnityEngine;
+﻿using System;
+using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
+using Vector2 = UnityEngine.Vector2;
 
 namespace _Game.Scripts.ECS.Features.Input
 {
+[Serializable]
+[StaticEcsEditorName("Input")]
 public struct InputComponent : IComponent
 {
-    public Vector2 Direction;
+    [StaticEcsEditorTableValue(180f)] public Vector2 Current;
 }
 }

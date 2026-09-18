@@ -11,7 +11,7 @@ public struct AIInputCheckSystem : ISystem
         foreach (var entity in W.Query<All<TimerExpiredTag, InputComponent, AIControlledTag>>().Entities())
         {
             ref var input = ref entity.Ref<InputComponent>();
-            input.Direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            input.Current = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             
             entity.Delete<TimerExpiredTag>();
         }

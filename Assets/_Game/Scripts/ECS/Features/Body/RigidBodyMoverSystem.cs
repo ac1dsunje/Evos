@@ -23,7 +23,7 @@ public struct RigidBodyMoverSystem : ISystem
             ref var rigidBody = ref entity.Ref<RigidBodyComponent>();
             
             var currentVelocity = rigidBody.Body.linearVelocity;
-            var inputDirection = new Vector2(input.Direction.x, input.Direction.y);
+            var inputDirection = new Vector2(input.Current.x, input.Current.y);
             
             if (inputDirection.sqrMagnitude > 0.001f)
             {

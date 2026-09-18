@@ -6,6 +6,7 @@ using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Body;
 using _Game.Scripts.ECS.Features.Collisions;
+using _Game.Scripts.ECS.Features.Dashing;
 using _Game.Scripts.ECS.Features.Death;
 using _Game.Scripts.ECS.Features.Endurance;
 using _Game.Scripts.ECS.Features.Experience;
@@ -48,6 +49,7 @@ public class EcsWorldManager : IInitializable, IDisposable
         GameSys.Add(new StatsInitSystem());
         
         GameSys.Add(new TimerSystem());
+        
         GameSys.Add(new PlayerInputCheckSystem());
         GameSys.Add(new AIInputCheckSystem());
         
@@ -74,7 +76,8 @@ public class EcsWorldManager : IInitializable, IDisposable
         
         GameSys.Initialize();
         
-        FixedSys.Add(new RigidBodyMoverSystem(), order: 0);
+        FixedSys.Add(new RigidBodyMoverSystem());
+        FixedSys.Add(new DashSystem());
         
         FixedSys.Initialize();
         
