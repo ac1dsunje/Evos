@@ -27,7 +27,6 @@ public class EcsWorldManager : IInitializable, IDisposable
     private CancellationTokenSource _cts;
     
     private AsyncOperationHandle<GameObject> _prefabHandle;
-    private AsyncOperationHandle<CreatureConfig> _playerConfigHandle;
     private AsyncOperationHandle<CreaturesSpawnerConfig> _creatureSpawnerConfigHandle;
     
     public void Initialize()
@@ -84,10 +83,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         var entityView = prefab.GetComponent<EntityView>();
         W.SetResource("Creature_prefab", entityView);
         
-        _playerConfigHandle = Addressables.LoadAssetAsync<CreatureConfig>("Creature_player_config");
-        var playerConfig = _playerConfigHandle.WaitForCompletion();
-        W.SetResource("Creature_player_config", playerConfig);
-        
         _creatureSpawnerConfigHandle = Addressables.LoadAssetAsync<CreaturesSpawnerConfig>("Creature_spawner_config");
         var creatureSpawnerConfig = _creatureSpawnerConfigHandle.WaitForCompletion();
         W.SetResource("Creature_spawner_config", creatureSpawnerConfig);
@@ -99,7 +94,6 @@ public class EcsWorldManager : IInitializable, IDisposable
         _cts?.Dispose();
         
         if (_prefabHandle.IsValid()) Addressables.Release(_prefabHandle);
-        if (_playerConfigHandle.IsValid()) Addressables.Release(_playerConfigHandle);
         if (_creatureSpawnerConfigHandle.IsValid()) Addressables.Release(_creatureSpawnerConfigHandle);
         
         GameSys.Destroy();

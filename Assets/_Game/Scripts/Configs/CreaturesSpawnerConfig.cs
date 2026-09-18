@@ -9,6 +9,7 @@ public class CreaturesSpawnerConfig : ScriptableObject, IResource
 {
     [field: SerializeField] public int MaxCreatures { get; private set; }= 500;
     [field: SerializeField] public float Interval { get; private set; } = 1f;
+    [field: SerializeField] public CreatureConfig Player { get; private set; }
     [field: SerializeField] public List<CreatureConfig> Enemies { get; private set; }
 }
 }

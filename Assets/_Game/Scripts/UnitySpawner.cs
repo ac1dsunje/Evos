@@ -21,16 +21,15 @@ public class UnitySpawner : MonoBehaviour
     
     public event Action<EntityGID> OnPlayerSpawned;
     
-    private W.NamedResource<CreatureConfig> _playerConfigResource;
+    private CreatureConfig _playerConfig;
     private W.NamedResource<CreaturesSpawnerConfig> _config;
     
     private void Start()
     {
         _cts = new CancellationTokenSource();
-        _playerConfigResource = new W.NamedResource<CreatureConfig>("Creature_player_config");
         _config = new W.NamedResource<CreaturesSpawnerConfig>("Creature_spawner_config");
         
-        SpawnPlayer(_playerConfigResource.Value);
+        SpawnPlayer(_config.Value.Player);
         SpawnEnemiesLoop().Forget();
     }
     
