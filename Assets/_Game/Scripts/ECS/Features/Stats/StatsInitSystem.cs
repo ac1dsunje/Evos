@@ -75,8 +75,8 @@ public struct StatsInitSystem : ISystem
             );
             
             target.Set(
-                new OxygenRequirementComponent { Value = config.OxygenRequirement },
-                new HydrogenRequirementComponent { Value = config.HydrogenRequirement }
+                new OxygenComponent { Value = config.OxygenRequirement },
+                new HydrogenComponent { Value = config.HydrogenRequirement }
             );
             
             target.Set(new InfluenceComponent { Value = config.Influence });
