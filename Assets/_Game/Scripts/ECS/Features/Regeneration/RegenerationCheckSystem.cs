@@ -1,4 +1,5 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using _Game.Scripts.ECS.Core;
+using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Regeneration
 {

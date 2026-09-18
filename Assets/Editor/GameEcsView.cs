@@ -1,4 +1,5 @@
-using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Providers;
 using FFS.Libraries.StaticEcs.Unity.Editor;
 using UnityEditor;
 

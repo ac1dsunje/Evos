@@ -1,6 +1,6 @@
 ﻿using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.ECS
+namespace _Game.Scripts.ECS.Core
 {
 public struct GameWorld : IWorldType { }
 

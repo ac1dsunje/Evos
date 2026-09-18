@@ -1,5 +1,6 @@
 ﻿using System;
 using _Game.Scripts.ECS;
+using _Game.Scripts.ECS.Core;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 using UnityEngine.UI;

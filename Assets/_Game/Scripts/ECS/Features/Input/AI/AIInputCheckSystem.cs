@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Core.Timer;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Core.Timer;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

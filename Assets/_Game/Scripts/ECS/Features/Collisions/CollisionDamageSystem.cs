@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Core.Combat;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Core.Combat;
 using _Game.Scripts.ECS.Features.Attack;
 using FFS.Libraries.StaticEcs;
 

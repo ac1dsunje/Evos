@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Features.Dashing;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Features.Dashing;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

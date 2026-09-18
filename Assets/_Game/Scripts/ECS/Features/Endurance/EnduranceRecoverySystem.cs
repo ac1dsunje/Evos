@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Core.WorldResources;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Core.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using _Game.Scripts.Configs;
+using _Game.Scripts.ECS.Core;
 using _Game.Scripts.ECS.Core.Combat;
 using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
@@ -38,7 +39,7 @@ public class EcsWorldManager : IInitializable, IDisposable
         GameSys.Create();
         FixedSys.Create();
 
-        EcsDebug<GameWorld>.AddWorld<GameSystems>();
+        EcsDebug<GameWorld>.AddWorld<Systems>();
         EcsDebug<GameWorld>.AddWorld<FixedSystems>();
 
         W.Types().RegisterAll();

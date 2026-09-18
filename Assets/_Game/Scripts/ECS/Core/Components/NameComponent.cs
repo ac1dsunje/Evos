@@ -2,7 +2,7 @@
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
 
-namespace _Game.Scripts.ECS.Core
+namespace _Game.Scripts.ECS.Core.Components
 {
 [Serializable]
 [StaticEcsEditorName("Name")]

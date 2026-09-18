@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.Configs;
 using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Core.Components;
 using _Game.Scripts.ECS.Core.EntityTypes;
 using _Game.Scripts.ECS.Core.Timer;
 using _Game.Scripts.ECS.Features.Body;

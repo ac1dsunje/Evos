@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Features.Health;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Features.Health;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Death

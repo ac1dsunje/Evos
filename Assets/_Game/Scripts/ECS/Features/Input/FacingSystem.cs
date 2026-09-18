@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Features.Body;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Features.Body;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.ECS.Features.Input

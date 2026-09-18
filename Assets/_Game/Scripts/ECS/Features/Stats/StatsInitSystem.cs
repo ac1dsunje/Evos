@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Features.Attack;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Features.Attack;
 using _Game.Scripts.ECS.Features.Biomes;
 using _Game.Scripts.ECS.Features.Biomes.Breathing;
 using _Game.Scripts.ECS.Features.Biomes.Temperature;

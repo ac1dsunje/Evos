@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.ECS.Core.EntityTypes;
+﻿using _Game.Scripts.ECS.Core;
+using _Game.Scripts.ECS.Core.EntityTypes;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
