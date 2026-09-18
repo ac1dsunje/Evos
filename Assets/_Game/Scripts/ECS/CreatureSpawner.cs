@@ -29,21 +29,10 @@ public class CreatureSpawner
         view.transform.position = position;
         view.EntityGid = creature.GID;
         
-        creature.Set(new CreatureViewComponent { View = view });
-        creature.Set(new RigidBodyComponent { Body = body });
-
-        switch (config.Input)
-        {
-            case CreatureInput.AI:
-                creature.Set<AIControlledTag>();
-                creature.Set(new AIThinkTimerComponent { Interval = 1f });
-                break;
-            case CreatureInput.Player:
-                creature.Set<PlayerControlledTag>();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        creature.Set(
+            new CreatureViewComponent { View = view },
+            new RigidBodyComponent { Body = body }
+            );
         
         return creature.GID;
     }

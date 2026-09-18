@@ -1,5 +1,7 @@
 ﻿using System;
 using _Game.Scripts.Configs;
+using _Game.Scripts.ECS.Features.Input.AI;
+using _Game.Scripts.ECS.Features.Input.Player;
 using _Game.Scripts.ECS.Features.Stats;
 using FFS.Libraries.StaticEcs;
 using FFS.Libraries.StaticEcs.Unity;
@@ -19,6 +21,19 @@ public struct CreatureConfigComponent : IComponent
             Target = self.GID,
             Config = Config
         });
+        
+        switch (Config.Input)
+        {
+            case CreatureInput.AI:
+                self.Set<AIControlledTag>();
+                self.Set(new AIThinkTimerComponent { Interval = 1f });
+                break;
+            case CreatureInput.Player:
+                self.Set<PlayerControlledTag>();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }
 }
