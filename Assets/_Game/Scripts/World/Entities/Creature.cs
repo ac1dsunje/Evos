@@ -8,6 +8,7 @@ namespace _Game.Scripts.World.Entities
 public struct Creature : IEntityType
 {
     public byte Id() => 1;
+    public bool IsPlayer;
 
     public void OnCreate<TWorld>(World<TWorld>.Entity entity) where TWorld : struct, IWorldType
     {
@@ -24,6 +25,15 @@ public struct Creature : IEntityType
                 }
             )
             .Set<AddViewTag>();
+
+        if (IsPlayer)
+        {
+            entity.Set<PlayerInputTag>();
+        }
+        else
+        {
+            entity.Set<RandomInputTag>();
+        }
     }
 }
 }

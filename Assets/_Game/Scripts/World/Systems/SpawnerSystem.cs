@@ -7,9 +7,10 @@ public struct SpawnerSystem : ISystem
 {
     public void Update()
     {
-        if (W.CalculateEntitiesCount() < 5)
+        var count = W.CalculateEntitiesCount();
+        if (count < 5)
         {
-            W.NewEntity<Creature>();
+            W.NewEntity(new Creature {IsPlayer = count < 1});
         }
     }
 }
