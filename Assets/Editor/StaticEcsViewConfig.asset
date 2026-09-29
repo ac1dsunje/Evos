@@ -25,8 +25,12 @@ MonoBehaviour:
       - _Game/Scripts/World/Components/MovementComponent
       - _Game/Scripts/World/Components/NameComponent
       - _Game/Scripts/World/Components/RigidBodyComponent
-      tagColumns: []
-      showTableDataTypes: []
+      tagColumns:
+      - _Game/Scripts/World/Tags/AddViewTag
+      - _Game/Scripts/World/Tags/PlayerInputTag
+      - _Game/Scripts/World/Tags/RandomInputTag
+      showTableDataTypes:
+      - _Game/Scripts/World/Components/RigidBodyComponent
       sortByType: 
       maxEntityResult: 101
       pinnedEntities: 

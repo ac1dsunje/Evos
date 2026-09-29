@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.World.Components;
+using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -16,7 +17,7 @@ public struct RandomInputSystem : ISystem
         if (_timer < 1f) return;
         _timer = 0f;
 
-        foreach (var entity in W.Query<All<InputComponent>>().Entities())
+        foreach (var entity in W.Query<All<InputComponent, RandomInputTag>>().Entities())
         {
             ref var input = ref entity.Ref<InputComponent>();
             

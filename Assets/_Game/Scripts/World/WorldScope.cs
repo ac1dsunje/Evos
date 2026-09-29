@@ -27,11 +27,15 @@ public class WorldScope : LifetimeScope
         W.SetResource(new CreatureViewPrefabResource { Prefab = _creatureViewPrefab });
 
         GameSys.Add(new SpawnerSystem());
-        GameSys.Add(new RandomInputSystem());
+        
         GameSys.Add(new ViewCreatingSystem());
-        GameSys.Add(new RegenerationSystem());
+        
+        GameSys.Add(new PlayerInputSystem());
+        GameSys.Add(new RandomInputSystem());
 
         FixedSys.Add(new RigidBodyMoverSystem());
+        
+        GameSys.Add(new RegenerationSystem());
         
         GameSys.Initialize();
         FixedSys.Initialize();
