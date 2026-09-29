@@ -1,3 +1,4 @@
+using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Systems;
 using _Game.Scripts.World.View;
 using _Game.Scripts.World.WorldResources;
@@ -24,7 +25,8 @@ public class WorldScope : LifetimeScope
         W.Types().RegisterAll();
         W.Initialize();
         
-        W.SetResource(new CreatureViewPrefabResource { Prefab = _creatureViewPrefab });
+        var pool = new ObjectPool<CreatureView>(_creatureViewPrefab, prewarmCount: 10);
+        W.SetResource(new CreatureViewPoolResource { Pool = pool });
 
         GameSys.Add(new SpawnerSystem());
         

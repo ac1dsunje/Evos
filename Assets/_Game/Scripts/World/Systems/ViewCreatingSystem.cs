@@ -2,7 +2,6 @@
 using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
-using UnityEngine;
 
 namespace _Game.Scripts.World.Systems
 {
@@ -18,7 +17,7 @@ public struct ViewCreatingSystem : ISystem
                 continue;
             }
             
-            var view = Object.Instantiate(W.GetResource<CreatureViewPrefabResource>().Prefab);
+            var view = W.GetResource<CreatureViewPoolResource>().Pool.Get();
 
             if (entity.Has<PositionComponent>())
             {

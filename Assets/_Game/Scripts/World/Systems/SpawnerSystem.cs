@@ -25,7 +25,9 @@ public struct SpawnerSystem : ISystem
         }
 
         var entity = W.NewEntity(new Creature { IsPlayer = isPlayer });
-        entity.Set(new PositionComponent { Position = spawnPosition });
+        
+        ref var position = ref entity.Ref<PositionComponent>();
+        position.Position = spawnPosition;
     }
 
     private Vector2 GetRandomPositionAroundPlayer()
