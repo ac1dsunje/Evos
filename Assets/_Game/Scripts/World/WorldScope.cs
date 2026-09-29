@@ -36,6 +36,7 @@ public class WorldScope : LifetimeScope
         GameSys.Add(new FacingSystem());
 
         FixedSys.Add(new RigidBodyMoverSystem());
+        FixedSys.Add(new PositionUpdateSystem());
         
         GameSys.Add(new RegenerationSystem());
         
