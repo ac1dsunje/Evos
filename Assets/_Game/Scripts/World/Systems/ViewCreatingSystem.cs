@@ -27,7 +27,8 @@ public struct ViewCreatingSystem : ISystem
 
             entity.Set(
                 new RigidBodyComponent { Body = view.Rigidbody2D },
-                new TransformComponent { Transform = view.transform }
+                new TransformComponent { Transform = view.transform },
+                new CreatureViewComponent { View = view }
             );
             entity.Delete<AddViewTag>();
         }

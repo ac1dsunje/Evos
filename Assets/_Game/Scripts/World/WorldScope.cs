@@ -1,3 +1,4 @@
+using _Game.Scripts.World.Configuration;
 using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Systems;
 using _Game.Scripts.World.View;
@@ -12,6 +13,8 @@ namespace _Game.Scripts.World
 public class WorldScope : LifetimeScope
 {
     [SerializeField] private CreatureView _creatureViewPrefab;
+    [SerializeField] private CreatureConfig _playerConfig;
+    [SerializeField] private CreatureConfig _slimeConfig;
     
     protected override void Configure(IContainerBuilder builder)
     {
@@ -27,6 +30,11 @@ public class WorldScope : LifetimeScope
         
         var pool = new ObjectPool<CreatureView>(_creatureViewPrefab, prewarmCount: 10);
         W.SetResource(new CreatureViewPoolResource { Pool = pool });
+        W.SetResource(new CreatureConfigsResource
+        {
+            PlayerConfig = _playerConfig,
+            SlimeConfig = _slimeConfig
+        });
 
         GameSys.Add(new SpawnerSystem());
         

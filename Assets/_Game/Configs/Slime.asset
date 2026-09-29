@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3f5a6cb255438ab5f0c7d4e1af5937, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.World.Configuration.CreatureConfig
+  <Name>k__BackingField: Slime
+  <Sprite>k__BackingField: {fileID: 7539474553957084296, guid: 1c3b829c0f8d3cb4092013c7b60c14fb, type: 3}
+  <MaxHealth>k__BackingField: 40
+  <Speed>k__BackingField: 2

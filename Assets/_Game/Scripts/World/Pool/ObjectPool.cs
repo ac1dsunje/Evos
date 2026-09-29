@@ -7,7 +7,7 @@ public class ObjectPool<T> where T : Component
 {
     private readonly T _prefab;
     private readonly Transform _container;
-    private readonly Stack<T> _pool = new Stack<T>();
+    private readonly Stack<T> _pool = new();
 
     public ObjectPool(T prefab, int prewarmCount = 0, Transform container = null)
     {

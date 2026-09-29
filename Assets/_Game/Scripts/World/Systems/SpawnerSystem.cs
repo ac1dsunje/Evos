@@ -1,6 +1,7 @@
 ﻿using _Game.Scripts.World.Components;
 using _Game.Scripts.World.Entities;
 using _Game.Scripts.World.Tags;
+using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
@@ -23,8 +24,13 @@ public struct SpawnerSystem : ISystem
         {
             spawnPosition = GetRandomPositionAroundPlayer();
         }
-
-        var entity = W.NewEntity(new Creature { IsPlayer = isPlayer });
+        
+        var entity = W.NewEntity(new Creature { 
+            IsPlayer = isPlayer, 
+            Config = isPlayer ?
+                W.GetResource<CreatureConfigsResource>().PlayerConfig :
+                W.GetResource<CreatureConfigsResource>().SlimeConfig
+        });
         
         ref var position = ref entity.Ref<PositionComponent>();
         position.Position = spawnPosition;
