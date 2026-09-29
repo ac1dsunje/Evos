@@ -32,7 +32,7 @@ public struct SpawnerSystem : ISystem
     {
         var playerPosition = Vector2.zero;
 
-        foreach (var playerEntity in W.Query<Any<PositionComponent, PlayerInputTag>>().Entities())
+        foreach (var playerEntity in W.Query<All<PositionComponent, PlayerInputTag>>().Entities())
         {
             ref readonly var playerPos = ref playerEntity.Read<PositionComponent>();
             playerPosition = playerPos.Position;

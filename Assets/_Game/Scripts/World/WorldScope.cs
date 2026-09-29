@@ -45,5 +45,12 @@ public class WorldScope : LifetimeScope
         
         builder.RegisterEntryPoint<WorldUpdater>();
     }
+
+    protected override void OnDestroy()
+    {
+        FixedSys.Destroy();
+        GameSys.Destroy();
+        W.Destroy();
+    }
 }
 }

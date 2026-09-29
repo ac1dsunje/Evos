@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.World.Systems
 {
-public class RegenerationSystem : ISystem
+public struct RegenerationSystem : ISystem
 {
     public void Update()
     {
