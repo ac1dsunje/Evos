@@ -1,4 +1,4 @@
-﻿using _Game.Scripts.World.Components;
+using _Game.Scripts.World.Components;
 using _Game.Scripts.World.Entities;
 using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
@@ -7,31 +7,37 @@ using UnityEngine;
 
 namespace _Game.Scripts.World.Systems
 {
-public struct SpawnerSystem : ISystem
+public struct EnemySpawnSystem : ISystem
 {
-    private const int MaxCreatures = 25;
+    private const int MaxEnemies = 25;
     private const float SpawnRadius = 10f;
-    
+    private const float SpawnInterval = 0.5f;
+
+    private float _spawnTimer;
+
     public void Update()
     {
-        var count = W.CalculateEntitiesCount();
-        if (count >= MaxCreatures) return;
+        _spawnTimer += W.GetResource<DeltaTimeResource>().Value;
+        if (_spawnTimer < SpawnInterval) return;
+        _spawnTimer = 0f;
 
-        var isPlayer = count < 1;
-        var spawnPosition = Vector2.zero;
-
-        if (!isPlayer)
+        var enemyCount = 0;
+        foreach (var _ in W.Query<All<RandomInputTag>>().Entities())
         {
-            spawnPosition = GetRandomPositionAroundPlayer();
+            enemyCount++;
         }
-        
-        var entity = W.NewEntity(new Creature { 
-            IsPlayer = isPlayer, 
-            Config = isPlayer ?
-                W.GetResource<CreatureConfigsResource>().PlayerConfig :
-                W.GetResource<CreatureConfigsResource>().SlimeConfig
+
+        if (enemyCount >= MaxEnemies) return;
+
+        var spawnPosition = GetRandomPositionAroundPlayer();
+
+        var entity = W.NewEntity(new Creature
+        {
+            Config = W.GetResource<CreatureConfigsResource>().SlimeConfig
         });
         
+        entity.Set<RandomInputTag>();
+
         ref var position = ref entity.Ref<PositionComponent>();
         position.Position = spawnPosition;
     }
@@ -49,7 +55,7 @@ public struct SpawnerSystem : ISystem
 
         var randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         var randomRadius = Random.Range(2f, SpawnRadius);
-        
+
         var offset = new Vector2(
             Mathf.Cos(randomAngle) * randomRadius,
             Mathf.Sin(randomAngle) * randomRadius

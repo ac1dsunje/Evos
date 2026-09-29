@@ -36,7 +36,8 @@ public class WorldScope : LifetimeScope
             SlimeConfig = _slimeConfig
         });
 
-        GameSys.Add(new SpawnerSystem());
+        GameSys.Add(new PlayerSpawnSystem());
+        GameSys.Add(new EnemySpawnSystem());
         
         GameSys.Add(new ViewCreatingSystem());
         

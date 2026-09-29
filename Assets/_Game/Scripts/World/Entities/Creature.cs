@@ -10,7 +10,6 @@ namespace _Game.Scripts.World.Entities
 public struct Creature : IEntityType
 {
     public byte Id() => 1;
-    public bool IsPlayer;
     public CreatureConfig Config;
 
     public void OnCreate<TWorld>(World<TWorld>.Entity entity) where TWorld : struct, IWorldType
@@ -29,15 +28,6 @@ public struct Creature : IEntityType
                 new PositionComponent()
             )
             .Set<AddViewTag>();
-
-        if (IsPlayer)
-        {
-            entity.Set<PlayerInputTag>();
-        }
-        else
-        {
-            entity.Set<RandomInputTag>();
-        }
     }
 
     public void OnDestroy<TWorld>(World<TWorld>.Entity entity, HookReason reason) where TWorld : struct, IWorldType
