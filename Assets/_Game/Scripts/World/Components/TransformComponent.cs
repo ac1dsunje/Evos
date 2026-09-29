@@ -1,10 +1,13 @@
-﻿using FFS.Libraries.StaticEcs;
+﻿using System;
+using FFS.Libraries.StaticEcs;
+using FFS.Libraries.StaticEcs.Unity;
 using UnityEngine;
 
 namespace _Game.Scripts.World.Components
 {
+[Serializable]
 public struct TransformComponent : IComponent
 {
-    public Transform Transform;
+    [StaticEcsEditorTableValue] public Transform Transform;
 }
 }
