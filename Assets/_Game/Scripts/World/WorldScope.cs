@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using _Game.Scripts.World.Configuration;
+using _Game.Scripts.World.Entities;
 using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Systems;
 using _Game.Scripts.World.View;
@@ -12,7 +14,7 @@ namespace _Game.Scripts.World
 {
 public class WorldScope : LifetimeScope
 {
-    [SerializeField] private CreatureView _creatureViewPrefab;
+    [SerializeField] private List<ViewPoolConfig> _viewPools = new();
     [SerializeField] private CreatureConfig _playerConfig;
     [SerializeField] private CreatureConfig _slimeConfig;
     
@@ -28,8 +30,12 @@ public class WorldScope : LifetimeScope
         W.Types().RegisterAll();
         W.Initialize();
         
-        var pool = new ObjectPool<CreatureView>(_creatureViewPrefab, prewarmCount: 51);
-        W.SetResource(new CreatureViewPoolResource { Pool = pool });
+        var pools = new Dictionary<EntityType, ObjectPool<EntityView>>();
+        foreach (var config in _viewPools)
+        {
+            pools[config.EntityType] = new ObjectPool<EntityView>(config.Prefab, prewarmCount: config.PrewarmCount);
+        }
+        W.SetResource(new ViewPoolResource { Pools = pools });
         W.SetResource(new CreatureConfigsResource
         {
             PlayerConfig = _playerConfig,

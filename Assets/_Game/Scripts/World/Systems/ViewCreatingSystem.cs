@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.World.Components;
+using _Game.Scripts.World.Entities;
 using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
@@ -11,13 +12,13 @@ public struct ViewCreatingSystem : ISystem
     {
         foreach (var entity in W.Query<All<AddViewTag>>().Entities())
         {
-            if (entity.Has<CreatureViewComponent>())
+            if (entity.Has<ViewComponent>())
             {
                 entity.Delete<AddViewTag>();
                 continue;
             }
             
-            var view = W.GetResource<CreatureViewPoolResource>().Pool.Get();
+            var view = W.GetResource<ViewPoolResource>().Get(EntityType.Creature);
 
             if (entity.Has<PositionComponent>())
             {
@@ -28,7 +29,7 @@ public struct ViewCreatingSystem : ISystem
             entity.Set(
                 new RigidBodyComponent { Body = view.Rigidbody2D },
                 new TransformComponent { Transform = view.transform },
-                new CreatureViewComponent { View = view }
+                new ViewComponent { View = view }
             );
             entity.Delete<AddViewTag>();
         }

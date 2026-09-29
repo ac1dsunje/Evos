@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.World.Components;
 using _Game.Scripts.World.Configuration;
+using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
@@ -32,9 +33,9 @@ public struct Creature : IEntityType
 
     public void OnDestroy<TWorld>(World<TWorld>.Entity entity, HookReason reason) where TWorld : struct, IWorldType
     {
-        if (!entity.Has<CreatureViewComponent>()) return;
-        ref readonly var viewComponent = ref entity.Read<CreatureViewComponent>();
-        W.GetResource<CreatureViewPoolResource>().Pool.Release(viewComponent.View);
+        if (!entity.Has<ViewComponent>()) return;
+        ref readonly var viewComponent = ref entity.Read<ViewComponent>();
+        W.GetResource<ViewPoolResource>().Release(EntityType.Creature, viewComponent.View);
     }
 }
 }

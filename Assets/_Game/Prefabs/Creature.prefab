@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a0b3fb28a34b25a231e37a9e29e6d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.World.View.CreatureView
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.World.View.EntityView
   _rigidbody2D: {fileID: 3929274995946517966}
 --- !u!212 &8599447227380966581
 SpriteRenderer:

@@ -388,7 +388,10 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _creatureViewPrefab: {fileID: 2476725212700986271, guid: eef47a3ce5502964dbf6e93cb29281d1, type: 3}
+  _viewPools:
+  - Id: Creatures
+    Prefab: {fileID: 2476725212700986271, guid: eef47a3ce5502964dbf6e93cb29281d1, type: 3}
+    PrewarmCount: 51
   _playerConfig: {fileID: 11400000, guid: c1b4b897d3588b64b9fb09eff5eb447f, type: 2}
   _slimeConfig: {fileID: 11400000, guid: 4ea492754f1097b49b8c65fa1e539548, type: 2}
 --- !u!1660057539 &9223372036854775807

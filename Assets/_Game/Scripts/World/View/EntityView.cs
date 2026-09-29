@@ -3,7 +3,7 @@
 namespace _Game.Scripts.World.View
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class CreatureView : MonoBehaviour
+    public class EntityView : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody2D;
         
