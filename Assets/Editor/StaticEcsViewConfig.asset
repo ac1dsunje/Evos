@@ -22,15 +22,11 @@ MonoBehaviour:
       componentColumns:
       - _Game/Scripts/World/Components/HealthComponent
       - _Game/Scripts/World/Components/InputComponent
+      - _Game/Scripts/World/Components/MovementComponent
       - _Game/Scripts/World/Components/NameComponent
       - _Game/Scripts/World/Components/RigidBodyComponent
-      tagColumns:
-      - _Game/Scripts/World/Tags/AddViewTag
-      showTableDataTypes:
-      - _Game/Scripts/World/Components/HealthComponent
-      - _Game/Scripts/World/Components/InputComponent
-      - _Game/Scripts/World/Components/NameComponent
-      - _Game/Scripts/World/Components/RigidBodyComponent
+      tagColumns: []
+      showTableDataTypes: []
       sortByType: 
       maxEntityResult: 101
       pinnedEntities: 
