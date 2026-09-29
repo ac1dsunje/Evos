@@ -9,7 +9,7 @@ namespace _Game.Scripts.World.Systems
 {
 public struct EnemySpawnSystem : ISystem
 {
-    private const int MaxEnemies = 25;
+    private const int MaxEnemies = 50;
     private const float SpawnRadius = 10f;
     private const float SpawnInterval = 0.5f;
 

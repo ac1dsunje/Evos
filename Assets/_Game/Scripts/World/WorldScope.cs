@@ -28,7 +28,7 @@ public class WorldScope : LifetimeScope
         W.Types().RegisterAll();
         W.Initialize();
         
-        var pool = new ObjectPool<CreatureView>(_creatureViewPrefab, prewarmCount: 10);
+        var pool = new ObjectPool<CreatureView>(_creatureViewPrefab, prewarmCount: 51);
         W.SetResource(new CreatureViewPoolResource { Pool = pool });
         W.SetResource(new CreatureConfigsResource
         {
