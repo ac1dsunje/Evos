@@ -18,7 +18,7 @@ public struct Creature : IEntityType
         entity
             .Set(
                 new NameComponent { Name = Config.Name },
-                new HealthComponent { Value = Config.MaxHealth },
+                new HealthComponent { Current = Config.MaxHealth, Max = Config.MaxHealth },
                 new InputComponent { Direction = Vector2.right },
                 new MovementComponent
                 {

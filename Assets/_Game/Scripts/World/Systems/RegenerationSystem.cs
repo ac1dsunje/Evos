@@ -15,7 +15,7 @@ public struct RegenerationSystem : ISystem
         {
             ref var health = ref entity.Ref<HealthComponent>();
             
-            health.Value = Mathf.Min(health.Value + delta, 100f);
+            health.Current = Mathf.Min(health.Current + delta, health.Max);
         }
     }
 }

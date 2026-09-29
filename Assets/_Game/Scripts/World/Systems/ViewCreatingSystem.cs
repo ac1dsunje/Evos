@@ -11,7 +11,7 @@ public struct ViewCreatingSystem : ISystem
     {
         foreach (var entity in W.Query<All<AddViewTag>>().Entities())
         {
-            if (entity.Has<RigidBodyComponent>())
+            if (entity.Has<CreatureViewComponent>())
             {
                 entity.Delete<AddViewTag>();
                 continue;

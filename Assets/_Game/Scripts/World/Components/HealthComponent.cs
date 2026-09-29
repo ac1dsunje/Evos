@@ -7,6 +7,7 @@ namespace _Game.Scripts.World.Components
 [Serializable]
 public struct HealthComponent : IComponent
 {
-    [StaticEcsEditorTableValue] public float Value;
+    [StaticEcsEditorTableValue] public float Current;
+    [StaticEcsEditorTableValue] public float Max;
 }
 }
