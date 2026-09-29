@@ -32,6 +32,8 @@ public class WorldScope : LifetimeScope
         
         GameSys.Add(new PlayerInputSystem());
         GameSys.Add(new RandomInputSystem());
+        
+        GameSys.Add(new FacingSystem());
 
         FixedSys.Add(new RigidBodyMoverSystem());
         

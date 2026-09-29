@@ -23,14 +23,16 @@ MonoBehaviour:
       - _Game/Scripts/World/Components/HealthComponent
       - _Game/Scripts/World/Components/InputComponent
       - _Game/Scripts/World/Components/MovementComponent
-      - _Game/Scripts/World/Components/NameComponent
-      - _Game/Scripts/World/Components/RigidBodyComponent
+      - _Game/Scripts/World/Components/TransformComponent
       tagColumns:
       - _Game/Scripts/World/Tags/AddViewTag
       - _Game/Scripts/World/Tags/PlayerInputTag
       - _Game/Scripts/World/Tags/RandomInputTag
       showTableDataTypes:
-      - _Game/Scripts/World/Components/RigidBodyComponent
+      - _Game/Scripts/World/Components/HealthComponent
+      - _Game/Scripts/World/Components/InputComponent
+      - _Game/Scripts/World/Components/MovementComponent
+      - _Game/Scripts/World/Components/TransformComponent
       sortByType: 
       maxEntityResult: 101
       pinnedEntities: 

@@ -20,7 +20,10 @@ public struct ViewCreatingSystem : ISystem
             
             var view = Object.Instantiate(W.GetResource<CreatureViewPrefabResource>().Prefab);
 
-            entity.Set(new RigidBodyComponent { Body = view.Rigidbody2D });
+            entity.Set(
+                new RigidBodyComponent { Body = view.Rigidbody2D },
+                new TransformComponent { Transform = view.transform }
+                );
             entity.Delete<AddViewTag>();
         }
     }
