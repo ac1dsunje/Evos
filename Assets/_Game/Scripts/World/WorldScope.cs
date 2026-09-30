@@ -63,6 +63,7 @@ public class WorldScope : LifetimeScope
             .Add(new PositionUpdateSystem());
         
         GameSys.Initialize();
+        InputSys.Initialize();
         FixedSys.Initialize();
         
         builder.RegisterEntryPoint<WorldUpdater>();
