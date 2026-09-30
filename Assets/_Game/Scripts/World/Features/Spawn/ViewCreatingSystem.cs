@@ -1,11 +1,10 @@
-﻿using _Game.Scripts.World.Components;
-using _Game.Scripts.World.Entities;
+﻿using _Game.Scripts.World.Entities;
+using _Game.Scripts.World.Features.Core;
 using _Game.Scripts.World.Features.Movement;
-using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.World.Systems
+namespace _Game.Scripts.World.Features.Spawn
 {
 public struct ViewCreatingSystem : ISystem
 {

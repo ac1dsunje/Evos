@@ -5,7 +5,7 @@ using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.World.Systems
+namespace _Game.Scripts.World.Features.Spawn
 {
 public struct PlayerSpawnSystem : ISystem
 {

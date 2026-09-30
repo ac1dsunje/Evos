@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.World.Tags;
-using _Game.Scripts.World.WorldResources;
+﻿using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 

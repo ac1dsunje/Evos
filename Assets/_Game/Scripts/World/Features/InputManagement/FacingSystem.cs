@@ -1,4 +1,4 @@
-﻿using _Game.Scripts.World.Components;
+﻿using _Game.Scripts.World.Features.Core;
 using FFS.Libraries.StaticEcs;
 
 namespace _Game.Scripts.World.Features.InputManagement

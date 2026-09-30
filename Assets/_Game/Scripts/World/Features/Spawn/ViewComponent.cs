@@ -2,7 +2,7 @@
 using _Game.Scripts.World.View;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.World.Components
+namespace _Game.Scripts.World.Features.Spawn
 {
 [Serializable]
 public struct ViewComponent : IComponent

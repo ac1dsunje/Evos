@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.World.Tags;
-using FFS.Libraries.StaticEcs;
+﻿using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
 namespace _Game.Scripts.World.Features.InputManagement

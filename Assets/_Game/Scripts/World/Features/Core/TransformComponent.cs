@@ -2,7 +2,7 @@
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.World.Components
+namespace _Game.Scripts.World.Features.Core
 {
 [Serializable]
 public struct TransformComponent : IComponent
