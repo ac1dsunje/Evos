@@ -42,20 +42,18 @@ public class WorldScope : LifetimeScope
             SlimeConfig = _slimeConfig
         });
 
-        GameSys.Add(new PlayerSpawnSystem());
-        GameSys.Add(new EnemySpawnSystem());
-        
-        GameSys.Add(new ViewCreatingSystem());
-        
-        GameSys.Add(new PlayerInputSystem());
-        GameSys.Add(new RandomInputSystem());
-        
-        GameSys.Add(new FacingSystem());
+        GameSys
+            .Add(new PlayerSpawnSystem())
+            .Add(new EnemySpawnSystem())
+            .Add(new ViewCreatingSystem())
+            .Add(new PlayerInputSystem())
+            .Add(new RandomInputSystem())
+            .Add(new FacingSystem())
+            .Add(new RegenerationSystem());
 
-        FixedSys.Add(new RigidBodyMoverSystem());
-        FixedSys.Add(new PositionUpdateSystem());
-        
-        GameSys.Add(new RegenerationSystem());
+        FixedSys
+            .Add(new RigidBodyMoverSystem())
+            .Add(new PositionUpdateSystem());
         
         GameSys.Initialize();
         FixedSys.Initialize();
