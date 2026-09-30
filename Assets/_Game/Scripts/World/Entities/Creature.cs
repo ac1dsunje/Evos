@@ -1,6 +1,5 @@
 ﻿using _Game.Scripts.World.Components;
 using _Game.Scripts.World.Configuration;
-using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Tags;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;

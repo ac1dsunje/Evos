@@ -24,15 +24,7 @@ public class ObjectPool<T> where T : Component
 
     public T Get()
     {
-        T instance;
-        if (_pool.Count > 0)
-        {
-            instance = _pool.Pop();
-        }
-        else
-        {
-            instance = Object.Instantiate(_prefab, _container);
-        }
+        var instance = _pool.Count > 0 ? _pool.Pop() : Object.Instantiate(_prefab, _container);
         instance.gameObject.SetActive(true);
         return instance;
     }
