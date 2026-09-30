@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Game.Scripts.World.Configuration;
 using _Game.Scripts.World.Entities;
+using _Game.Scripts.World.Features.InputManagement;
 using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.Systems;
 using _Game.Scripts.World.View;
@@ -22,9 +23,11 @@ public class WorldScope : LifetimeScope
     {
         W.Create();
         GameSys.Create();
+        InputSys.Create();
         FixedSys.Create();
 
-        EcsDebug<GameWorld>.AddWorld<WorldSystems>();
+        EcsDebug<GameWorld>.AddWorld<GameSystems>();
+        EcsDebug<GameWorld>.AddWorld<InputSystems>();
         EcsDebug<GameWorld>.AddWorld<FixedSystems>();
 
         W.Types().RegisterAll();
@@ -46,11 +49,13 @@ public class WorldScope : LifetimeScope
             .Add(new PlayerSpawnSystem())
             .Add(new EnemySpawnSystem())
             .Add(new ViewCreatingSystem())
-            .Add(new PlayerInputSystem())
-            .Add(new RandomInputSystem())
-            .Add(new FacingSystem())
             .Add(new RegenerationSystem());
 
+        InputSys
+            .Add(new PlayerInputSystem())
+            .Add(new RandomInputSystem())
+            .Add(new FacingSystem());
+        
         FixedSys
             .Add(new RigidBodyMoverSystem())
             .Add(new PositionUpdateSystem());
@@ -64,6 +69,7 @@ public class WorldScope : LifetimeScope
     protected override void OnDestroy()
     {
         FixedSys.Destroy();
+        InputSys.Destroy();
         GameSys.Destroy();
         W.Destroy();
     }

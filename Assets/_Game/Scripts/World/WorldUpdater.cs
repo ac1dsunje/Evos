@@ -11,6 +11,7 @@ public class WorldUpdater : ITickable, IFixedTickable
         W.SetResource(new DeltaTimeResource { Value = Time.deltaTime });
         
         GameSys.Update();
+        InputSys.Update();
         
         W.Tick();
     }
