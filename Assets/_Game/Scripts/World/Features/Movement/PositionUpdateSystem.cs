@@ -1,7 +1,6 @@
-using _Game.Scripts.World.Components;
 using FFS.Libraries.StaticEcs;
 
-namespace _Game.Scripts.World.Systems
+namespace _Game.Scripts.World.Features.Movement
 {
 public struct PositionUpdateSystem : ISystem
 {

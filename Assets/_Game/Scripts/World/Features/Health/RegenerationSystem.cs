@@ -1,9 +1,8 @@
-﻿using _Game.Scripts.World.Components;
-using _Game.Scripts.World.WorldResources;
+﻿using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
 
-namespace _Game.Scripts.World.Systems
+namespace _Game.Scripts.World.Features.Health
 {
 public struct RegenerationSystem : ISystem
 {
