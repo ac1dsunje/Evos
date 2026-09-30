@@ -28,7 +28,7 @@ public struct Creature : IEntityType
                     Acceleration = 1,
                     Inertia = 1,
                 },
-                new PositionComponent()
+                new PositionComponent { Position = Vector2.zero}
             )
             .Set<AddViewTag>();
     }

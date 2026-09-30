@@ -46,7 +46,7 @@ public struct EnemySpawnSystem : ISystem
     {
         var playerPosition = Vector2.zero;
 
-        foreach (var playerEntity in W.Query<All<PositionComponent, PlayerInputTag>>().Entities())
+        foreach (var playerEntity in W.Query<All<IsPlayerTag>>().Entities())
         {
             ref readonly var playerPos = ref playerEntity.Read<PositionComponent>();
             playerPosition = playerPos.Position;
