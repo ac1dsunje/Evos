@@ -1,9 +1,11 @@
-﻿using _Game.Scripts.World.Configuration;
+﻿using System.Collections.Generic;
+using _Game.Scripts.World.Configuration;
 using _Game.Scripts.World.Features.Core;
 using _Game.Scripts.World.Features.Health;
 using _Game.Scripts.World.Features.InputManagement;
 using _Game.Scripts.World.Features.Movement;
 using _Game.Scripts.World.Features.Spawn;
+using _Game.Scripts.World.Features.Stats;
 using _Game.Scripts.World.WorldResources;
 using FFS.Libraries.StaticEcs;
 using UnityEngine;
@@ -20,17 +22,18 @@ public struct Creature : IEntityType
         entity
             .Set(
                 new NameComponent { Name = Config.Name },
-                new HealthComponent { Current = Config.MaxHealth, Max = Config.MaxHealth },
+                new HealthComponent(),
+                new RegenerationComponent(),
                 new InputComponent { Direction = Vector2.right },
-                new MovementComponent
-                {
-                    MaxSpeed = Config.Speed,
-                    Acceleration = 1,
-                    Inertia = 1,
-                },
-                new PositionComponent { Position = Vector2.zero}
+                new MovementComponent(),
+                new PositionComponent { Position = Vector2.zero }
             )
             .Set<AddViewTag>();
+
+        foreach (var stat in Config.Stats)
+        {
+            entity.Add<World<GameWorld>.Multi<StatSource>>().Add(new StatSource { Stats = new List<Stat> { stat } });
+        }
     }
 
     public void OnDestroy<TWorld>(World<TWorld>.Entity entity, HookReason reason) where TWorld : struct, IWorldType

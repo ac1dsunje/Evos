@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.World.Configuration.CreatureConfig
   <Name>k__BackingField: Slime
   <Sprite>k__BackingField: {fileID: 7539474553957084296, guid: 1c3b829c0f8d3cb4092013c7b60c14fb, type: 3}
-  <MaxHealth>k__BackingField: 40
-  <Speed>k__BackingField: 2
+  <Stats>k__BackingField:
+  - Type: 0
+    Value: 40
+  - Type: 1
+    Value: 2
+  - Type: 2
+    Value: 1
+  - Type: 3
+    Value: 1
+  - Type: 4
+    Value: 1

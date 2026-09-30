@@ -5,6 +5,7 @@ using _Game.Scripts.World.Features.Health;
 using _Game.Scripts.World.Features.InputManagement;
 using _Game.Scripts.World.Features.Movement;
 using _Game.Scripts.World.Features.Spawn;
+using _Game.Scripts.World.Features.Stats;
 using _Game.Scripts.World.Pool;
 using _Game.Scripts.World.View;
 using _Game.Scripts.World.WorldResources;
@@ -51,6 +52,7 @@ public class WorldScope : LifetimeScope
             .Add(new PlayerSpawnSystem())
             .Add(new EnemySpawnSystem())
             .Add(new ViewCreatingSystem())
+            .Add(new StatsSystem())
             .Add(new RegenerationSystem());
 
         InputSys
