@@ -9,13 +9,8 @@ namespace _Game.Scripts.World.Systems
 {
 public struct PlayerSpawnSystem : ISystem
 {
-    public void Update()
+    public void Init()
     {
-        foreach (var _ in W.Query<All<PlayerInputTag>>().Entities())
-        {
-            return;
-        }
-
         var entity = W.NewEntity(new Creature
         {
             Config = W.GetResource<CreatureConfigsResource>().PlayerConfig
